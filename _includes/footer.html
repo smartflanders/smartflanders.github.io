@@ -1,0 +1,31 @@
+<footer class="site-footer">
+
+  <div class="wrapper">
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <img class="logo" src="http://www2.imec.be/content/user/Image/site/imec_hub.png"></img>
+      </div>
+      <div class="footer-col footer-col-2" align=center>
+        <ul class="social-media-list">
+          {% if site.github_username %}
+          <li>
+            {% include icon-github.html username=site.github_username %}
+          </li>
+          {% endif %}
+
+          {% if site.twitter_username %}
+          <li>
+            {% include icon-twitter.html username=site.twitter_username %}
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+      
+      <div class="footer-col footer-col-3" align=right>
+        <img class="logo" src="http://www.stedenbeleid.vlaanderen.be/sites/default/files/paddle_core_plugin_data/branding/stedenbeleid_vlaanderen_is_sterke_steden_295x125.png"></img>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
