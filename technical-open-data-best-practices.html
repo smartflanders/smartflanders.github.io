@@ -1,0 +1,26 @@
+---
+layout: page
+title: 10 best practices voor real-time Open Data
+permalink: /technical-open-data-best-practices/
+---
+<p>
+  Context en uitleg:
+</p>
+
+<iframe src="https://docs.google.com/presentation/d/1G8d1VkUfT2e4o6nfwR3K0Pq0s5QZ78EUNcN_YQ__C1A/embed?start=false&loop=false&delayms=3000" frameborder="0" style="width: 100%; height: 350px;" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+<p>
+  De 10 best practices:
+  <ol>
+    <li>Fragmenteer uw dataset in documenten. Zorg voor gepaste links tussen deze documenten (zoals next en previous page).</li>
+    <li>Voeg <a href="https://www.keycdn.com/blog/http-cache-headers/">HTTP caching headers</a> to aan ieder document.</li>
+    <li>Voeg hypermedia beschrijvingen toe hoe andere documenten gevonden kunnen worden</li>
+    <li>Een web-adres per document en per ding (zoals een sensor of observatie)</li>
+    <li>Gebruik het <a href="https://www.w3.org/TR/vocab-ssn/">W3C SSN domeinmodel</a> om sensorobservaties te beschrijven</li>
+    <li>Een machine-leesbare open licentie toevoegen als een link in ieder document (zie ook <a href="https://www.w3.org/TR/dwbp/#DataLicense">Best Practices Data on the Web door <abbr title="world wide web consortium">W3C</a></a>)</li>
+    <li>Cross Origin Resource Sharing header aanzetten (zie ook <a href="http://enable-cors.org">Enable CORS</a>)</li>
+    <li>Zorg dat samenvattingen over langere periodes van data worden gegenereerd en annoteer weerom met hypermedia. Ook multidimensionele interfaces om data te vinden over grote oppervlakten of lange tijdspannes kunnen van pas komen.</li>
+    <li>Hergebruik bestaande Linked Data vocabularia (zie ook <a href="http://lov.okfn.org">Linked Open Vocabularies</a>)</li>
+    <li>Integreer met Open Data portalen door zelf uw metadata te publiceren in een apart document adhv DCAT-AP (zie ook <a href="http://dcat.be">dcat.be</a>)</li>
+  </ol>
+</p>
