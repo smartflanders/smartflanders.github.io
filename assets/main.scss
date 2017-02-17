@@ -72,7 +72,12 @@ $on-laptop:        800px;
 nav {
 }
 
+nav ul {
+    margin-left: 0px;
+}
+
 nav ul li {
     display: block;
+    padding: 5px 5px;
     list-decoration: none;
 }

@@ -2,31 +2,23 @@
 layout: default
 ---
 <div class="home">
+  <hr/>
   <section class="hero">
-    <h1 class="title">Een Open Data programma van de Vlaamse Overheid</h1>
+    <h1 class="title">Een programma van de Vlaamse Overheid voor real-time Open Data bij lokale overheden</h1>
     <p>
-      Ga verder naar:
       <nav>
         <ul>
-          <li><a href="#todo">Onze maturity check</a></li>
+          <!--<li><a href="#todo">Onze maturity check</a></li>
           <li><a href="#todo">Het Smart Flanders Open Data Charter</a></li>
-          <li><a href="/technical-open-data-best-practices/">The 10 technische best practices voor real-time Open Data</a></li>
-          <li><a href="#todo">Onze Open and Agile Smart Cities werking</a></li>
+          <li><a href="#todo">Onze Open and Agile Smart Cities werking</a></li>-->
+          <!--<li><a href="/technical-open-data-best-practices/">The 10 technische best practices voor real-time Open Data</a></li>-->
         </ul>
       </nav>
     </p>
   </section>
-  <!--<section>
-    <h1>3 aanspreekpunten</h1>
-    <h2>Open and Agile Smart Cities meetings</h2>
-    <p>Davor Meersman</p>
-    <h2>Technische manieren om Open Data te publiceren</h2>
-    <p>Pieter Colpaert</p>
-    <h2>Algemene coördinatie</h2>
-    <p>Nils Walravens</p>
-  </section>-->
+  <hr/>
   <section>
-    <h1 class="page-heading">Nieuws en opinies</h1>
+    <!--<h1 class="page-heading">Nieuws en opinies</h1>-->
     <ul class="post-list">
       {% for post in site.posts %}
       <li>
@@ -34,10 +26,9 @@ layout: default
         <h2>
           <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
         </h2>
+        <p>{{ post.excerpt }}</p>
       </li>
       {% endfor %}
     </ul>
   </section>
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
-
 </div>

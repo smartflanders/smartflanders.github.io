@@ -19,7 +19,7 @@ description: > # this means to ignore newlines until "baseurl:"
    Helping the 308 local municipalities in Flanders through the 13 center cities
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: imecint
+twitter_username: imec_int
 github_username: smartflanders
 
 # Build settings
