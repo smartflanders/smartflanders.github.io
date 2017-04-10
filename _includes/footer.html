@@ -1,4 +1,4 @@
-<footer class="site-footer">
+<!--<footer class="site-footer">
 
   <div class="wrapper">
     <div class="footer-col-wrapper">
@@ -28,5 +28,19 @@
 
   </div>
 
-</footer>
+</footer>-->
+    <p class="center-p footer-logos">
+        <span class="link-no-style">
+            {% if site.github_username %}
+                {% include icon-github.html username=site.github_username %}
+            {% endif %}
+        </span>
+        <span class="link-no-style">
+            {% if site.twitter_username %}
+                {% include icon-twitter.html username=site.twitter_username %}
+            {% endif %}
+        </span>
+        <br>
+        <img src="/assets/imec.svg" width="100">
+    </p>
 <script type="text/javascript" src="//widgets.vlaanderen.be/widget/live/de7a5cafba0c4a1794038a84ff879bce"></script>

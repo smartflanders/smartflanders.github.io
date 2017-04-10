@@ -7,6 +7,9 @@
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  <link rel="stylesheet" href="//dij151upo6vad.cloudfront.net/2.latest/css/vlaanderen-ui.css" type="text/css">
+  <link rel="stylesheet" href="//dij151upo6vad.cloudfront.net/2.latest/css/vlaanderen-ui-corporate.css" type="text/css">
+    <!-- link to Flanders UI stylesheet -->
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
   <meta about="https://pietercolpaert.be/#me" typeof="schema:Person" name="dc.creator" property="schema:name" content="Pieter Colpaert"/>
@@ -31,4 +34,7 @@
   {% if jekyll.environment == 'production' and site.google_analytics %}
   {% include google-analytics.html %}
   {% endif %}
+  <script src="https://use.fontawesome.com/415c4aae00.js"></script>
+  <script src="//dij151upo6vad.cloudfront.net/2.latest/js/vlaanderen-ui.js"></script>
+  <script type="text/javascript" src="//widgets.vlaanderen.be/widget/live/b1c0577e442340948b60437b8dd58362"></script>  
 </head>

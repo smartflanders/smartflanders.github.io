@@ -1,34 +1,30 @@
 ---
 layout: default
 ---
-<div class="home">
-  <hr/>
-  <section class="hero">
-    <h1 class="title">Een ondersteuningsprogramma van de Vlaamse Overheid voor real-time Open Data bij lokale overheden</h1>
-    <p>
-      <nav>
-        <ul>
-          <!--<li><a href="#todo">Onze maturity check</a></li>
-          <li><a href="#todo">Het Smart Flanders Open Data Charter</a></li>
-          <li><a href="#todo">Onze Open and Agile Smart Cities werking</a></li>-->
-          <!--<li><a href="/technical-open-data-best-practices/">The 10 technische best practices voor real-time Open Data</a></li>-->
+    <div class="home">
+        <h1 class="h1">Een ondersteuningsprogramma van de Vlaamse Overheid voor real-time Open Data bij lokale overheden</h1>
+        <p>
+          <nav>
+            <ul>
+              <!--<li><a href="#todo">Onze maturity check</a></li>
+              <li><a href="#todo">Het Smart Flanders Open Data Charter</a></li>
+              <li><a href="#todo">Onze Open and Agile Smart Cities werking</a></li>-->
+              <!--<li><a href="/technical-open-data-best-practices/">The 10 technische best practices voor real-time Open Data</a></li>-->
+            </ul>
+          </nav>
+        </p>
+      <section>
+        <!--<h1 class="page-heading">Nieuws en opinies</h1>-->
+        <ul class="post-list">
+          {% for post in site.posts %}
+          <li>
+            <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+            <h2 class="h2">
+              <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+            </h2>
+            <p>{{ post.excerpt }}</p>
+          </li>
+          {% endfor %}
         </ul>
-      </nav>
-    </p>
-  </section>
-  <hr/>
-  <section>
-    <!--<h1 class="page-heading">Nieuws en opinies</h1>-->
-    <ul class="post-list">
-      {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-        <h2>
-          <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-        </h2>
-        <p>{{ post.excerpt }}</p>
-      </li>
-      {% endfor %}
-    </ul>
-  </section>
+      </section>
 </div>

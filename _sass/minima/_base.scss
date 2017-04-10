@@ -1,3 +1,7 @@
+* {
+    transition: all, .3s, linear;
+}
+
 /**
  * Reset some basic elements
  */
@@ -195,4 +199,32 @@ pre {
   path {
     fill: $grey-color;
   }
+}
+
+/**
+ * Personalisation
+ */
+a.link-no-style, .link-no-style > a {
+    color: #333;
+    text-decoration: none;
+}
+
+p.center-p {
+   text-align: center;
+}
+
+.footer-logos {
+    padding-bottom: 10px;
+}
+
+.link-no-style > a:hover > span > svg > path{
+    fill: #3184d6;
+}
+
+.tabs--alt:before {
+    width: 100vw !important;
+}
+
+iframe {
+    width: 100%;
 }
