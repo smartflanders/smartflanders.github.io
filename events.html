@@ -1,0 +1,82 @@
+---
+layout: default
+title: Events
+permalink: /events/
+---
+{% assign events = site.events | sort: 'date' | reverse %}
+{% capture nowunix %}{{'now' | date: '%y%m%d'}}{% endcapture %}
+<div class="page">
+    <div id="main" itemprop="mainContentOfPage" role="main" tabindex="-1" class="main-content">
+        <section class="region">
+            <div class="layout layout--wide">
+                <div class="grid">
+                    <div class="col--4-6 col--1-1--s">
+                        <div>
+                            <h1 class="h1">Onze events</h1>
+                            
+                            <section>
+                                <h3 class="h3">Aankomende events</h3>
+                                
+                                <ul class="grid grid--is-stacked u-spacer">
+                                    {% for event in events reversed limit:3 %}
+                                        {% capture eventdate %}{{event.date | date: '%y%m%d'}}{% endcapture %}
+                                            {% if eventdate < nowunix %}
+                                                {% continue %}
+                                            {% else %}
+                                            {% endif %}
+                                        <li class="col--4-12 col--6-12--m col--12-12--xs">
+                                            <a href="{{ event.url | relative_url }}" class="agenda-item">
+                                                <article itemscope itemtype="http://schema.org/Event">
+                                                    <time class="agenda-item__date" datetime="2015-06-01" itemprop="startDate">
+                                                        <div class="agenda-item__date__day">{{ event.date | date: "%d" }}</div>
+                                                        <div class="agenda-item__date__month">{{ event.date | date: "%b" }}</div>
+                                                    </time>
+                                                    <h3 class="agenda-item__title" itemprop="name">{{ event.title }}</h3>
+                                                    <div class="agenda-item__text" itemprop="description" data-clamp="2">{{ event.content }}</div>
+                                                </article>
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            
+                                <h3 class="h3">Verleden events</h3>
+                            
+                                <ul class="steps steps--timeline">
+                                    {% for event in events %}
+                                    {% capture eventdate %}{{event.date | date: '%y%m%d'}}{% endcapture %}
+                                        {% if eventdate > nowunix %}
+                                            {% continue %}
+                                        {% else %}
+                                        {% endif %}
+                                        <li class="step step--accordion js-accordion js-accordion--open">
+                                            <div class="step__icon">
+                                                {{ event.date | date: "%d" }}
+                                                <span class="step__icon__sub">{{ event.date | date: "%b" }}</span>
+                                            </div>
+                                            <div class="step__wrapper">
+                                                <a href="{{ event.url | relative_url }}" class="step__header js-accordion__toggle">
+                                                    <div class="step__header__titles">
+                                                        <h3 class="step__title">{{ event.title }}</h3>
+                                                    </div>
+                                                </a>
+                                                {% if event.report %}
+                                                <div class="step__content-wrapper">
+                                                    <div class="step__content">
+                                                        {{ event.report }}
+                                                    </div>
+                                                </div>
+                                                {% endif %}
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="col--2-6 col--1-1--s">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

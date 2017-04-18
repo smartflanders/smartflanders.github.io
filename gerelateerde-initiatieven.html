@@ -1,0 +1,26 @@
+---
+layout: page
+title: Gerelateerde initiatieven
+permalink: /gerelateerde-initiatieven/
+---
+<div class="page">
+    <div id="main" itemprop="mainContentOfPage" role="main" tabindex="-1" class="main-content">
+        <section class="region">
+            <div class="layout layout--wide">
+                <div class="grid">
+                    <div class="col--4-6 col--1-1--s">
+                        {% for initiative in site.initiatives %}
+                            {% if initiative.website %}<a href="//{{ initiative.website }}" target="_blank">{% endif %}
+                                <h5 class="title--alt">{{ initiative.title }}</h5>
+                            {% if initiative.website %}</a>{% endif %}
+                            <p>{{ initiative.content }}</p>
+                            <br>
+                        {% endfor %}
+                    </div>
+                    <div class="col--2-6 col--1-1--s">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

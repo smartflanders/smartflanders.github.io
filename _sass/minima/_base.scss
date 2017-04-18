@@ -226,5 +226,35 @@ p.center-p {
 }
 
 iframe {
-    width: 100%;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block;
+}
+
+.layout--wide {
+    padding: 0 !important;
+}
+
+.agenda-item__date__month {
+    text-transform: lowercase;
+}
+
+.excerpt {
+    height: 10rem;
+    
+    & > p {
+        text-overflow: ellipsis;
+        height: 100%;
+        overflow: hidden;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+    }
+}
+
+.nobold {
+    font-weight: 200 !important;
+}
+
+.person {
+    padding-bottom: 2em;
 }

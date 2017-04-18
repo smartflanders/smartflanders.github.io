@@ -1,30 +1,93 @@
 ---
 layout: default
 ---
-    <div class="home">
+{% assign events = site.events | sort: 'date' | reverse %}
+{% capture nowunix %}{{'now' | date: '%y%m%d'}}{% endcapture %}
+
+    <div class="home layout layout--wide">
         <h1 class="h1">Een ondersteuningsprogramma van de Vlaamse Overheid voor real-time Open Data bij lokale overheden</h1>
-        <p>
+        <!--<p>
           <nav>
             <ul>
               <!--<li><a href="#todo">Onze maturity check</a></li>
               <li><a href="#todo">Het Smart Flanders Open Data Charter</a></li>
               <li><a href="#todo">Onze Open and Agile Smart Cities werking</a></li>-->
-              <!--<li><a href="/technical-open-data-best-practices/">The 10 technische best practices voor real-time Open Data</a></li>-->
+              <!--<li><a href="/technical-open-data-best-practices/">The 10 technische best practices voor real-time Open Data</a></li>
             </ul>
           </nav>
-        </p>
-      <section>
-        <!--<h1 class="page-heading">Nieuws en opinies</h1>-->
-        <ul class="post-list">
-          {% for post in site.posts %}
-          <li>
-            <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-            <h2 class="h2">
-              <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-            </h2>
-            <p>{{ post.excerpt }}</p>
-          </li>
-          {% endfor %}
-        </ul>
+        </p>-->
+        
+        <h3 class="h3">Aankomende events</h3>
+        
+        <section class="region" id="home__events">
+            <!--<h1 class="page-heading">Nieuws en opinies</h1>-->
+            <ul class="grid grid--is-stacked u-spacer">
+                {% for event in events reversed limit:3 %}
+                {% capture eventdate %}{{event.date | date: '%y%m%d'}}{% endcapture %}
+                    {% if eventdate < nowunix %}
+                        {% continue %}
+                    {% else %}
+                    {% endif %}
+                    <li class="col--4-12 col--6-12--m col--12-12--xs">
+                        <a href="#" class="agenda-item">
+                            <article itemscope itemtype="http://schema.org/Event">
+                                <time class="agenda-item__date" datetime="2015-06-01" itemprop="startDate">
+                                    <div class="agenda-item__date__day">{{ event.date | date: "%d" }}</div>
+                                    <div class="agenda-item__date__month">{{ event.date | date: "%b" }}</div>
+                                </time>
+                                <h3 class="agenda-item__title" itemprop="name">{{ event.title }}</h3>
+
+                                <div class="agenda-item__text" itemprop="description" data-clamp="2">
+                                    {{ event.content }}
+                                </div>
+
+                            </article>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
       </section>
+        
+    <section class="region">
+        <div class="layout layout--wide">
+            <h3 class="h3">Huidige status</h3>
+            <ul class="bullet-list bullet-list--check">
+            <li class="bullet-list__item">Lorem ipsum</li>
+            <li class="bullet-list__item">Doler sit</li>
+            <li class="bullet-list__item">If you want you can have a <a href="#">link</a></li>
+            </ul>
+        </div>
+    </section>
+        
+        
+    <section class="region">
+      <div class="layout layout--wide">
+        
+        <h3 class="h3">Nieuws en opinies</h3>
+        <div class="slider js-slider">
+            <div class="slider__frame js-slider__frame">
+                <div class="grid grid--is-stacked js-equal-height-container slider__slides js-slider__slides">
+                    {% for post in site.posts %}
+                        <div class="col--3-12 col--8-12--xs col--5-12--s col--4-12--m">
+                            <a href="{{ post.url | relative_url }}" class="news-teaser js-equal-height">
+                                <article>
+                                    <!--<div class="news-teaser__image">
+                                        <img src="//d201gzvprbtpxy.cloudfront.net/sites/default/files/images/vla_nieuwsartikel_weekvandemobiliteit2016_0.gif" alt="Image for news message">
+                                    </div>-->
+                                    <div class="news-teaser__content">
+                                        <h2 class="news-teaser__label">{{ post.category }}</h2>
+                                        <h1 class="news-teaser__title">{{ post.title | escape }}</h1>
+                                        <h2 class="news-teaser__label nobold">{{ post.date | date: "%d %b %y" }}</h2>
+                                    </div>
+                                </article>
+                            </a>
+                        </div>  
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+      </div>
+    </section>
+      
 </div>

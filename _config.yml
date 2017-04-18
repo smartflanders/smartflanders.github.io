@@ -29,3 +29,11 @@ gems:
 exclude:
   - Gemfile
   - Gemfile.lock
+  
+# Collections
+collections:
+  events:
+    output: true
+    permalink: /:collection/:path/
+  initiatives:
+    output: false

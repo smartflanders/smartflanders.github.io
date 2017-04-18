@@ -12,6 +12,8 @@ Als je een stapje verder wilt gaan dan in de browser iedere file te wijzigen, ka
 
 Eenmaal je vertrouwd bent met hoe github op jouw machine werkt moet je Jekyll installeren, de statische site generator. Deze kan je hier vinden: https://jekyllrb.com/
 
+When building the website, use `bundle exec jekyll serve --future true` otherwise future events won't be rendered.
+
 ## Veel gebruikte bestanden en mappen
 
  * Plaats uw images in `assets/`
