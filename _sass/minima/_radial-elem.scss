@@ -1,0 +1,274 @@
+
+
+
+* {
+  Box-sizing: Border-box;
+}
+
+
+
+/* 
+    Created on : 22-Jun-2015, 13:00:20
+    Author     : probinson
+    Based on    : http://codepen.io/schoenwaldnils/pen/JnIKA
+*/
+
+/*
+    following functions from
+    https://unindented.org/articles/trigonometry-in-sass/
+*/
+@function pow($number, $exp) {
+    $value: 1;
+    @if $exp > 0 {
+        @for $i from 1 through $exp {
+            $value: $value * $number;
+        }
+    }
+    @else if $exp < 0 {
+        @for $i from 1 through -$exp {
+            $value: $value / $number;
+        }
+    }
+    @return $value;
+}
+
+@function fact($number) {
+    $value: 1;
+    @if $number > 0 {
+        @for $i from 1 through $number {
+            $value: $value * $i;
+        }
+    }
+    @return $value;
+}
+
+@function pi() {
+    @return 3.14159265359;
+}
+
+@function rad($angle) {
+    $unit: unit($angle);
+    $unitless: $angle / ($angle * 0 + 1);
+    // If the angle has 'deg' as unit, convert to radians.
+    @if $unit == deg {
+        $unitless: $unitless / 180 * pi();
+    }
+    @return $unitless;
+}
+
+@function sin($angle) {
+    $sin: 0;
+    $angle: rad($angle);
+    // Iterate a bunch of times.
+    @for $i from 0 through 10 {
+        $sin: $sin + pow(-1, $i) * pow($angle, (2 * $i + 1)) / fact(2 * $i + 1);
+    }
+    @return $sin;
+}
+
+@function cos($angle) {
+    $cos: 0;
+    $angle: rad($angle);
+    // Iterate a bunch of times.
+    @for $i from 0 through 10 {
+        $cos: $cos + pow(-1, $i) * pow($angle, 2 * $i) / fact(2 * $i);
+    }
+    @return $cos;
+}
+
+
+// how many menu items do you wish to display? //
+// minimum: 2 
+// maximum: 10
+
+$items: 10;
+$diameter: 600;
+$radius: $diameter*0.5;
+$centerSectionDiameter : $diameter*0.6;
+$labelWidth: $centerSectionDiameter*0.5;
+$arrowWidth: $diameter/20;
+
+$colour-list: #0066CC, #3183D4, #004C99, #0066CC, #3183D4, #004C99, #0066CC, #3183D4, #004C99, #348BE1;
+
+
+
+.circular-menu-container{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  max-width: none;
+  width: auto;
+}
+.circular-menu {
+    width: $diameter + px;
+    height: $diameter + px;
+    position: relative;
+    left: 50%;
+    margin: 0;
+    margin-left: -$radius + px;
+    overflow: hidden;
+    border-radius: 500px;
+    border-radius: 50%;
+    z-index: 1;
+    list-style: none;
+}
+
+.center-section {
+    width: $centerSectionDiameter + px;
+    height: $centerSectionDiameter + px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -$centerSectionDiameter/2 + px;
+    margin-left: -$centerSectionDiameter/2 + px;
+    padding:55px;
+    border-radius: 500px;
+    border-radius: 50%;
+    text-align: center;
+    background: #fff;
+    display: none;
+    z-index: 1;
+}
+.center-section.section-intro{
+    display: block;
+}
+
+//:focus for touch support only
+.circular-menu li:hover ~ .center-section.section-intro, 
+.touch .circular-menu li:focus ~ .center-section.section-intro{
+    display: none;
+}
+//:focus for touch support only
+.touch .circular-menu li:focus{
+    outline: 0;
+}
+.circular-menu li div.label {
+    position: absolute;
+    width: $labelWidth + px;
+    height: $labelWidth + px;
+    z-index: 2;
+}
+.circular-menu li div.label p{
+    //custom position of text
+    text-align: center;
+    max-width: $labelWidth*0.66 + px;
+    margin: 0 auto;
+    margin-top: $labelWidth*0.4 + px;
+    color: #fff;
+}
+
+
+.circular-menu li span.arrow {
+    position: absolute;
+    width: $arrowWidth + px;
+    height: $arrowWidth + px;
+    display: block;
+    transition: all 300ms ease-out;
+    z-index: 2;
+}
+
+.circular-menu li .bg {
+    width: $radius + 50 + px;
+    height: $radius + px;
+    position: absolute;
+    transform-origin:0 $radius + px;
+    margin-top: -$radius + px;
+    left: 50%;
+    top: 50%;
+  transition: all 300ms ease-out;
+}
+
+
+.circular-menu li {
+    position: absolute;
+    text-decoration: none;
+    top: 50%;
+    left: 50%;
+    display: none;
+}
+
+//vars for positionin elements
+//should work for more menu diameters
+$deg: 360deg/$items;
+$arrowHoverRadius : $centerSectionDiameter/2;
+$labelRadius : $arrowHoverRadius + ($radius - $arrowHoverRadius)/2;
+$arrowRadius : $arrowHoverRadius + $arrowWidth;
+//set rotation
+@for $i from 1 through $items {  
+
+    $xLabel: (sin(($deg * $i) - $deg - 90) * $labelRadius) - $labelWidth/2 + px;
+    $yLabel: (cos(($deg * $i) - $deg - 90) * $labelRadius) - $labelWidth/2 + px;
+    //
+    $xArrowHover: (sin(($deg * $i) - $deg - 90) * $arrowHoverRadius) - $arrowWidth * 0.5 + px;
+    $yArrowHover: (cos(($deg * $i) - $deg - 90) * $arrowHoverRadius) - $arrowWidth * 0.5 + px;
+    //
+    $xArrow: (sin(($deg * $i) - $deg - 90) * $arrowRadius) - $arrowWidth * 0.5 + px;
+    $yArrow: (cos(($deg * $i) - $deg - 90) * $arrowRadius) - $arrowWidth * 0.5 + px;
+
+    .circular-menu li:nth-child(#{$i}) {
+        display: block;
+    }
+
+    //rotate bg
+    .circular-menu li:nth-child(#{$i}) .bg {
+        transform: rotate(($deg * $i - ($deg/2) - 90)) skew((90 - $deg) * -1);
+        background: nth($colour-list,$i);
+    }
+
+    //bg hover
+    //:focus for touch support only
+    .circular-menu li:nth-child(#{$i}):hover .bg, 
+    .touch .circular-menu li:nth-child(#{$i}):focus .bg{
+        background: lighten(nth($colour-list,$i), 10%);
+    }
+
+    //arrow position
+    .circular-menu li:nth-child(#{$i}) span.arrow{
+        transform: rotate($deg * ($i - 1) - 45);
+        margin: $xArrow 0 0 $yArrow;
+        background: nth($colour-list,$i);
+    }
+
+    //arrow hover
+    //:focus for touch support only
+    .circular-menu li:nth-child(#{$i}):hover span.arrow,
+    .touch .circular-menu li:nth-child(#{$i}):focus span.arrow {
+        background: lighten(nth($colour-list,$i), 10%);
+        margin: $xArrowHover 0 0 $yArrowHover;
+    }
+
+    //position text
+    .circular-menu li:nth-child(#{$i}) div.label{
+        margin: $xLabel 0 0 $yLabel;
+    }
+
+    //center sections
+    //:focus for touch support only
+    .circular-menu li:nth-child(#{$i}):hover div.center-section.section-#{$i},
+    .touch .circular-menu li:nth-child(#{$i}):focus div.center-section.section-#{$i} {
+        display: block;
+    }    
+    
+}
+
+//animate central content
+//from animate.css https://daneden.github.io/animate.css/
+.animated {
+  animation-duration: 0.75s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 50%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.fadeInUp {
+  animation-name: fadeInUp;
+}

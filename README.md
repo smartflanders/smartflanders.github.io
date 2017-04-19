@@ -6,6 +6,8 @@ Jekyll is een statische site generator. Daarmee kan je werk uitsparen: je moet i
 Verder wordt ook de CSS uitgebreid met SASS.
 Vanaf je iets verandert op github, zal github de site opnieuw genereren en online plaatsen. Voorlopig is dat op https://smartflanders.github.io
 
+Templates for events, posts and initiatives are in `_templates`, just copy the file in the appropriate folder when you wish to add content.
+
 ## Op uw eigen machine runnen
 
 Als je een stapje verder wilt gaan dan in de browser iedere file te wijzigen, kan je ook de functionaliteiten van git gebruiken. Daar heb je uiteraard git voor nodig dan. Volg de tutorial op https://help.github.com/
