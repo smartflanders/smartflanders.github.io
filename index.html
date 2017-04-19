@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-{% assign events = site.events | sort: 'date' | reverse %}
+{% assign events = site.events | sort: 'startDate' | reverse %}
 {% capture nowunix %}{{'now' | date: '%y%m%d'}}{% endcapture %}
 
     <div class="home layout layout--wide">
@@ -23,7 +23,7 @@ layout: default
             <!--<h1 class="page-heading">Nieuws en opinies</h1>-->
             <ul class="grid grid--is-stacked u-spacer">
                 {% for event in events reversed limit:3 %}
-                {% capture eventdate %}{{event.date | date: '%y%m%d'}}{% endcapture %}
+                {% capture eventdate %}{{event.startDate | date: '%y%m%d'}}{% endcapture %}
                     {% if eventdate < nowunix %}
                         {% continue %}
                     {% else %}
@@ -32,14 +32,14 @@ layout: default
                         <a href="#" class="agenda-item">
                             <article itemscope itemtype="http://schema.org/Event">
                                 <time class="agenda-item__date" datetime="2015-06-01" itemprop="startDate">
-                                    <div class="agenda-item__date__day">{{ event.date | date: "%d" }}</div>
-                                    <div class="agenda-item__date__month">{{ event.date | date: "%b" }}</div>
+                                    <div class="agenda-item__date__day">{{ event.startDate | date: "%d" }}</div>
+                                    <div class="agenda-item__date__month">{{ event.startDate | date: "%b" }}</div>
                                 </time>
                                 <h3 class="agenda-item__title" itemprop="name">{{ event.title }}</h3>
 
                                 <div class="agenda-item__text" itemprop="description" data-clamp="2">
                                     {{ event.content }}
-                                </div>
+                                </div> <!-- Consider maybe removing this div if the events are too long, or adding a short description in the meta of the events instead -->
 
                             </article>
                         </a>

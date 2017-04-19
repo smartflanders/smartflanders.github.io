@@ -1,8 +1,10 @@
 ---
-date: DD/MM/YYYY
+date: YYYY-MM-DD <!--- Date of publication. If later than current date, will not be published immediatly -->
 title: Event template
 layout: event <!--- Do not modify -->
 
+startDate: YYYY-MM-DD <!--- Actual date of the event. You can add exact hours and minutes if necessary and then format it as DD/MM/YYYY HH:MM -->
+<!--- endDate: YYYY-MM-DD modify this if the event finishes on another day than it starts, then remove the comment tags -->
 about: Subject Matter
 location: Location
 organizer: Organizer

@@ -3,7 +3,7 @@ layout: default
 title: Events
 permalink: /events/
 ---
-{% assign events = site.events | sort: 'date' | reverse %}
+{% assign events = site.events | sort: 'startDate' | reverse %}
 {% capture nowunix %}{{'now' | date: '%y%m%d'}}{% endcapture %}
 <div class="page">
     <div id="main" itemprop="mainContentOfPage" role="main" tabindex="-1" class="main-content">
@@ -22,14 +22,13 @@ permalink: /events/
                                         {% capture eventdate %}{{event.date | date: '%y%m%d'}}{% endcapture %}
                                             {% if eventdate < nowunix %}
                                                 {% continue %}
-                                            {% else %}
                                             {% endif %}
                                         <li class="col--4-12 col--6-12--m col--12-12--xs">
                                             <a href="{{ event.url | relative_url }}" class="agenda-item">
                                                 <article itemscope itemtype="http://schema.org/Event">
                                                     <time class="agenda-item__date" datetime="2015-06-01" itemprop="startDate">
-                                                        <div class="agenda-item__date__day">{{ event.date | date: "%d" }}</div>
-                                                        <div class="agenda-item__date__month">{{ event.date | date: "%b" }}</div>
+                                                        <div class="agenda-item__date__day">{{ event.startDate | date: "%d" }}</div>
+                                                        <div class="agenda-item__date__month">{{ event.startDate | date: "%b" }}</div>
                                                     </time>
                                                     <h3 class="agenda-item__title" itemprop="name">{{ event.title }}</h3>
                                                     <div class="agenda-item__text" itemprop="description" data-clamp="2">{{ event.content }}</div>
@@ -43,15 +42,14 @@ permalink: /events/
                             
                                 <ul class="steps steps--timeline">
                                     {% for event in events %}
-                                    {% capture eventdate %}{{event.date | date: '%y%m%d'}}{% endcapture %}
+                                    {% capture eventdate %}{{event.startDate | date: '%y%m%d'}}{% endcapture %}
                                         {% if eventdate > nowunix %}
                                             {% continue %}
-                                        {% else %}
                                         {% endif %}
                                         <li class="step step--accordion js-accordion js-accordion--open">
                                             <div class="step__icon">
-                                                {{ event.date | date: "%d" }}
-                                                <span class="step__icon__sub">{{ event.date | date: "%b" }}</span>
+                                                {{ event.startDate | date: "%d" }}
+                                                <span class="step__icon__sub">{{ event.startDate | date: "%b" }}</span>
                                             </div>
                                             <div class="step__wrapper">
                                                 <a href="{{ event.url | relative_url }}" class="step__header js-accordion__toggle">

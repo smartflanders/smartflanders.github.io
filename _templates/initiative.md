@@ -1,7 +1,6 @@
 ---
 title: Initiative
 website: www.initiative.com
+description: Description
 ---
-<!--- Start description -->
-Description
-<!--- End description -->
+{{ page.description }}
