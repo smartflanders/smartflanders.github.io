@@ -6,7 +6,7 @@ layout: default
 
     <div class="home layout layout--wide">
         <h1 class="h1">Een ondersteuningsprogramma van de Vlaamse Overheid voor real-time Open Data bij lokale overheden</h1>        
-        <h3 class="h3">Aankomende events</h3>
+        <h3 class="h3" id="events">Aankomende events</h3>
         <section class="region" id="home__events">
             <ul class="grid grid--is-stacked u-spacer">
                 {% for event in events reversed limit:3 %}
@@ -37,7 +37,7 @@ layout: default
         
     <section class="region">
         <div class="layout layout--wide">
-            <h3 class="h3">Huidige status</h3>
+            <h3 class="h3" id="status">Huidige status</h3>
             <ul class="bullet-list bullet-list--check">
               <li class="bullet-list__item">Kennismakingstour bij de centrumsteden</li>
               <li class="bullet-list__item">Identificatie van real-time opendata-piloten</li>
@@ -48,7 +48,7 @@ layout: default
     </section>
     <section class="region">
       <div class="layout layout--wide">
-        <h3 class="h3">Nieuws en opinies</h3>
+        <h3 class="h3" id="nieuws">Nieuws en opinies</h3>
         <div class="slider js-slider">
             <div class="slider__frame js-slider__frame">
                 <div class="grid grid--is-stacked js-equal-height-container slider__slides js-slider__slides">
