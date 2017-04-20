@@ -16,7 +16,7 @@
 title: Smart Flanders
 email: pieter.colpaert@imec.be
 description: > # this means to ignore newlines until "baseurl:"
-   Helping the 308 local municipalities in Flanders through the 13 center cities
+   Een ondersteuningsprogramma van de Vlaamse Overheid voor real-time Open Data bij lokale overheden
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: imec_int
