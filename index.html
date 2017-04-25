@@ -16,7 +16,7 @@ layout: default
                     {% else %}
                     {% endif %}
                     <li class="col--4-12 col--6-12--m col--12-12--xs">
-                        <a href="#" class="agenda-item">
+                        <a href="{{ event.url | relative_url }}" class="agenda-item">
                             <article itemscope itemtype="http://schema.org/Event">
                                 <time class="agenda-item__date" datetime="2015-06-01" itemprop="startDate">
                                     <div class="agenda-item__date__day">{{ event.startDate | date: "%d" }}</div>
