@@ -4,10 +4,40 @@ layout: default
 {% assign events = site.events | sort: 'startDate' | reverse %}
 {% capture nowunix %}{{'now' | date: '%y%m%d'}}{% endcapture %}
 
-    <div class="home layout layout--wide">
-        <h1 class="h1">Een ondersteuningsprogramma van de Vlaamse Overheid voor real-time Open Data bij lokale overheden</h1>        
-        <h3 class="h3" id="events">Aankomende events</h3>
+
+
+<div class="home layout layout--wide">
+  <h1 class="h1">Een ondersteuningsprogramma van de Vlaamse Overheid voor real-time Open Data bij lokale overheden</h1>
+  <section class="region">
+      <div class="layout layout--wide">
+        <h3 class="h3" id="nieuws">Nieuws en opinies</h3>
+        <div class="slider js-slider">
+            <div class="slider__frame js-slider__frame">
+                <div class="grid grid--is-stacked js-equal-height-container slider__slides js-slider__slides">
+                    {% for post in site.posts %}
+                        <div class="col--3-12 col--8-12--xs col--5-12--s col--4-12--m">
+                            <a href="{{ post.url | relative_url }}" class="news-teaser js-equal-height">
+                                <article>
+                                    <!--<div class="news-teaser__image">
+                                        <img src="//d201gzvprbtpxy.cloudfront.net/sites/default/files/images/vla_nieuwsartikel_weekvandemobiliteit2016_0.gif" alt="Image for news message">
+                                    </div>-->
+                                    <div class="news-teaser__content">
+                                        <h2 class="news-teaser__label">{{ post.category }}</h2>
+                                        <h1 class="news-teaser__title">{{ post.title | escape }}</h1>
+                                        <h2 class="news-teaser__label nobold">{{ post.date | date: "%d %b %y" }}</h2>
+                                    </div>
+                                </article>
+                            </a>
+                        </div>  
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+      </div>
+    </section>
         <section class="region" id="home__events">
+          <h3 class="h3" id="events">Aankomende events</h3>
             <ul class="grid grid--is-stacked u-spacer">
                 {% for event in events reversed limit:3 %}
                 {% capture eventdate %}{{event.startDate | date: '%y%m%d'}}{% endcapture %}
@@ -46,33 +76,4 @@ layout: default
             </ul>
         </div>
     </section>
-    <section class="region">
-      <div class="layout layout--wide">
-        <h3 class="h3" id="nieuws">Nieuws en opinies</h3>
-        <div class="slider js-slider">
-            <div class="slider__frame js-slider__frame">
-                <div class="grid grid--is-stacked js-equal-height-container slider__slides js-slider__slides">
-                    {% for post in site.posts %}
-                        <div class="col--3-12 col--8-12--xs col--5-12--s col--4-12--m">
-                            <a href="{{ post.url | relative_url }}" class="news-teaser js-equal-height">
-                                <article>
-                                    <!--<div class="news-teaser__image">
-                                        <img src="//d201gzvprbtpxy.cloudfront.net/sites/default/files/images/vla_nieuwsartikel_weekvandemobiliteit2016_0.gif" alt="Image for news message">
-                                    </div>-->
-                                    <div class="news-teaser__content">
-                                        <h2 class="news-teaser__label">{{ post.category }}</h2>
-                                        <h1 class="news-teaser__title">{{ post.title | escape }}</h1>
-                                        <h2 class="news-teaser__label nobold">{{ post.date | date: "%d %b %y" }}</h2>
-                                    </div>
-                                </article>
-                            </a>
-                        </div>  
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-
-      </div>
-    </section>
-      
 </div>
