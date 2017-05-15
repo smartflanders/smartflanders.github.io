@@ -3,7 +3,7 @@ title: Het probleem met indicator-gebaseerde evaluaties van slimme steden
 layout: post
 category: opinie
 ---
-Hoewel het belang van samenwerking steeds meer doordringt, worden steden nog al te vaak vergeleken op basis van indicatoren die niet altijd de volledige context en nuance van bepaalde stedelijke uitdagingen vatten. Pieter Ballon, strategisch coördinator van Smart Flanders, forumeert hier een aantal bedenkingen rond [in een artikel in De Standaard van donderdag 11 mei](http://www.standaard.be/cnt/dmf20170510_02876084). 
+Hoewel het belang van samenwerking steeds meer doordringt, worden steden nog al te vaak vergeleken op basis van indicatoren die niet altijd de volledige context en nuance van bepaalde stedelijke uitdagingen vatten. Pieter Ballon, strategisch coördinator van Smart Flanders, formuleert hier een aantal bedenkingen rond [in een artikel in De Standaard van donderdag 11 mei](http://www.standaard.be/cnt/dmf20170510_02876084). 
 
 Ballon maakt zich de bedenking of het invullen van een lange lijst indicatoren voldoende inzicht geeft op wat er effectief speelt in de stad. Bovendien krijgen steden vaak een certificaat voor het invullen van de lijst, maar niet op basis van de effectieve resultaten.
 
