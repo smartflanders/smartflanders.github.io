@@ -3,6 +3,8 @@ layout: default
 title: Open Data Charter
 permalink: /open-data-charter/
 ---
+#Open Data Charter
+
 In het kader van het Smart Flanders programma wordt momenteel gewerkt aan een Open Data Charter dat de strategische en technische principes omvat die omtrent open datapublicatie worden uitgedragen en geïmplementeerd door de deelnemende steden.
 
 Het doel van het charter is een vooruitstrevende visie omtrent data-ontsluiting vast te leggen. Het charter spreekt een engagement uit om volgens de ambitieuze principes die erin vervat zitten data te openen, met het oog op transparantie en het maximaliseren van hergebruik door derde partijen. 
