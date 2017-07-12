@@ -1,7 +1,7 @@
 ---
 title: Studenten werken met real-time data aan oplossingen voor parkeeruitdagingen in steden
 layout: post
-category: opinie
+category: nieuws
 ---
 
 ![osoc](https://farm5.staticflickr.com/4263/35033969714_b39ae1179e.jpg)
