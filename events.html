@@ -2,6 +2,7 @@
 layout: default
 title: Events
 permalink: /events/
+published: false
 ---
 {% assign events = site.events | sort: 'startDate' | reverse %}
 {% capture nowunix %}{{'now' | date: '%y%m%d'}}{% endcapture %}
