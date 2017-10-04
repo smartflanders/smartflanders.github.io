@@ -1,0 +1,59 @@
+---
+layout: page
+title: Hergebruik stimuleren
+---
+<div class="page">
+  <div id="main" itemprop="mainContentOfPage" role="main" tabindex="-1" class="main-content">
+    <section class="region">
+      <div class="layout layout--wide">
+        <div class="grid">
+          <div class="col--4-6 col--1-1--s">
+            <div class="teaser">
+              Het doel van Smart Flanders is om hergebruik van datasets te stimuleren.
+              Voor we in gesprek gaan met derde partijen, kunnen we als data-beheerders enkele afspraken maken die zullen zorgen dat een hergebruiker makkelijker Vlaamse data kan integreren.
+            </div>
+            <section>
+              <h2>Werken aan interoperabiliteit</h2>
+              <p>
+                De minimale afspraken die we maken en bestuderen over alle bronnen heen, splitsen we op in verschillende niveau’s, zoals geïllustreerd in onderstaande tekening.
+              </p>
+              <figure>
+                <img class="smaller-image" src="https://phd.pietercolpaert.be/img/IOP.svg">
+                <figcaption>Alle lagen waarop afspraken moeten worden gemaakt tussen 2 of meerdere spelers wanneer data worden uitgewisseld.</figcaption>
+              </figure>
+              <p>
+                <dl class="dl">
+                  <dt>Juridisch</dt>
+                  <dd>test</dd>
+                  <dt>Technisch</dt>
+                  <dd></dd>
+                  <dt>Syntactisch</dt>
+                  <dd></dd>
+                  <dt>Semantisch</dt>
+                  <dd></dd>
+                  <dt>Hoe stel je vragen over verschillende bronnen?</dt>
+                  <dd></dd>
+                </dl>
+              </p>
+            </section>
+            <section>
+              <h2>Een lijst van minimale technische afspraken</h2>
+              <p>
+                De lijst van minimale afspraken worden continu bijgewerkt, en er wordt tevens meer tekst bijgevoegd naargelang implementaties in de centrum-steden vooruit gaan.
+              </p>
+              <ol class="ol">
+                <li>Identificatoren zijn web-adressen (URI’s) en volgen de Linked Data principes;</li>
+                <li>De response headers van de documententen over HTTP worden voorzien van cache-headers volgens <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html">IETF RFC2616 section 13</a> via bvb. Max-age of eTag; Bijgevolg worden er geen API-keys of tokens geplaatst op publieke documenten;
+                <li>Alle real-time Open Datasets worden beschreven volgens de <a href="http://dcat.be">Europese DCAT-AP standaard</a>;
+                <li>Een machine-leesbare licentie wordt toegevoegd aan het documenten (bvb. de <a href="https://overheid.vlaanderen.be/sites/default/files/documenten/ict-egov/licenties/hergebruik/modellicentie_gratis_hergebruik_v1_0.html">modellicentie gratis hergebruik van de Vlaamse Overheid</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC-0</a> of <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>);
+                <li>Een Cross Origin Resource Sharing header toe aan het antwoord, zodat deze bron ook in andere javascript applicaties kan worden gebruikt (<a href="http://enable-cors.org">zie ook de instructies van Enable CORS</a>).
+              </ol>
+              <p>
+                Een voorbeeld van hoe deze principes worden toegepast voor parkeergegevens kan je vinden in <a href="http://datapiloten.be/parking">onze parkeerdata-piloot</a>.
+              </p>
+            </section>
+          </div>
+      </div>
+    </section>
+  </div>
+</div>

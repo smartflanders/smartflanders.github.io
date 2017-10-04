@@ -80,5 +80,27 @@ iframe {
 }
 
 .context {
-    
+
+}
+.ol, .ul {
+    list-style: none ;
+}
+
+.dl dt {
+    font-weight: 800;
+}
+
+.dl dd {
+    margin-left: 2em;
+}
+
+
+
+figure figcaption::before{
+    content: "  Fig.: ";
+}
+
+.smaller-image {
+    max-width: 40%;
+    min-width: 100px;
 }
