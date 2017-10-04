@@ -1,0 +1,89 @@
+---
+layout: page
+title: Resources
+permalink: resources/
+---
+<div class="page">
+  <div id="main" itemprop="mainContentOfPage" role="main" tabindex="-1" class="main-content">
+    <section class="region">
+      <div class="layout layout--wide">
+        <div class="grid">
+          <div class="col--4-6 col--1-1--s">
+            <div class="teaser">
+              Het doel van Smart Flanders is om hergebruik van datasets te stimuleren.
+              Voor we in gesprek gaan met derde partijen, kunnen we als data-beheerders enkele afspraken maken die zullen zorgen dat een hergebruiker makkelijker Vlaamse data kan integreren.
+              Op deze pagina vind je een samenvatting van de 5 interoperabiliteitslagen, een korte oplijsting van de technische principes, en links naar meer technische documenten over waarom en hoe de technische principes verwezenlijkt kunnen worden.
+            </div>
+            <section>
+              <h2>Werken aan interoperabiliteit</h2>
+              <p>
+                De minimale afspraken die we maken en bestuderen over alle bronnen heen, splitsen we op in verschillende niveau’s, zoals geïllustreerd op onderstaand schema.
+                Daar staan alle lagen waarop afspraken moeten worden gemaakt tussen 2 of meerdere spelers wanneer data worden uitgewisseld.
+              </p>
+              <figure>
+                <img class="smaller-image" src="https://phd.pietercolpaert.be/img/IOP.svg">
+                <!--<figcaption></figcaption>-->
+              </figure>
+              <p>
+                Bij elke laag past een bepaalde vraag:
+                <ol class="ol">
+                  <li>Juridisch: Als een dataset gepubliceerd wordt, kan iedereen automatische de mogelijke juridische voorwaarden ontdekken?</li>
+                  <li>Technisch: Kan een dataset kosten-efficiënt bij een bepaalde hergebruiker gebracht worden?</li>
+                  <li>Syntactisch: Kan er automatisch een abstractie worden gemaakt van een bepaalde serialisatie?</li>
+                  <li>Semantisch: Hoe weet je of twee identificatoren hetzelfde willen zeggen?</li>
+                  <li>Querying: Hoe stel je vragen over verschillende bronnen, zonder servers te overbelasten?</li>
+                </ol>
+                Door minimale afspraken te maken op elk van deze lagen, maken we het makkelijker om een toepassing over heel Vlaanderen te bouwen.
+              </p>
+            </section>
+            <section>
+              <h2>Een lijst van minimale technische afspraken</h2>
+              <p>
+                De lijst van minimale afspraken worden continu bijgewerkt, en er wordt tevens meer tekst en links bijgevoegd naargelang implementaties in de centrum-steden vorderen.
+              </p>
+                <dl class="dl">
+                  <dt>Juridisch</dt>
+                  <dd>
+                    <ol class="ol">
+                      <li>Een machine-leesbare licentie wordt toegevoegd aan het documenten (bvb. de <a href="https://overheid.vlaanderen.be/sites/default/files/documenten/ict-egov/licenties/hergebruik/modellicentie_gratis_hergebruik_v1_0.html">modellicentie gratis hergebruik van de Vlaamse Overheid</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC-0</a> of <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>);
+                    </ol>
+                  </dd>
+                  <dt>Technisch</dt>
+                  <dd>
+                    <ol class="ol">
+                      <li>De response headers van de documententen over HTTP worden voorzien van cache-headers volgens <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html">IETF RFC2616 section 13</a> via bvb. Max-age of eTag; Bijgevolg worden er geen API-keys of tokens geplaatst op publieke documenten;
+                      <li>Een Cross Origin Resource Sharing header toe aan het antwoord, zodat deze bron ook in andere javascript applicaties kan worden gebruikt (<a href="http://enable-cors.org">zie ook de instructies van Enable CORS</a>).
+                    </ol>
+                  </dd>
+                  <dt>Syntactisch</dt>
+                  <dd>
+                    Hiervoor gebruiken we <a href="https://www.w3.org/TR/rdf11-primer/">het RDF1.1 raamwerk</a>, beter gekend als Linked Data.
+                    Als meerdere serialisaties of formaten moeten worden ondersteund, wordt gebruik gemaakt van <a href="https://en.wikipedia.org/wiki/Content_negotiation">Content-Negotiation</a>.
+                  </dd>
+                  <dt>Semantisch</dt>
+                  <dd>
+                    Het gebruik van web-adressen (URI’s) is de eerste grote uitdaging. De verdere stappen zijn om dan ook dezelfde domeinmodellen te gebruiken binnen een Vlaamse context.
+                    <ol class="ol">
+                      <li>Voor iedere identificator wordt een web-adres (HTTP URI) gebruikt. Deze URI volgt de Linked Data principes (zie de <a href="https://overheid.vlaanderen.be/sites/default/files/documenten/informatie-vlaanderen/producten/OSLO/VlaamseURI-StandaardVoorData_V1.0.pdf">Vlaamse URI standaard</a>);</li>
+                      <li>Er wordt maximaal hergebruik gemaakt van bestaande basisregisters (bvb. de officiële URI’s voor adressen op <a href="http://data.vlaanderen.be">data.vlaanderen.be</a>)</li>
+                      <li>Er wordt maximaal hergebruik gemaakt van bestaande domeinmodellen zoals <a href="http://vocab.datex.org">DATEX2</a>, <a href="http://data.vlaanderen.be">OSLO²</a>, en andere die kunnen gevonden worden via <a href="http://lov.okfn.org">Linked Open Vocabularies</a>.</li>
+                    </ol>
+                  </dd>
+                  <dt>Querying</dt>
+                  <dd>
+                    <ol class="ol">
+                      <li>De geschiedenis van real-time open datasets worden mede gepubliceerd in fragmenten.</li>
+                      <li>Alle real-time Open Datasets worden beschreven volgens de <a href="http://dcat.be">Europese DCAT-AP standaard</a>, zodat deze ook op het Vlaams opendataportaal, en bijgevolg ook op het Europese, vindbaar zijn.</li>
+                    </ol>
+                  </dd>
+                </dl>
+              </ol>
+              <p>
+                Een voorbeeld van hoe deze principes worden toegepast voor parkeergegevens kan je vinden in <a href="http://datapiloten.be/parking">onze parkeerdata-piloot</a>.
+              </p>
+            </section>
+          </div>
+      </div>
+    </section>
+  </div>
+</div>
