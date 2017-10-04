@@ -35,5 +35,8 @@ collections:
   events:
     output: true
     permalink: /:collection/:path/
+  resources:
+    output: true
+    permalink: /:collection/:path/
   initiatives:
     output: false
