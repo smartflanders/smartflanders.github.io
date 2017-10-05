@@ -32,7 +32,10 @@
                     <a class="tab__link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
                 </li>
             {% endif %}
-        {% endfor %}
+                {% endfor %}
+      <li class="tab">
+              <a class="tab__link" href="/resources/">Technische Principes</a>
+      </li>
         {% if site.github_username %}
             <li class="tab">
                 {% include icon-github.html username=site.github_username %}
