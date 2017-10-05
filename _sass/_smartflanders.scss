@@ -3,6 +3,14 @@
 /**
  * Personalisation
  */
+
+html {
+    font-family: flanders-sans,sans-serif;
+}
+
+p {
+    font-family: flanders-sans,sans-serif;
+}
 a.link-no-style, .link-no-style > a {
     color: #333;
     text-decoration: none;
@@ -94,8 +102,6 @@ iframe {
     margin-left: 2em;
 }
 
-
-
 figure figcaption::before{
     content: "  Fig.: ";
 }
@@ -103,4 +109,21 @@ figure figcaption::before{
 .smaller-image {
     max-width: 40%;
     min-width: 100px;
+}
+h2, h3, h4, h5 {
+    margin-bottom: 1em !important;
+    margin-top: 1.5em !important;
+}
+
+.page-content {
+    padding-top: 0px !important;
+}
+
+.region:first-child {
+    padding-top: 1em !important;
+}
+
+.post-list h2{
+    margin-top: 0em !important;
+    margin-bottom: 0.5em !important;
 }

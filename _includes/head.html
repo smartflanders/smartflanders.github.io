@@ -5,8 +5,7 @@
 
   <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
-
-  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+    <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
   <link rel="stylesheet" href="//dij151upo6vad.cloudfront.net/2.latest/css/vlaanderen-ui.css" type="text/css">
   <link rel="stylesheet" href="//dij151upo6vad.cloudfront.net/2.latest/css/vlaanderen-ui-corporate.css" type="text/css">
     <!-- link to Flanders UI stylesheet -->
