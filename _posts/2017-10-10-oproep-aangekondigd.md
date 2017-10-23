@@ -12,5 +12,5 @@ category: nieuws
 
 <div style="text-align: justify;margin-bottom: 1em;">Ze worden hiervoor bijgestaan door imec, toonaangevend onderzoeks- en innovatiecentrum op het vlak van nano-elektronica en digitale technologie. Er gaat daarbij veel aandacht naar een open aanpak, zodat toepassingen die in de ene gemeente ontwikkeld worden, ook mogelijkheden bieden om in een andere stad mee aan de slag te gaan. Het aantal dataconnecties, samenwerkingsverbanden en uiteindelijk dus ook het aantal innovatieve toepassingen, nemen zo immers exponentieel toe. Ook het Smart Flanders-project van minister van Binnenlands Bestuur Liesbeth Homans kadert in die visie. Die slimme aanpak maakt Vlaanderen uniek.</div>
 
-<div style="text-align: justify;margin-bottom: 1em;">De oproep wordt begin november opengesteld voor alle Vlaamse steden en gemeenten. Het volledige persbericht is <a href="http://www.philippemuyters.be/nieuws/city-of-things-in-elke-vlaamse-gemeente">hier</a> na te lezen.</div>
+<div style="text-align: justify;margin-bottom: 1em;">De oproep wordt begin november opengesteld voor alle Vlaamse steden en gemeenten. Het volledige persbericht is <a href="http://www.vlaio.be/nieuws/4-miljoen-euro-voor-slimme-steden-en-gemeenten">hier</a> na te lezen.</div>
 
