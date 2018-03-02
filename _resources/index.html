@@ -16,29 +16,20 @@ permalink: resources/
               Op deze pagina vind je een samenvatting van de 5 interoperabiliteitslagen, een korte oplijsting van de technische principes, en links naar meer technische documenten over waarom en hoe de technische principes verwezenlijkt kunnen worden.
               Deze pagina is bedoeld als informatie-bron voor data-publishers.
               Ben je op zoek naar data om te hergebruiken, neem een kijkje op onze <a href="/ontwikkelaars/">pagina voor ontwikkelaars</a>.
+              Je kan ook je eigen dataset laten <a href="validator">valideren in onze validator</a>, en zo tips krijgen om je data beter te publiceren.
             </div>
-            <section>
-              <h2 class="h2" id="interoperabiliteit">Werken aan interoperabiliteit</h2>
-              <p>
-                De minimale afspraken die we maken en bestuderen over alle bronnen heen, splitsen we op in verschillende niveau’s, zoals geïllustreerd op onderstaand schema.
-                Daar staan alle lagen waarop afspraken moeten worden gemaakt tussen 2 of meerdere spelers wanneer data worden uitgewisseld.
-              </p>
-              <figure>
-                <img class="image" src="/assets/iop.png">
-                <!--<figcaption></figcaption>-->
-              </figure>
-              <p>
-                Bij elke laag past een bepaalde vraag:
-                <ol class="ol">
-                  <li><em>Juridisch:</em> Als een dataset gepubliceerd wordt, kan iedereen automatische de mogelijke juridische voorwaarden ontdekken?</li>
-                  <li><em>Technisch:</em> Kan een dataset kosten-efficiënt bij een bepaalde hergebruiker gebracht worden?</li>
-                  <li><em>Syntactisch:</em> Kan er automatisch een abstractie worden gemaakt van een bepaalde serialisatie?</li>
-                  <li><em>Semantisch:</em> Hoe weet je of twee identificatoren hetzelfde willen zeggen?</li>
-                  <li><em>Querying:</em> Hoe stel je vragen over verschillende bronnen, zonder servers te overbelasten?</li>
-                </ol>
-                Door minimale afspraken te maken op elk van deze lagen, maken we het makkelijker om een toepassing over heel Vlaanderen te bouwen.
-              </p>
-            </section>
+<!--            <section>
+              <h2 class="h2" id="validator">Valideren van uw dataset</h2>
+              <div>
+                <form method="GET" id="validator" action="validator">
+                  <br/>
+                  <p>
+                    <label>Valideer uw dataset:</label>
+                    <input type="url" name="url" placeholder="https://www.example.com/"></input><input type="submit" value="Valideer"/>
+                  </p>
+                </form>
+              </div>
+            </section>-->
             <section>
               <h2 class="h2" id="principes">Een lijst van minimale technische afspraken</h2>
               <p>
@@ -84,7 +75,31 @@ permalink: resources/
               <p>
                 Een voorbeeld van hoe deze principes worden toegepast voor parkeergegevens kan je vinden in <a href="http://datapiloten.be/parking">onze parkeerdata-piloot</a>.
               </p>
+             
             </section>
+            <section>
+              <h2 class="h2" id="interoperabiliteit">Werken aan interoperabiliteit</h2>
+              <p>
+                De minimale afspraken die we maken en bestuderen over alle bronnen heen, splitsen we op in verschillende niveau’s, zoals geïllustreerd op onderstaand schema.
+                Daar staan alle lagen waarop afspraken moeten worden gemaakt tussen 2 of meerdere spelers wanneer data worden uitgewisseld.
+              </p>
+              <figure>
+                <img class="image" src="/assets/iop.png">
+                <!--<figcaption></figcaption>-->
+              </figure>
+              <p>
+                Bij elke laag past een bepaalde vraag:
+                <ol class="ol">
+                  <li><em>Juridisch:</em> Als een dataset gepubliceerd wordt, kan iedereen automatische de mogelijke juridische voorwaarden ontdekken?</li>
+                  <li><em>Technisch:</em> Kan een dataset kosten-efficiënt bij een bepaalde hergebruiker gebracht worden?</li>
+                  <li><em>Syntactisch:</em> Kan er automatisch een abstractie worden gemaakt van een bepaalde serialisatie?</li>
+                  <li><em>Semantisch:</em> Hoe weet je of twee identificatoren hetzelfde willen zeggen?</li>
+                  <li><em>Querying:</em> Hoe stel je vragen over verschillende bronnen, zonder servers te overbelasten?</li>
+                </ol>
+                Door minimale afspraken te maken op elk van deze lagen, maken we het makkelijker om een toepassing over heel Vlaanderen te bouwen.
+              </p>
+            </section>
+
           </div>
         </div>
       </div>
