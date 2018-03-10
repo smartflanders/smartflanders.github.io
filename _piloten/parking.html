@@ -115,9 +115,13 @@ permalink: piloten/parkeren
           options += '<option value='+ entity['http://vocab.datex.org/terms#parkingNumberOfVacantSpaces'] + '>'+ entity['http://www.w3.org/2000/01/rdf-schema#label'] +'</option>';
         }
        }
-     console.log(options);
       document.getElementById('parking').innerHTML = options;
   
     });
+  }
+
+  var processParking = function () {
+    var val = document.getElementById('parking').value;
+    document.getElementById('plaatsen').innerHTML = val;
   }
 </script>
