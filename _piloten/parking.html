@@ -25,6 +25,12 @@ permalink: piloten/parkeren
                 In zo’n bestek, of overeenkomst met de parkeeruitbater, is het dan slim om hier een opendata-paragraaf in te voorzien.
                 We verwijzen naar de webstek <a href="http://cc.its.be/parking-information/open-data">cc.its.be</a>.
               </p>
+              <p>
+                Nu moet ook worden beslist of de historische gegevens ook relevant zijn om bijvoorbeeld beleidsbeslissingen te nemen.
+                Deze historische gegevens kunnen worden bewaard als indicator 
+                Het laatste wat we uiteraard willen is uiteraard om deze gegevens te moeten inkopen van een private speler omdat de gemeente deze niet heeft opgeslagen.
+                
+              </p>
             </section>
             <section>
               <h2 class="h2" id="publiceren">Publiceren van parkeergegevens: technisch</h2>
@@ -32,9 +38,13 @@ permalink: piloten/parkeren
                 We volgen alsook het aanbevolen domeinmodel en specificatie van <a href="http://cc.its.be/parking-information/open-data">cc.its.be</a>: Datex 2.
                 Echter breiden we dit uit met onze eigen technische principes: we gebruiken URI’s voor de parkeergarages, stellen ook historische informatie ter beschikking, fragmenteren de dataset in handige fragmenten, en voegen HTTP-headers toe.
               </p>
-              <p>
+              <section>
                 <!-- URIs voor parkeren-->
-              </p>
+                <!--<h3>URI’s</h3>
+                <p>
+                  Uniforme Resource Identificatoren (URI’s), of een web-adres, zorgt ervoor dat we decentraal uitspraken kunnen doen, en toch zeker kunnen zijn dat we het over hetzelfde iets praten.
+                </p>-->
+              </section>
               <p>
                 
                 <!-- domeinmodel: datex en prov-o -->
@@ -44,11 +54,27 @@ permalink: piloten/parkeren
               </p>
             </section>
             <section>
-              <h2 class="h2" id="poc">Overzicht van de gegevens</h2>
+              <h2 class="h2" id="poc">Toegang tot de gegevens</h2>
               <p>
                 Het voordeel van het implementeren van een Linked Open Data strategie voor parkeergarages, is dat het nu enorm eenvoudig is geworden om deze gegevens in een interface te krijgen.
                 Zo is het mogelijk om direct in de browser een overzicht te geven van wat momenteel de stad is met de meeste beschikbare plaatsen.
-                Bijvoorbeeld, kies een stad <select id="stad" name="stad" value="kies een stad" onChange="processGemeente()"></select> en parking <select name="parking" id="parking" value="kies een parking" onChange="processParking()"></select>: deze heeft <span id="plaatsen">X</span> beschikbare plaatsen. <!--en de trend verloopt alsvolgt <div id="trend"></div>...-->
+                Bijvoorbeeld, kies een stad <select id="stad" name="stad" value="kies een stad" onChange="processGemeente()"></select> en parking <select name="parking" id="parking" value="kies een parking" onChange="processParking()"></select>: deze heeft <span id="plaatsen">X</span> beschikbare plaatsen.
+              </p>
+              <p>
+                Een uitgebreidere proof of concept met deze data, die ook toelaat om historische informatie te onderzoeken, staat op <a href="https://smartflanders-poc.netlify.com/">onze demo-site</a>.
+              </p>
+              <p>
+                Hoe je deze gegevens zelf kan verwerken in je eigen app lees je op de pagina <a href="/ontwikkelaars/">voor ontwikkelaars</a>, of bekijk ter inspiratie eens de broncode van deze pagina.
+              </p>
+            </section>
+            <section>
+              <h2 class="h2" id="future-work">Volgende stappen</h2>
+              <p>
+                Momentel host IMEC de historische gegevens voor de steden, en creëert ook zelf URI’s voor de parkeergarages.
+                De volgende stappen zijn in 2018 om de gemeenten zelf de data laten publiceren, opslaan en de identificatoren voorzien.
+              </p>
+              <p>
+                Nadat de gegevens publiek staan, gegoten in een duidelijk proces bij de steden, worden ook stappen gezet richting hergebruikers, om deze gegevens te gebruiken in productie.
               </p>
             </section>
           </div>
@@ -60,9 +86,26 @@ permalink: piloten/parkeren
 
 <script src="/assets/ldfetch.js"></script>
 <script>
+  // Author: Pieter Colpaert - License: CC0
+  
+  //this version of LDFetch still uses the triple specification from N3.js, and not the new RDF.js specification
   var ldfetch = new window.ldfetch();
+  
   //use it as described bellow
   var url = 'https://datapiloten.be/parking/catalog.ttl';
+  
+  //A couple of helper functions
+  var isLiteral = function (entity) {
+    return typeof entity === 'string' && entity[0] === '"';
+  };
+  
+  var getLiteralValue = function (literal) {
+    var match = /^"([^]*)"/.exec(literal);
+    if (!match)
+      throw new Error(literal + ' is not a literal');
+    return match[1];
+  };
+  
   var triplesToObjects = function (triples) {
     var objects = {};
     for (var index in triples) {
@@ -70,28 +113,44 @@ permalink: piloten/parkeren
       if (!objects[triple.subject]) {
         objects[triple.subject] = {};
       }
-      objects[triple.subject][triple.predicate] = triple.object;
+      if (isLiteral(triple.object)) {
+        objects[triple.subject][triple.predicate] = getLiteralValue(triple.object);
+      } else {
+        objects[triple.subject][triple.predicate] = triple.object;
+      }
+      if (triple.predicate === 'http://www.w3.org/ns/prov#generatedAtTime') {
+        objects[triple.subject][triple.predicate] = new Date(objects[triple.subject][triple.predicate]);
+      }
     }
     return objects;
   };
 
   var quadsToObjects = function (quads) {
-    var objects = {};
+    var graphs = {};
     for (var index in quads) {
       var quad = quads[index];
+      if (!graphs[quad.graph]) {
+        graphs[quad.graph] = {};
+      }
+      var objects = graphs[quad.graph];
       if (!objects[quad.subject]) {
         objects[quad.subject] = {};
       }
-      objects[triple.subject][triple.predicate] = triple.object;
+      if (isLiteral(quad.object)) { 
+        //This is the lazy approach: might still contain different languages and types, or multiple values overall
+        objects[quad.subject][quad.predicate] = getLiteralValue(quad.object);
+      } else {
+        objects[quad.subject][quad.predicate] = quad.object;
+      }
+      graphs[quad.graph] = objects;
     }
-    return objects;
+    return graphs;
   };
 
-  
+  //At start-up, we will download the DCAT catalog of parkings and populate a drop-down menu
   ldfetch.get(url).then(response => {
       //Filter the results and select the dct:title
       var objects = triplesToObjects(response.triples);
-      
       //Filter the results and populate the gemeente-selector
       var options = "<option/>";
       for (var subject in objects) {
@@ -104,24 +163,52 @@ permalink: piloten/parkeren
       document.getElementById('stad').innerHTML = options;
   });
 
+  var timeseries = [];
+
+  // When a Gemeente is selected, we will download the data from that gemeente
   var processGemeente = function () {
+    document.getElementById('plaatsen').innerHTML = "X";
     var gemeente = document.getElementById('stad').value;
     ldfetch.get(gemeente).then(response => {
+      //this will squash all named graphs together, useful for extracting basic information across all triples
       var objects = triplesToObjects(response.triples);
-      var options = '';
+      //this will categorize the objects per named graph, useful for extracting the precise information per measurement
+      var graphs = quadsToObjects(response.triples);
+      //now, create an overview of the timeseries per parking site
+
+      for (var graphname in graphs) {
+        for (var subject in graphs[graphname]) {
+          var parkingObservation = graphs[graphname][subject];
+          if (parkingObservation["http://vocab.datex.org/terms#parkingNumberOfVacantSpaces"]) {
+            var observation = {};
+            observation.time = objects[graphname]["http://www.w3.org/ns/prov#generatedAtTime"];
+            observation.subject = subject;
+            observation.value = parkingObservation["http://vocab.datex.org/terms#parkingNumberOfVacantSpaces"];
+            observation.max = objects[subject]["http://vocab.datex.org/terms#parkingNumberOfSpaces"]
+            timeseries.push(observation);
+          } 
+        }
+      }
+      //You cannot trust the server to send you ordered measurements, so let’s order them here
+      timeseries.sort((a, b) => b.time.getTime() - a.time.getTime());
+      var options = '<option selected/>';
       for (var subject in objects) {
         var entity = objects[subject];
-        if (entity['http://www.w3.org/1999/02/22-rdf-syntax-ns#type'] === 'http://vocab.datex.org/terms#UrbanParkingSite') { 
-          options += '<option value='+ entity['http://vocab.datex.org/terms#parkingNumberOfVacantSpaces'] + '>'+ entity['http://www.w3.org/2000/01/rdf-schema#label'] +'</option>';
+        if (entity['http://www.w3.org/1999/02/22-rdf-syntax-ns#type'] === 'http://vocab.datex.org/terms#UrbanParkingSite') {
+          options += '<option value="'+ subject + '">'+ entity['http://www.w3.org/2000/01/rdf-schema#label'] +'</option>';
         }
        }
       document.getElementById('parking').innerHTML = options;
-  
     });
   }
 
+  //Put only the most recent value in the page
   var processParking = function () {
-    var val = document.getElementById('parking').value;
-    document.getElementById('plaatsen').innerHTML = val;
+    var parkingid = document.getElementById('parking').value;
+    var observations = timeseries.filter(obj => {
+      return obj.subject === parkingid;
+    });
+    var latest = observations.shift();
+    document.getElementById('plaatsen').innerHTML = latest.value + "/" + latest.max + ' (laatst geüpdatet op ' + latest.time.toISOString() + ')';
   }
 </script>
