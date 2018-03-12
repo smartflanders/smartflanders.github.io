@@ -55,6 +55,20 @@ table tr:last-child td:first-child {
 table tr:last-child td:last-child {
     border-bottom-right-radius: 10px;
 }
+
+#resultaat span{
+  font-weight: 800;
+}
+
+h1{
+  font-size: 2em;
+}
+
+ul{
+  list-style: disc;
+  margin-left: 20px;
+}
+
 </style>
 <div class="page">
   <div id="main" itemprop="mainContentOfPage" role="main" tabindex="-1" class="main-content">
@@ -70,7 +84,12 @@ table tr:last-child td:last-child {
             <section><br/>
               <form onsubmit="send_to_validator(); return false">
                 <label>Valideer uw dataset:</label>
-                <input id="url_text" type="url" name="url" placeholder="https://www.example.com/"></input><br/><input type="submit" value="Valideer"/>
+                <input id="url_text" type="url" name="url" placeholder="https://www.example.com/"></input>
+                <br/>
+                <label>Dit is een timeseries dataset:</label>
+                <input id="timeseries_checkbox" type="checkbox">
+                <br/>
+                <input type="submit" value="Valideer"/>
               </form>
               <div id="resultaat"></div>
             </section>
@@ -90,6 +109,7 @@ table tr:last-child td:last-child {
 <script>
   var validator = new window.sfvalidator("resultaat");
   var send_to_validator = function(){
+    validator.is_timeseries = document.getElementById("timeseries_checkbox").checked
     validator.validate_url(document.getElementById("url_text").value);
   }
  </script>
