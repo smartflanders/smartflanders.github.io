@@ -29,7 +29,7 @@ class BrowserValidator{
 
 		if(!report.Accessible.passed){
 			major_problems_found = true;
-			major_problems.push("<span>CORS</span>: De pagina was niet bereikbaar, dit betekend vaak dat de CORS header niet juist ingesteld zijn.");
+			major_problems.push("<span>CORS</span>: De pagina was niet bereikbaar, dit betekent vaak dat de CORS header niet juist ingesteld is.");
 		}
 		if(!report.Rdf.passed){
 			major_problems_found = true;
@@ -63,7 +63,7 @@ class BrowserValidator{
 
 		if(!report.CacheControl.passed){
 			advisables_found = true;
-			advisables.push("<span>Cache control</span>: We raden aan om er voor te zorgen dat Cache-Control of ETag headers ingesteld staan. Dit zorgd er voor dat de dataset gecached kan worden.");
+			advisables.push("<span>Cache control</span>: We raden aan om er voor te zorgen dat Cache-Control of ETag headers ingesteld staan. Dit zorgt ervoor dat de dataset gecached kan worden.");
 		}
 		if(!report.Fragmented.passed && this.is_timeseries){
 			advisables_found = true;
