@@ -63,7 +63,7 @@ class BrowserValidator{
 
 		if(!report.CacheControl.passed){
 			advisables_found = true;
-			advisables.push("<span>Cache control</span>: We raden aan om er voor te zorgen dat Cache-Control of ETag headers ingesteld staan. Dit zorgt ervoor dat de dataset gecached kan worden.");
+			advisables.push("<span>Cache control</span>: We raden aan om er voor te zorgen dat Cache-Control of ETag headers ingesteld staan. Dit zorgt ervoor dat de dataset gecachet kan worden.");
 		}
 		if(!report.Fragmented.passed && this.is_timeseries){
 			advisables_found = true;
@@ -86,12 +86,12 @@ class BrowserValidator{
 	}
 
 	check_likes(report){
-		var likes_string = "<h1>Zaken die we leuk vinden</h1>";
+		var likes_string = "";
 
 		if(report.Metadata.pass)
-			likes_string += "<p>We zien dat de dataset het DCT en DCAT vacabularium gebruiken. Dat is zeer goed! Probeer zo veel en goed mogelijk de dataset te beschrijven.</p>";
+			likes_string += "<h1>Zaken die we leuk vinden</h1><p>We zien dat de dataset het DCT en DCAT vocabularium gebruiken. Dat is zeer goed! Probeer zo veel en goed mogelijk de dataset te beschrijven.</p>";
 		else
-			likes_string += "<p>Er wordt geen gebruik gemaakt van het DCT of DCAT vocabularium om de dataset te beschrijven. Door dit wel te doen weten anderen wat de inhoud is, door wie deze beheerd wordt, hoe de data gegenereerd wordt enzovoort.</p>";
+			likes_string += "<h1>Zaken die we minder leuk vinden</h1><p>Er wordt geen gebruik gemaakt van het DCT of DCAT vocabularium om de dataset te beschrijven. Door dit wel te doen weten anderen wat de inhoud is, door wie deze beheerd wordt, hoe de data gegenereerd wordt enzovoort.</p>";
 		
 		return likes_string;
 	}
