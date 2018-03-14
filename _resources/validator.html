@@ -74,6 +74,7 @@ permalink: resources/validator
 <script>
   var validator = new window.sfvalidator("resultaat");
   var send_to_validator = function(){
+    document.getElementById("resultaat")
     validator.is_timeseries = document.getElementById("timeseries_checkbox").checked
     validator.validate_url(document.getElementById("url_text").value);
   }
