@@ -20,6 +20,6 @@ Eenmaal je vertrouwd bent met hoe github op jouw machine werkt moet je Jekyll in
  * De content van de home pagina zit in index.html
  * Als je een post wil schrijven, moet die in `_posts` geplaatst worden. Volg het voorbeeld dat er al instaat, of de tutorial hier: https://jekyllrb.com/docs/posts/
  * Als je een nieuwe pagina wilt aanmaken, volg dat het voorbeeld van `about.html`. Je kan ook dit in plaats van HTML in Markdown schrijven. Maak dan een file aan met de extensie .md in plaats van .html. Je zal wel dezelfde jekyll "frontmatter" nodig hebben (iets tussen `---` aan het begin van de pagina).
- * Als je wil prutsen aan het theme, zijn `_layouts` en `_includes` goeie startpunten. De CSS bevindt zich dan weer in `assets/`
+ * Als je wil prutsen aan het theme, is `_layouts` en `_includes` goeie startpunten. De CSS bevindt zich dan weer in `assets/`
 
 

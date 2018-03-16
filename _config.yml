@@ -24,7 +24,7 @@ github_username: smartflanders
 
 # Build settings
 markdown: kramdown
-plugins:
+gems:
   - jekyll-feed
 exclude:
   - Gemfile
