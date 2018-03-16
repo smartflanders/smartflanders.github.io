@@ -8435,7 +8435,8 @@ class BrowserValidator{
 		this.is_timeseries = is_timeseries;
 
 		var hash_url = location.hash.substr(1,location.hash.length-1).split("&")[0];
-		this.validate_url(hash_url);
+		if(hash_url)
+			this.validate_url(hash_url);
 	}
 
 	validate_url(url){
@@ -8448,13 +8449,19 @@ class BrowserValidator{
 		response += this.check_major_problems(report);
 		response += this.check_advisables(report);
 		response += this.check_likes(report);
-
+		response += this.add_permalink(url);
 
 		document.getElementById(this.container_id).innerHTML = response
 	}
 
+	add_permalink(url){
+		var permalink = location.href.split("#")[0] + "#" + url;
+		var permalink_string = "<h2>Permalink:</h2><span class='permalink'><a href='" + permalink + "'>" + permalink + "</a></span>";
+		permalink_string += "<p>Gebruik deze link als je rechtstreeks naar het rapport van deze dataset wilt gaan.</p>";
+		return permalink_string;
+	}
+
 	check_major_problems(report){
-		console.log(report);
 		var major_problems_string = "<h2>Grote problemen</h2>";
 		var major_problems = [];
 		var major_problems_found = false;
