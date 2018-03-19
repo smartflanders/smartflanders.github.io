@@ -1,0 +1,214 @@
+---
+layout: default
+title: Real-time informatie over parkeergarages in Vlaamse centrumsteden
+permalink: piloten/parkeren
+---
+<div class="page">
+  <div id="main" itemprop="mainContentOfPage" role="main" tabindex="-1" class="main-content">
+    <section class="region">
+      <div class="layout layout--wide">
+        <div class="grid">
+          <div class="col--4-6 col--1-1--s">
+            <h1 class="h1">Parkeren</h1>
+            <div class="teaser">
+	      Ongeveer 30% van het verkeer in een stad is zoekverkeer.
+              Als automobilisten kunnen beter worden geïnformeerd over off-street parkeerplaatsen, zodat dit verkeer meer rechtstreeks naar een beschikbare parkeerplaats gaat.
+              Ze kunnen deze informatie kunnen krijgen via veel verschillende wegen: via borden langs de weg, via interfaces in de wagen, via routeplannings-apps, via de radio, via gespecialiseerde parkeer-apps, enzovoort.
+              Al deze interfaces van dezelfde kwaliteit data  voorzien is een echte opendata-uitdaging.
+            </div>
+            <section>
+              <h2 class="h2" id="publiceren">Publiceren van parkeergegevens: organisationeel</h2>
+              <p>
+                De gegevens van parkeergarages zijn zelf binnen een bepaalde stad niet altijd en makkelijk te vinden.
+                Veel parkeergarages zijn in het beheer van private spelers. Anderen hebben een beheersovereenkomst met de gemeente.
+                Het is op dit laatste geval dat we ook eisen kunnen stellen aan de beheerder, en de gegevens kunnen zien als eigendom van de gemeente.
+                In zo’n bestek, of overeenkomst met de parkeeruitbater, is het dan slim om hier een opendata-paragraaf in te voorzien.
+                We verwijzen naar de webstek <a href="http://cc.its.be/parking-information/open-data">cc.its.be</a>.
+              </p>
+              <p>
+                Nu moet ook worden beslist of de historische gegevens ook relevant zijn om bijvoorbeeld beleidsbeslissingen te nemen.
+                Deze historische gegevens kunnen worden bewaard als indicator 
+                Het laatste wat we uiteraard willen is uiteraard om deze gegevens te moeten inkopen van een private speler omdat de gemeente deze niet heeft opgeslagen.
+                
+              </p>
+            </section>
+            <section>
+              <h2 class="h2" id="publiceren">Publiceren van parkeergegevens: technisch</h2>
+              <p>
+                We volgen alsook het aanbevolen domeinmodel en specificatie van <a href="http://cc.its.be/parking-information/open-data">cc.its.be</a>: Datex 2.
+                Echter breiden we dit uit met onze eigen technische principes: we gebruiken URI’s voor de parkeergarages, stellen ook historische informatie ter beschikking, fragmenteren de dataset in handige fragmenten, en voegen HTTP-headers toe.
+              </p>
+              <section>
+                <!-- URIs voor parkeren-->
+                <!--<h3>URI’s</h3>
+                <p>
+                  Uniforme Resource Identificatoren (URI’s), of een web-adres, zorgt ervoor dat we decentraal uitspraken kunnen doen, en toch zeker kunnen zijn dat we het over hetzelfde iets praten.
+                </p>-->
+              </section>
+              <p>
+                
+                <!-- domeinmodel: datex en prov-o -->
+              </p>
+              <p>
+                <!-- fragmenteren -->
+              </p>
+            </section>
+            <section>
+              <h2 class="h2" id="poc">Toegang tot de gegevens</h2>
+              <p>
+                Het voordeel van het implementeren van een Linked Open Data strategie voor parkeergarages, is dat het nu enorm eenvoudig is geworden om deze gegevens in een interface te krijgen.
+                Zo is het mogelijk om direct in de browser een overzicht te geven van wat momenteel de stad is met de meeste beschikbare plaatsen.
+                Bijvoorbeeld, kies een stad <select id="stad" name="stad" value="kies een stad" onChange="processGemeente()"></select> en parking <select name="parking" id="parking" value="kies een parking" onChange="processParking()"></select>: deze heeft <span id="plaatsen">X</span> beschikbare plaatsen.
+              </p>
+              <p>
+                Een uitgebreidere proof of concept met deze data, die ook toelaat om historische informatie te onderzoeken, staat op <a href="https://smartflanders-poc.netlify.com/">onze demo-site</a> (let op: werkt enkel in een moderne browser).
+              </p>
+              <p>
+                Hoe je deze gegevens zelf kan verwerken in je eigen app lees je op de pagina <a href="/ontwikkelaars/">voor ontwikkelaars</a>, of bekijk ter inspiratie eens de broncode van deze pagina.
+              </p>
+            </section>
+            <section>
+              <h2 class="h2" id="future-work">Volgende stappen</h2>
+              <p>
+                Momentel host IMEC de historische gegevens voor de steden, en creëert ook zelf URI’s voor de parkeergarages.
+                De volgende stappen zijn in 2018 om de gemeenten zelf de data laten publiceren, opslaan en de identificatoren voorzien.
+              </p>
+              <p>
+                Nadat de gegevens publiek staan, gegoten in een duidelijk proces bij de steden, worden ook stappen gezet richting hergebruikers, om deze gegevens te gebruiken in productie.
+              </p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script src="/assets/ldfetch.js"></script>
+<script>
+  // Author: Pieter Colpaert - License: CC0
+  
+  //this version of LDFetch still uses the triple specification from N3.js, and not the new RDF.js specification
+  var ldfetch = new window.ldfetch();
+  
+  //use it as described bellow
+  var url = 'https://datapiloten.be/parking/catalog.ttl';
+  
+  //A couple of helper functions
+  var isLiteral = function (entity) {
+    return typeof entity === 'string' && entity[0] === '"';
+  };
+  
+  var getLiteralValue = function (literal) {
+    var match = /^"([^]*)"/.exec(literal);
+    if (!match)
+      throw new Error(literal + ' is not a literal');
+    return match[1];
+  };
+  
+  var triplesToObjects = function (triples) {
+    var objects = {};
+    for (var index in triples) {
+      var triple = triples[index];
+      if (!objects[triple.subject]) {
+        objects[triple.subject] = {};
+      }
+      if (isLiteral(triple.object)) {
+        objects[triple.subject][triple.predicate] = getLiteralValue(triple.object);
+      } else {
+        objects[triple.subject][triple.predicate] = triple.object;
+      }
+      if (triple.predicate === 'http://www.w3.org/ns/prov#generatedAtTime') {
+        objects[triple.subject][triple.predicate] = new Date(objects[triple.subject][triple.predicate]);
+      }
+    }
+    return objects;
+  };
+
+  var quadsToObjects = function (quads) {
+    var graphs = {};
+    for (var index in quads) {
+      var quad = quads[index];
+      if (!graphs[quad.graph]) {
+        graphs[quad.graph] = {};
+      }
+      var objects = graphs[quad.graph];
+      if (!objects[quad.subject]) {
+        objects[quad.subject] = {};
+      }
+      if (isLiteral(quad.object)) { 
+        //This is the lazy approach: might still contain different languages and types, or multiple values overall
+        objects[quad.subject][quad.predicate] = getLiteralValue(quad.object);
+      } else {
+        objects[quad.subject][quad.predicate] = quad.object;
+      }
+      graphs[quad.graph] = objects;
+    }
+    return graphs;
+  };
+
+  //At start-up, we will download the DCAT catalog of parkings and populate a drop-down menu
+  ldfetch.get(url).then(response => {
+      //Filter the results and select the dct:title
+      var objects = triplesToObjects(response.triples);
+      //Filter the results and populate the gemeente-selector
+      var options = "<option/>";
+      for (var subject in objects) {
+        var entity = objects[subject];
+        if (entity['http://www.w3.org/1999/02/22-rdf-syntax-ns#type'] === 'http://www.w3.org/ns/dcat#Dataset') { 
+          //populate gemeente-selector
+          options += '<option value="'+ entity['http://www.w3.org/ns/dcat#distribution'] + '">'+ entity['http://purl.org/dc/terms/title'] +'</option>';
+        }   
+      }
+      document.getElementById('stad').innerHTML = options;
+  });
+
+  var timeseries = [];
+
+  // When a Gemeente is selected, we will download the data from that gemeente
+  var processGemeente = function () {
+    document.getElementById('plaatsen').innerHTML = "X";
+    var gemeente = document.getElementById('stad').value;
+    ldfetch.get(gemeente).then(response => {
+      //this will squash all named graphs together, useful for extracting basic information across all triples
+      var objects = triplesToObjects(response.triples);
+      //this will categorize the objects per named graph, useful for extracting the precise information per measurement
+      var graphs = quadsToObjects(response.triples);
+      //now, create an overview of the timeseries per parking site
+
+      for (var graphname in graphs) {
+        for (var subject in graphs[graphname]) {
+          var parkingObservation = graphs[graphname][subject];
+          if (parkingObservation["http://vocab.datex.org/terms#parkingNumberOfVacantSpaces"]) {
+            var observation = {};
+            observation.time = objects[graphname]["http://www.w3.org/ns/prov#generatedAtTime"];
+            observation.subject = subject;
+            observation.value = parkingObservation["http://vocab.datex.org/terms#parkingNumberOfVacantSpaces"];
+            observation.max = objects[subject]["http://vocab.datex.org/terms#parkingNumberOfSpaces"]
+            timeseries.push(observation);
+          } 
+        }
+      }
+      //You cannot trust the server to send you ordered measurements, so let’s order them here
+      timeseries.sort((a, b) => b.time.getTime() - a.time.getTime());
+      var options = '<option selected/>';
+      for (var subject in objects) {
+        var entity = objects[subject];
+        if (entity['http://www.w3.org/1999/02/22-rdf-syntax-ns#type'] === 'http://vocab.datex.org/terms#UrbanParkingSite') {
+          options += '<option value="'+ subject + '">'+ entity['http://www.w3.org/2000/01/rdf-schema#label'] +'</option>';
+        }
+       }
+      document.getElementById('parking').innerHTML = options;
+    });
+  }
+
+  //Put only the most recent value in the page
+  var processParking = function () {
+    var parkingid = document.getElementById('parking').value;
+    var observations = timeseries.filter(obj => {
+      return obj.subject === parkingid;
+    });
+    var latest = observations.shift();
+    document.getElementById('plaatsen').innerHTML = latest.value + "/" + latest.max + ' (laatst geüpdatet op ' + latest.time.toISOString() + ')';
+  }
+</script>

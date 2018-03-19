@@ -38,5 +38,8 @@ collections:
   resources:
     output: true
     permalink: /:collection/:path/
+  piloten:
+    output: true
+    permalink: /:collection/:path/
   initiatives:
     output: false
