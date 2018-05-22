@@ -1,0 +1,283 @@
+---
+layout: default
+title: Slimme opmaak
+permalink: resources/slimme-opmaak
+---
+<div class="page">
+  <div id="main" itemprop="mainContentOfPage" role="main" tabindex="-1" class="main-content">
+    <section class="region">
+      <div class="layout layout--wide">
+        <div class="grid">
+          <div class="col--4-6 col--1-1--s">
+            <h1 class="h1">Slimme opmaak</h1>
+            <p>Dit document is kladversie 0.1</p>
+            <div class="teaser">
+              Linked Data, en dus het gebruik van URI’s, zorgt voor een betere uitwisselbaarheid van gegevens.
+              HTTP URI’s zorgen er immers voor dat voor iedere identificator, er een definitie kan worden opgevraagd.
+              Dit kan vaak heel erg moeilijk te implementeren lijken, zeker als er nog geen <a href="/resources/basislijsten">basislijsten</a> online staan.
+              Vaak heeft een dienst of gemeentewebsite echter al informatie-pagina’s over diverse zaken.
+              Deze website annoteren met de URI’s door middel van “slimme opmaak” kan een snelle en goedkope manier zijn om te voldoen aan de Linked Data principes.
+              Op deze pagina gaan we eerst dieper in op waarom dit een goed idee is: zoek-machines creëren vandaag ook al sowieso “scrapers” voor uw gegevens en met slimme opmaak laat je iedereen toe je data op je website sneller te hergebruiken.
+              Dan gaan we in op hoe we de <a href="/resources/">technische principes</a> toepassen op een HTML-pagina.
+              Als laatste puntje tonen we ook aan de hand van een code-voorbeeld hoe je direct aan de slag kan met informatie op dergelijke websites.
+            </div>
+            <section>
+              <h2 class="h2" id="scrapen">Websites scrapen</h2>
+              <p>
+                Het scrapen van website had oorspronkelijk een slechte naam.
+                Programmeurs zouden doen alsof ze een pagina handmatig bezochten, en de gegevens van een pagina via een pagina machinaal van een pagina plukken.
+                Er zijn wenselijke gevolgen van web-scraping, zoals een zoekmachine die jouw website op deze manier doorzoekbaar maakt, maar ook minder wenselijke gevolgen, zoals voor websites die afhangen van vooral menselijke bezoekers.
+                Zeker is in ieder geval dat web-scraping nog vandaag voor heel wat controverse zorgt in zelf het publieke debat, van <a href="https://www.reuters.com/article/us-google-axel-sprngr/germanys-top-publisher-bows-to-google-in-news-licensing-row-idUSKBN0IP1YT20141105">nieuws-sites die zoek-machines aanklagen voor onrechtmatig gebruik van nieuws-overzichten</a> tot <a href="http://www.standaard.be/cnt/dmf20100706_087">het hergebruik van publieke gegevens rond het openbaar vervoer</a>.
+                In sommige gevallen is er inderdaad sprake van een intellectuele eigendomsbreuk, of zelfs tot het onrechtmatig overbelasten van een web-service, in andere gevallen gaat het om het hergebruik van gegevens in het publieke domein waarbij geen noemenswaardige extra load op de servers wordt geplaatst.
+              </p>
+              <p>
+                Los van de controverse houden programmeurs wel van web-scraping.
+                Ze zijn immers zeker dat ze op officiële gegevens werken, want achter een website zit een team van content-creatoren dat moet zorgen dat mensen juist geïnformeerd worden.
+                Als er een tweede kanaal wordt opgericht, bijvoorbeeld een “open-data-API” (zoals bij <a href="https://www.vlaamsparlement.be/dossiers/open-data">het Vlaams Parlement</a>) of een data-dump (bijvoorbeeld zoals <a href="https://kbopub.economie.fgov.be/kbo-open-data/login?lang=nl">bij het KBO</a>), dan is er een zekere argwaan bij een hergebruiker:
+                “Zullen de gegevens wel up to date blijven? Zal deze bron evenlang online blijven als de website, of zou het kunnen dat deze offline wordt gehaald door besparingen bij de volgende legislatuur? Gebruikt de organisatie zijn eigen Open Data wel?”.
+                De authentieke bron is echter vaak de website.
+              </p>
+              <p>
+                Vandaag is scrapen vooral een ingeburgerde zaak bij zoekmachines en social-media-toepassingen.
+                Bijvoorbeeld, als iemand een link naar deze website op een sociaal netwerk plaatst, zal dat sociaal netwerk de website scrapen om al een samenvatting en een image te tonen aan de hergebruiker.
+                Maar ook bij zoekmachines kan je vandaag al snelle overzichten vinden in de kantlijn als je bijvoorbeeld de openingsuren en contactgegevens zoekt van een overheidsdienst. Ook dit wordt veelal gescrapet van een overheidswebsite.
+              </p>
+              <blockquote class="twitter-tweet" data-lang="nl"><p lang="nl" dir="ltr">Projectoproep ikv <a href="https://twitter.com/hashtag/SmartFlanders?src=hash&amp;ref_src=twsrc%5Etfw">#SmartFlanders</a> gelanceerd: 4 mio vr open slimme stadstoepassingen <a href="https://t.co/zjqF9wtwrd">https://t.co/zjqF9wtwrd</a> <a href="https://twitter.com/imec_int?ref_src=twsrc%5Etfw">@imec_int</a> <a href="https://twitter.com/philippemuyters?ref_src=twsrc%5Etfw">@philippemuyters</a></p>&mdash; Pieter Ballon (@PieterBallon) <a href="https://twitter.com/PieterBallon/status/917767414825279488?ref_src=twsrc%5Etfw">10 oktober 2017</a></blockquote>
+              <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+              <p>
+                We gaan dat duidelijk maken, en ook direct de zaken automatisch scrapebaar maken met 2 technieken die gerust gemengd mogen worden: JSON-LD-snippets en RDFa.
+                Deze technieken worden vandaag ook al gebruikt in <a href="https://lokaalbestuur.vlaanderen.be/lokale-besluiten-als-gelinkte-open-data">het Lokale Besluiten als Linked Open Data project</a>.
+                Ze worden gezien als een goedkope, snelle, en developer-vriendelijke manier om data die al online staat open en machine-leesbaar herbruikbaar te maken.
+                Voor echte snelle interactie met een app zijn deze interfaces wat traag (gezien de hele HTML-pagina moet gescrapet worden per aanvraag), en wordt verondersteld dat een programmeur eerst alle gegevens lokaal repliceert.
+                Zo kunnen er wel gespecialiseerde databanken worden gebouwd zoals een overzicht en toegankelijkheid van overheidsgebouwen, openingsuren, publieke diensten, gemeenteraadsbesluiten, enzovoort, zonder dat daar eerst een Vlaamse databank moet worden voor opgericht.
+              </p>
+            </section>
+            <section>
+              <h2 class="h2" id="website-als-open-data">Uw website als Open Data</h2>
+              <p>Een algemeen overzicht van de technische principes vind je op <a href="/resources/">https://smart.flanders.be/resources</a>. Dit hoofdstuk is een toepassing van de technische principes op HTML-pagina’s.</p>
+              <dl class="dl">
+                <dt>Een licentie toevoegen (juridisch)</dt>
+                <dd>
+                  Gezien de controverse die nog steeds bestaat omtrent web-scraping is het nodig dat bij het publiceren van gegevens als Open Data in HTML, er duidelijk een indicatie is dat dit wordt toegestaan.
+                  Daarom geven we aan dat de huidige pagina, beschikbaar op de url, een licentie bevat.
+                  We hebben de keuze tussen twee open-data-licenties: de <a href="http://data.vlaanderen.be/id/licentie/creative-commons-zero-verklaring/v1.0">CC-0 verklaring</a> en de <a href="http://data.vlaanderen.be/id/licentie/modellicentie-gratis-hergebruik/v1.0">Modellicentie Gratis Hergebruik</a>.
+                  <!-- This is the description of our 2 licenses in JSON-LD -->
+                  <script type="application/ld+json">
+                    {
+                    "@context": {
+                    "dct": "http://purl.org/dc/terms/",
+                    "cc": "https://creativecommons.org/ns#",
+                    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+                    "owl": "http://www.w3.org/2002/07/owl#",
+                    "dct:type": {
+                    "@type": "@id"
+                    },
+                    "owl:sameAs": {
+                    "@type": "@id"
+                    },"dct:license": {
+                    "@type": "@id"
+                    },"dct:creator": {
+                    "@type": "@id"
+                    },
+                    "rdfs:seeAlso": {
+                    "@type": "@id"
+                    },
+                    "cc:requires": {
+                    "@type": "@id"
+                    }
+                    },
+                    "@id":"https://smart.flanders.be/resources/slimme-opmaak",
+                    "dct:license":"http://data.vlaanderen.be/id/licentie/modellicentie-gratis-hergebruik/v1.0",
+                    "dct:rights":"© 2018 Smart Flanders",
+                    "dct:title": "Slimme Opmaak - een pagina van Smart Flanders",
+                    "dct:creator": "https://pietercolpaert.be/#me",
+                    "@graph": [
+                    {
+                    "@id": "http://data.vlaanderen.be/id/licentie/creative-commons-zero-verklaring/v1.0",
+                    "@type": [
+                    "dct:LicenseDocument",
+                    "cc:License"
+                    ],
+                    "dct:description": {
+                    "@language": "nl",
+                    "@value": "De instantie doet afstand van haar intellectuele eigendomsrechten voor zover dit wettelijk mogelijk is. Hierdoor kan de gebruiker de data hergebruiken voor eender welk doel, zonder een verplichting op naamsvermelding. Deze is de welbekende CC0 licentie."
+                    },
+                    "dct:title": {
+                    "@language": "nl",
+                    "@value": "Creative Commons Zero verklaring"
+                    },
+                    "dct:type": "http://purl.org/adms/licencetype/PublicDomain",
+                    "rdfs:seeAlso": "https://overheid.vlaanderen.be/hergebruik/licenties/v1-0/html/cc0",
+                    "owl:sameAs": "https://creativecommons.org/publicdomain/zero/1.0/",
+                    "owl:versionInfo": "v1.0"
+                    },
+                    {
+                    "@id": "http://data.vlaanderen.be/id/licentie/modellicentie-gratis-hergebruik/v1.0",
+                    "@type": [
+                    "dct:LicenseDocument",
+                    "cc:License"
+                    ],
+                    "dct:description": {
+                    "@language": "nl",
+                    "@value": "Onder deze licentie doet de instantie geen afstand van haar intellectuele rechten, maar mag de data voor eender welk doel hergebruikt worden, gratis en onder minimale restricties."
+                    },
+                    "dct:title": {
+                    "@language": "nl",
+                    "@value": "Modellicentie voor gratis hergebruik"
+                    },
+                    "dct:type": "http://purl.org/adms/licencetype/Attribution",
+                    "rdfs:seeAlso": "https://overheid.vlaanderen.be/hergebruik/licenties/v1-0/html/modellicentie-gratis-hergebruik",
+                    "owl:versionInfo": "v1.0",
+                    "cc:requires": "cc:Attribution"
+                    }
+                    
+                    ]
+                    }
+                  </script>
+                  <p>
+                    In RDF-vorm, moet er een triple aanwezig zijn (dit wordt in het volgend hoofdstuk beter geïllustreerd) van de volgende vorm:
+                  </p>
+                  <code>
+                    &lt;{URL van huidige pagina}&gt; &lt;http://purl.org/dc/terms/license&gt; &lt;http://data.vlaanderen.be/id/licentie/creative-commons-zero-verklaring/v1.0&gt
+                  </code>
+                </dd>
+                <dt>Toegang tot de gegevens (technisch)</dt>
+                <dd>
+                  <p>
+                    Als een website scrape-vriendelijker wordt gemaakt, wordt vaak gevreesd dat menselijke gebruikers een webpagina niet meer kunnen bezoeken omdat machinale activiteiten alles overbelasten.
+                    Dit hoeft niet zo te zijn als ook de goede caching wordt ingesteld op de server-documenten.
+                    Dit is meestal reeds in voege op overheidswebsites.
+                    Indien niet raden we <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching">de uitleg over caching aan op de website van Mozilla</a> door te geven aan uw website-bouwer en met deze persoon te overleggen.
+                  </p>
+                  <p>
+                    Om Web-toepassingen op andere domeinen ook toegang te geven tot deze publieke gegevens op jouw website, moet een header worden toegevoegd die dit toelaat.
+                    Dit heet de Cross Origin Resource Sharing (CORS) header.
+                    We raden ook hier weer aan om ten rade te gaan bij uw website bouwer. Meer informatie is te vinden op <a href="http://enable-cors.org">http://enable-cors.org</a>.
+                  </p>
+                </dd>
+                <dt>Gestandardiseerd triples vinden in HTML (syntactisch)</dt>
+                <dd>
+                  <p>
+                    Er zijn 2 standaarden om triples te steken in uw pagina: RDFa en JSON-LD-snippets.
+                    <a href="https://www.w3.org/TR/rdfa-primer/">RDFa</a> breidt HTML uit met tags die aangeven hoe een serializer dit kan parsen.
+                    Voor code-voorbeelden en een “playground” verwijzen we naar <a href="https://rdfa.info/play/">RDFa Play</a>.
+                  </p>
+                  <p>
+                    De tweede manier maakt gebruik van een code snippet, net zoals javascript wordt ingevoegd in een pagina.
+                    Daarvoor steek je een JSON-LD-fragment in deze tags: <code> &lt;script type="application/ld+json"&gt;{"@context": "...", "@graph": "..."}&lt;/script&gt;</code>
+                    Voor code-voorbeelden en een “playground” verwijzen we naar <a href="https://json-ld.org/playground/">de website van JSON-LD</a>, alsook de broncode van deze web-pagina (rechtmuisknop - view source).
+                    Ook de <a href="https://developers.google.com/search/docs/guides/mark-up-content">website van Google bevat mooie voorbeelden</a>.
+                    Daar helpt een <a href="https://search.google.com/structured-data/testing-tool?hl=nl">rich snippet validator</a> om jouw rich snippet zo op te bouwen dat de zoekmachine er het beste kan uithalen.
+                  </p>
+                </dd>
+                <dt id="vocabularia">Een domeinmodel kiezen (semantisch)</dt>
+                <dd>
+                  <p>
+                    Een exhaustieve lijst maken van alle URI’s die je mogelijks kan gebruiken om de zaken op jouw pagina te beschrijven is onmogelijk.
+                    Wel geven we een lijst mee van vocabularia waarvan wij denken dat ze direct nuttig kunnen zijn.
+                    Een goeie snippet en slimme mark-up gebruikt een mengeling en vermeldt sommige zaken (zoals titel) meerdere keren met verschillende vocabularia.
+                    <ul class="ul">
+                      <li><a href="https://schema.org">Schema.org</a>: Geliefkoosd door zoekmachines. Een heel simpel vocabularium dat het mogelijk maakt om zaken rudimentair te beschrijven. Let wel: de zoekmachine van bvb. <a href="https://developers.google.com/search/docs/guides/mark-up-content">Google toont slechts een deeltje hiervan</a> in de zoekresultaten.</li>
+                      <li><a href="http://ogp.me/">Open Graph</a>: Geliefkoosd door social-media-netwerken. Zorgt voor mooie voorbeelden als je een URL op social media plaatst.</li>
+                      <li><a href="http://dublincore.org/documents/dcmi-terms/">Dublin Core Terms</a>: Geliefkoosd door archieven. Geeft een lijst van de meest fundamentele metadatavelden.</li>
+                      <li><a href="http://data.vlaanderen.be/ns/#Vocabularia">OSLO²</a>: De vocabularia van de Vlaamse Overheid, gestandardiseerd door een stuurorgaan. Hiermee kan je zaken zoals gemeenteraadsbesluiten, diensten, mandaten, gebouwen, enzovoort bespreken.</li>
+                      <li><a href="http://lov.okfn.org">Linked Open Vocabularies (LOV)</a>: “All you need is LOV” als je op zoek bent naar nog andere vocabularia als uw specifieke use case niet onder de eerste 4 viel.</li>
+                    </ul>
+                  </p>
+                </dd>
+                <dt >Andere URI’s hergebruiken (semantisch)</dt>
+                <dd>
+                  <p>
+                    Niet alleen domeinmodellen moeten worden hergebruikt, ook linken naar andere entiteiten.
+                    Zo kan je je bijvoorbeeld inbeelden dat een bepaalde dienst zal worden geannoteerd met een adres.
+                    Dit adres heeft een unieke identificator, en dus ook een URI, gekregen in het adressenbestand van Informatie Vlaanderen.
+                    Deze URI hergebruiken is een must.
+                    Je kan zelf deze URI’s ontdekken in de webservices van de datasets van de Vlaamse Overheid. Zie <a href="http://data.vlaanderen.be/#Datasets">http://data.vlaanderen.be/#Datasets</a>.
+                  </p>
+                  <p>
+                    Niet aleen Vlaamse ID’s kunnen worden hergebruikt.
+                    Nog een populaire dataset om mee te linken is het <a href="http://wikidata.org">Wikidata project</a>.
+                    Als je wilt linken naar bijvoorbeeld het concept “De Aarde”, kan je nu ook onambigu de URI <code><a href="http://www.wikidata.org/entity/Q2">http://www.wikidata.org/entity/Q2</a></code> gebruiken.
+                    Deze URI’s kan je zelf ontdekken op diverse manieren: handmating via de zoekinterface op de <a href="http://wikidata.org">homepagina van wikidata</a>, of via <a href="https://www.wikidata.org/wiki/Wikidata:Data_access/nl">een van hun web-services of data-dumps</a>.
+                  </p>
+                  <p>
+                    Cruciaal is dat je uiteraard ook voor eigen entiteiten linken legt.
+                    Zo kan bijvoorbeeld iets door jou beschreven op het openbaar domein, beheerd worden door een organisatie die ook beschreven staat op een andere URI.
+                    Dan kan je de link leggen tussen deze twee zaken met het OSLO²-predicaat <code><a href="http://data.vlaanderen.be/ns/openbaardomein#beheerder">http://data.vlaanderen.be/ns/openbaardomein#beheerder</a></code>.
+                  </p>
+                </dd>
+                <dt>Vindbaar maken van uw pagina’s</dt>
+                <dd>
+                  <p>
+                    Een machine vindt uw pagina na het volgen van enkele links uit een andere dataset zoals een dataportaal, of via links volgen vanaf een andere pagina binnen je website.
+                    Om uw dataset goed vindbaar te maken, kan je deze toevoegen aan het dataportaal van uw stad, of op <a href="http://opendata.vlaanderen.be">het opendataportaal van de Vlaamse Overheid</a>.
+                    Indien dit niet van toepassing is, kan je ook <a href="http://dublincore.org/documents/dcmi-terms/">Dublin Core metadata-velden</a> toevoegen in uw pagina, zoals title, creator, modified, etc.
+                  </p>
+                  <p>
+                    Om binnen de website zelf beter vindbaar te maken, kan je nu ook de server-functionaliteit die je aanbiedt aan mensen (zoals een zoek-functie, een overzicht of een filter), vindbaar maken via het <a href="">Hydra-vocabularium</a>.
+                    In Vlaanderen wordt dit op dit moment nog gestandaardiseerd door de <a href="https://overheid.vlaanderen.be/stuurorgaan-werkgroepen">werkgroep “Generieke Hypermedia API” binnen data-standaarden van het Stuurorgaan van de Vlaamse Overheid</a>.
+                  </p>
+                </dd>
+              </dl>
+              <p></p>
+              <h3 class="h3">Lijst van 7 checks</h3>
+              <p>
+                <ul class="bullet-list bullet-list--check">
+                  <li class="bullet-list__item">Er wordt een <em>licentie</em> in RDFa of de JSON-LD snippet toegevoegd via het predicaat <code>dct:license</code>.</li>
+                  <li class="bullet-list__item">Er zit een goede <em>caching</em>-strategie op de website (bvb. via ETag of cache-control).</li>
+                  <li class="bullet-list__item">Er staat een <a href="http://enable-cors.org"><em>CORS</em>-header geconfigureerd</a>.</li>
+                  <li class="bullet-list__item">Je gebruikt <a href="#vocabularia">veel-voorkomende <em>vocabularia</em></a>.</li>
+                  <li class="bullet-list__item">Als je zaken zoals een adres vermeldt, of andere identificatoren van andere pagina’s gebruikt, zorg je dat deze via URI’s <em>gelinkt</em> zijn.</li>
+                  <li class="bullet-list__item">Je dataset en pagina is <em>vindbaar</em> via andere pagina’s.</li>
+                  <li class="bullet-list__item">Je pagina bevat ook in RDF de <em>metadata</em> die het CMS aanbiedt (creator, title, modified, ...).</li>
+                </ul>
+              </p>
+              <p>
+                Als je aan deze checklist voldoet, zal je je pagina kunnen valideren in de <a href="/resources/validator">Smart Flanders validator</a> (binnenkort beschikbaar).
+              </p>
+            </section>
+            <section>
+              <h2 class="h2" id="voorbeelden">Voorbeelden</h2>
+              <p>
+                Ter illustratie pasten we deze checklist toe op een kopie van enkele pagina’s:
+                <ul class="ul">
+                  <li>De pagina waar we nu opzitten bevat een machine-leesbare lijst van toepasbare licenties.</li>
+                  <li>(meer komt)</li>
+                  <!--<li>Aalst.be: een informatie-pagina over een drinkwaterfontein</li>
+                  <li>Antwerpen.be: een informatie-pagina over...  </li>
+                  <li>Het Archief.be: </li>-->
+                </ul>
+                Deze kunnen allen in dit code-fragment bekeken worden:
+                <p data-height="265" data-theme-id="light" data-slug-hash="pVaNKp" data-default-tab="js,result" data-user="pietercolpaert" data-embed-version="2" data-pen-title="RDFa / Rich Snippets demo" class="codepen">See the Pen <a href="https://codepen.io/pietercolpaert/pen/pVaNKp/">RDFa / Rich Snippets demo</a> by Pieter Colpaert (<a href="https://codepen.io/pietercolpaert">@pietercolpaert</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+              </p>
+            </section>
+          </div>
+          <!-- Manual inclusion of right titles here... Make sure to add an id -->
+          <div class="col--2-6 col--1-1--s col-sticky">
+            <nav class="side-navigation js-sticky js-scrollspy" data-scrollspy-mobile="Componenten" data-sticky-offset-top="25">
+              <div class="side-navigation__content">
+                <ul class="side-navigation__group">
+                  <li class="side-navigation__item">
+                    <a href="#scrapen">Wat is web-scraping?</a>
+                  </li>
+                  <li class="side-navigation__item">
+                    <a href="#website-als-open-data">Uw website als Open Data (technisch)</a>
+                  </li>
+                  <li class="side-navigation__item">
+                    <a href="#voorbeelden">Enkele voorbeelden</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    
+    </div>
+    
+  </div>
+</div>
