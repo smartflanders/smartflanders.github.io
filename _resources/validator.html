@@ -58,9 +58,9 @@ permalink: resources/validator
               <form onsubmit="send_to_validator(); return false">
                 <label>Valideer uw dataset:</label>
                 <input id="url_text" type="url" name="url" placeholder="https://www.example.com/"></input>
-                <br/>
+                <!--<br/>
                 <label>Dit is een timeseries dataset:</label>
-                <input id="timeseries_checkbox" type="checkbox">
+                <input id="timeseries_checkbox" type="checkbox">-->
                 <br/>
                 <input type="submit" value="Valideer"/>
               </form>
@@ -83,7 +83,7 @@ permalink: resources/validator
   var validator = new window.sfvalidator("resultaat");
   var send_to_validator = function(){
     document.getElementById("resultaat")
-    validator.is_timeseries = document.getElementById("timeseries_checkbox").checked
+    validator.is_timeseries = false;
     validator.validate_url(document.getElementById("url_text").value);
   }
  </script>
