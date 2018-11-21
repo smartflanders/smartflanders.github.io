@@ -17,7 +17,45 @@ permalink: data
               Deze datasets valideren niet enkel in de Smart Flanders validator, ze doen ook andere zaken goed en kunnen als inspiratie dienen voor jouw data-publishing-project.
             </div>
             <section>
-              <h2 class="h2" id="scrapen">Team Scheire: C-Mine</h2>
+              <h2 class="h2" id="scrapen">Team Scheire: C-Me</h2>
+              <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+              <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+              <style>
+		#map {
+			width: 600px;
+			height: 400px;
+		}
+	      </style>
+              <div id='map'></div>
+              <script>
+	var map = L.map('map');
+
+	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+		maxZoom: 18,
+		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		id: 'mapbox.light'
+	}).addTo(map);
+
+	function onEachFeature(feature, layer) {
+		var popupContent = "<p>I started out as a GeoJSON " +
+				feature.geometry.type + ", but now I'm a Leaflet vector!</p>";
+
+		if (feature.properties && feature.properties.popupContent) {
+			popupContent += feature.properties.popupContent;
+		}
+
+		layer.bindPopup(popupContent);
+	}
+        fetch('https://smart.flanders.be/data/team-scheire-c-me.geojson').then(async (response) => {
+        var jsonLayer = L.geoJSON(await response.json());
+        jsonLayer.addTo(map);
+        map.fitBounds(jsonLayer.getBounds());
+
+        });
+
+              </script>
               <p>
                 Ruwe data: <a href="https://smart.flanders.be/data/team-scheire-c-me.geojson">de GeoJSON/JSON-LD file</a>.
               </p>
@@ -49,7 +87,7 @@ permalink: data
                 "@type": "@id"
                 }
                 },
-                "@id":"https://smart.flanders.be/data",
+                "@id":"https://smart.flanders.be/data.html",
                 "dct:license":"http://data.vlaanderen.be/id/licentie/modellicentie-gratis-hergebruik/v1.0",
                 "dct:rights":"© 2018 Smart Flanders",
                 "dct:title": "Het Open Data Catalogus van lichtende Smart Flanders voorbeelden",
