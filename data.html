@@ -3,6 +3,44 @@ layout: default
 title: Smart Flanders datasets
 permalink: data
 ---
+<!-- This is the description of our datasets in JSON-LD -->
+<script type="application/ld+json">
+  {
+  "@context": {
+  "dct": "http://purl.org/dc/terms/",
+  "cc": "https://creativecommons.org/ns#",
+  "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+  "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+  "owl": "http://www.w3.org/2002/07/owl#",
+  "dcat":"http://www.w3.org/ns/dcat#",
+  "dcat:dataset": {
+  "@type": "@id"
+  },
+  "owl:sameAs": {
+  "@type": "@id"
+  },"dct:license": {
+  "@type": "@id"
+  },"dct:creator": {
+  "@type": "@id"
+  },
+  "rdfs:seeAlso": {
+  "@type": "@id"
+  },
+  "cc:requires": {
+  "@type": "@id"
+  }
+  },
+  "@id":"https://smart.flanders.be/data.html",
+  "dct:license":"http://data.vlaanderen.be/id/licentie/modellicentie-gratis-hergebruik/v1.0",
+  "dct:rights":"© 2018 Smart Flanders",
+  "dct:title": "Het Open Data Catalogus van lichtende Smart Flanders voorbeelden",
+  "dct:creator": "https://pietercolpaert.be/#me",
+  "@type":"dcat:Catalog",
+  "dcat:dataset": [
+  "https://smart.flanders.be/data.html#scheire"
+  ]
+  }
+</script>
 <div class="page">
   <div id="main" itemprop="mainContentOfPage" role="main" tabindex="-1" class="main-content">
     <section class="region">
@@ -16,21 +54,29 @@ permalink: data
               Het zijn datasets die volledig de visie volgen, die kunnen gezien worden als lichtend voorbeeld.
               Deze datasets valideren niet enkel in de Smart Flanders validator, ze doen ook andere zaken goed en kunnen als inspiratie dienen voor jouw data-publishing-project.
             </div>
-            <section>
-              <h2 class="h2" id="scrapen">Team Scheire: C-Me</h2>
+            <section about="https://smart.flanders.be/data.html#scheire" typeOf="http://www.w3.org/ns/dcat#Dataset">
+              <h2 class="h2" id="#scheire"><span property="dcterms:title">Team Scheire: C-Me</span></h2>
               <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
               <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
               <style>
 		#map {
-			width: 600px;
-			height: 400px;
+		  width: 600px;
+		  height: 400px;
+                  margin-bottom: 2em;
 		}
 	      </style>
+              <p property="dcterms:description">
+                Deze dataset werd gebouwd tijdens het programma Team Scheire (<a href="https://www.vrt.be/vrtnu/a-z/team-scheire/1/team-scheire-s1a4/">bekijk hier tot 16 januari de aflevering op VRT NU</a>).
+                Ze vergaarde over een periode van enkele maanden in 2018 de mening van 50 fietsers door Antwerpen.
+                Als de fietsers zich veilig voelden, duwden ze op de groene knop (Like).
+                Als ze zich onveilig voelden, duwden ze op de rode knop (Dislike).
+              </p>
+              <p>Snelle preview:</p>
               <div id='map'></div>
               <script>
 	var map = L.map('map');
 
-	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+	L.tileLayer('https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png?apikey=f2488a35b11044e4844692095875c9ce', {
 		maxZoom: 18,
 		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
 			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
@@ -38,9 +84,20 @@ permalink: data
 		id: 'mapbox.light'
 	}).addTo(map);
 
+        function formatDate(date) {
+           var hours = date.getHours();
+           var minutes = date.getMinutes();
+           var ampm = hours >= 12 ? 'pm' : 'am';
+           hours = hours % 12;
+           hours = hours ? hours : 12; // the hour '0' should be '12'
+           minutes = minutes < 10 ? '0'+minutes : minutes;
+           var strTime = hours + ':' + minutes + ' ' + ampm;
+           return date.getMonth()+1 + "/" + date.getDate() + "/" + date.getFullYear() + "  " + strTime;
+        }
+        
 	function onEachFeature(feature, layer) {
-		var popupContent = "<p>I started out as a GeoJSON " +
-				feature.geometry.type + ", but now I'm a Leaflet vector!</p>";
+		var popupContent = "<p>Iemand duwde op de " +
+				feature.properties['@type'].toLowerCase() + " knop hier op dit moment: " + feature.properties.published + "</p><p><a href='" + feature.properties["@id"] + "'>Permalink naar deze actie</a></p>";
 
 		if (feature.properties && feature.properties.popupContent) {
 			popupContent += feature.properties.popupContent;
@@ -49,56 +106,45 @@ permalink: data
 		layer.bindPopup(popupContent);
 	}
         fetch('https://smart.flanders.be/data/team-scheire-c-me.geojson').then(async (response) => {
-        var jsonLayer = L.geoJSON(await response.json());
+        var jsonLayer = L.geoJSON(await response.json(), {
+        	style: function (feature) {
+			return feature.style;
+		},
+
+		onEachFeature: onEachFeature,
+                pointToLayer: function (feature, latlng) {
+                        console.log(feature);
+                	return L.circleMarker(latlng, {
+				radius: 8,
+				fillColor: feature.properties['marker-color'],
+				color: "#000",
+				weight: 1,
+				opacity: 1,
+				fillOpacity: 0.8
+			});
+		}
+        });
         jsonLayer.addTo(map);
         map.fitBounds(jsonLayer.getBounds());
 
         });
 
               </script>
-              <p>
-                Ruwe data: <a href="https://smart.flanders.be/data/team-scheire-c-me.geojson">de GeoJSON/JSON-LD file</a>.
+              <p rel="http://www.w3.org/ns/dcat#distribution" resource="https://smart.flanders.be/data/team-scheire-c-me.geojson" typeOf="http://www.w3.org/ns/dcat#Distribution">
+                Ruwe data vind je hier: <a href="https://smart.flanders.be/data/team-scheire-c-me.geojson">de GeoJSON/JSON-LD file</a>.
               </p>
               
-              <!-- This is the description of our datasets in JSON-LD -->
-              <script type="application/ld+json">
-                {
-                "@context": {
-                "dct": "http://purl.org/dc/terms/",
-                "cc": "https://creativecommons.org/ns#",
-                "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-                "owl": "http://www.w3.org/2002/07/owl#",
-                "dcat":"http://www.w3.org/ns/dcat#",
-                "dcat:dataset": {
-                "@type": "@id"
-                },
-                "owl:sameAs": {
-                "@type": "@id"
-                },"dct:license": {
-                "@type": "@id"
-                },"dct:creator": {
-                "@type": "@id"
-                },
-                "rdfs:seeAlso": {
-                "@type": "@id"
-                },
-                "cc:requires": {
-                "@type": "@id"
-                }
-                },
-                "@id":"https://smart.flanders.be/data.html",
-                "dct:license":"http://data.vlaanderen.be/id/licentie/modellicentie-gratis-hergebruik/v1.0",
-                "dct:rights":"© 2018 Smart Flanders",
-                "dct:title": "Het Open Data Catalogus van lichtende Smart Flanders voorbeelden",
-                "dct:creator": "https://pietercolpaert.be/#me",
-                "@type":"dcat:Catalog",
-                "dcat:dataset": []
-                }
-              </script>
-              <p>
-              </p>
               
+              <p>
+                Dit is een goed voorbeeld, want de data werden gepubliceerd conform de Smart Flanders principes:
+                <ul class="ul">
+                  <li>De <em>CC-0-licentie</em> werd toegevoegd aan het document en kan automatisch worden ontdekt</li>
+                  <li>Het <a href="https://www.w3.org/TR/activitystreams-core/">W3C Activity Streams vocabularium</a> werd hergebruik om Likes en Dislikes te annoteren en gebruikt zo een <em>internationaal gedragen standaard</em>.</li>
+                  <li>Er werden <em>Cross Origin Resource Sharing headers</em> toegevoegd aan het document, zodat je direct vanuit eender welke website deze dataset direct kan contacteren.</li>
+                  <li>Iedere actie die deze dataset identificeert krijgt ook een globale identificator. Zo kan iedereen verder uitspraken doen over bepaalde Likes of Dislikes.</li>
+                  <li>Naast Linked Data, werd deze dataset ook in een <em>GeoJSON</em>-jasje gestoken, zodat deze gegevens ook voor mensen vertrouwd met GIS-tools direct op kaart kunnen worden gezet.</li>
+                </ul>
+              </p>
             </section>
           </div>
         </div>
