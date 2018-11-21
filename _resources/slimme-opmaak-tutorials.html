@@ -1,0 +1,102 @@
+---
+layout: default
+title: Slimme opmaak tutorials
+permalink: resources/slimme-opmaak-tutorials
+---
+<div class="page">
+  <div id="main" itemprop="mainContentOfPage" role="main" tabindex="-1" class="main-content">
+    <section class="region">
+      <div class="layout layout--wide">
+        <div class="grid">
+          <div class="col--4-6 col--1-1--s">
+            <h1 class="h1">Slimme opmaak tutorials</h1>
+            <p>Dit document is kladversie 0.1</p>
+            <div class="teaser">
+              Steeds meer organisaties wensen hun data te ontsluiten volgens de principes van <a href="https://5stardata.info/en/">Linked Data</a>. Hun “zaken”, bijvoorbeeld een feed van nieuwsberichten, worden vaak ontsloten met hun website, maar is niet leesbaar voor machines. Eén methode om de data te publiceren op het Web is om deze webpagina’s te annoteren met Linked Data (cfr. <a href="/resources/slimme-opmaak">slimme opmaak</a>). Doordat deze methode meer gefragmenteerd is dan traditionele publicatiemethodes (SPARQL-endpoint of RDF data dump) is er onzekerheid over hoe een eindgebruiker automatisch de data van de ganse website kan verzamelen en vragen hierover kan stellen. Met behulp van tutorials tonen we hoe een eindgebruiker zelf aan de slag kan met geannoteerde data. Dit document beschrijft hoe een spreadsheet (CSV-bestand) gegenereerd kan worden en hoe vragen (SPARQL-queries) gesteld kunnen worden, zowel over de website-data als over andere databronnen zoals <a href="http://wikidata.org">Wikidata</a>. Door deze tutorials te volgen en de gebruikte dataset te analyseren krijgen organisaties niet alleen meer inzicht hoe slimme opmaak een kosten-efficiënte manier van Linked Data publicatie is, maar kunnen ook controlleren of de data bevraagbaar is met de aangeboden toolset. De dataset van deze tutorials maakt enkel gebruik van paginering om de subject-pages aan elkaar te linken. Als toekomstig werk worden er andere vormen van hypermedia toegevoegd om bijvoorbeeld full-text-search over basislijsten te kunnen doen.
+            </div>
+            <section>
+              <h2 class="h2" id="gebruikte-dataset">Gebruikte dataset</h2>
+              <p>De tutorials maken gebruik van een recent gepubliceerde slimme-opmaak-dataset: het <a href="https://hetarchief.be">krantenarchief</a> van de eerste Wereldoorlog. Deze website bevat een gepagineerde <a href="https://hetarchief.be/nl/zoeken/%2A?Filetype%5Bdocument%5D=document&sort=none">lijst</a> van meer dan 50.000 kranten. De principes van een gepagineerde lijst die hier worden aangekaart voor kranten blijven hetzelfde bij een ander soort objecten. Hierbij zijn er twee zaken waar op gelet moet worden tijdens het opstellen van de Linked Data: eerst moet ervoor gezorgd worden dat de domein-specifieke metadata, hier krantenmetadata, wordt voorzien, ten tweede mag een machine niet enkel data van één pagina terugvinden, maar ook kan verder zoeken naar de volgende of vorige pagina’s met behulp van hypermedia links.</p>
+
+              <p>
+In het voorbeeld van kranten kan je bovenstaande zaken bekijken door op ‘Bekijk paginabron’ (View page-source) te klikken bij een <a href="https://hetarchief.be/nl/media/semaine-religieuse-du-dioc%C3%A8se-de-li%C3%A8ge/L1eWGUl8QYiOdfGQhvSWrwVx">krant</a>. Bovenaan zie je een script-tag met de Linked Data in JSON-LD formaat, de zogenaamde rich snippet. De domein-specifieke metadata voor een krantenpagina wordt als volgt weergegeven:</p>
+<code>
+      { "@context": [
+            "http://schema.org/",
+            {
+                "dcterms": "http://purl.org/dc/terms/",
+                "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+                "languageLabel": {
+                    "@id": "schema:inLanguage",
+                    "@type": "xsd:String"
+                },
+                "title": "dcterms:title",
+                "xsd": "http://www.w3.org/2001/XMLSchema#",
+                "sio": "http://semanticscience.org/resource/",
+                "pageNumber": {
+                    "@id": "sio:SIO_000787",
+                    "@type": "xsd:String"
+                },
+                "topicOf": {
+                    "@id": "http://xmlns.com/foaf/0.1/topicOf",
+                    "@type": "@id"
+                },
+                "createdDate": {
+                    "@id": "dcterms:created",
+                    "@type": "xsd:date"
+                }
+            },
+        "@id": "https://hetarchief.be/pid/6688g8g656/7",
+        "@type": "schema:CreativeWork",
+        "datePublished": "1914-01-31",
+        "headline": "Semaine religieuse du diocèse de Liège",
+        "languageLabel": "fr",
+        "publisher": "KADOC",
+        "title": "Semaine religieuse du diocèse de Liège",
+        "createdDate": "1914-01-31",
+        "topicOf": [
+            "http://anet.be/record/abraham/opacbnc/c:bnc:5326"
+        ],
+        "pageNumber": "7"
+    },
+</code>
+<p>
+  Om hypermedia metadata toe te voegen werd er gekeken naar wat er zich reeds bevindt op de website. Zoals je kan zien in onderstaande figuur bestaat er reeds een link naar de vorige en volgende item.
+</p>
+<img class="image" src="/assets/hetarchief-paginering.jpg">
+<p>Om dit machine-leesbaar te maken werd de generieke hypermedia <a href="https://github.com/Informatievlaanderen/generieke-hypermedia-api/blob/master/paginering.md">standaard</a> van OSLO op het semantisch niveau gevolgd:</p>
+<code>
+  {
+    "@context": "http://www.w3.org/ns/hydra/context.jsonld",
+    "@id": "https://hetarchief.be/nl/media/semaine-religieuse-du-dioc%C3%A8se-de-li%C3%A8ge/L1eWGUl8QYiOdfGQhvSWrwVx",
+    "previous": "https://hetarchief.be/nl/media/semaine-religieuse-du-dioc\u00e8se-de-li\u00e8ge/Q2eHAKighhXbNhWjXaGCsDA1",
+    "next": "https://hetarchief.be/nl/media/semaine-religieuse-du-dioc\u00e8se-de-li\u00e8ge/qOVsIWKTfhXlqaNUQ4cQZcOY"
+  }
+</code>
+            </section>
+            <section>
+              <h2 class="h2" id="tut-1">Tutorial 1: uw website als een spreadsheet</h2>
+              <p>Linked Data gebruikt het Resource Description Framework (RDF) als methode om kennis weer te geven. Elk stukje kennis wordt voorgesteld als een triple: subject - predikaat - object. Deze stukjes samen kunnen weergegeven worden als een graaf waardoor RDF dus een graafmodel is. Bij een spreadsheet wordt een tabulair formaat gebruikt, bijvoorbeeld het Comma Seperated Value (CSV) formaat. De graaf van triples zal bijgevolg omgevormd worden naar een tabel zoals weergegeven in onderstaande figuur. Het idee hierbij is dat in de meest linkse kolom het onderwerp (subject) staat waarover uitgespraken gedaan worden. De kolomwaardes in de header stellen de predikaten voor en de cellen per rij stellen de objects voor. Deze objects kunnen ofwel verwijzen naar een ander onderwerp (complex object) of bevatten een echte waarde (string, integer, datum...).</p>
+              <img class="image" src="/assets/slimme-opmaak-tutorials-graaf-naar-tabel.jpg">
+
+              <p data-height="265" data-theme-id="0" data-slug-hash="Kryjvr" data-default-tab="result" data-user="brechtvdv" data-pen-title="Slimme opmaak als spreadsheet" class="codepen">See the Pen <a href="https://codepen.io/brechtvdv/pen/Kryjvr/">Slimme opmaak als spreadsheet</a> by Brecht Van de Vyvere (<a href="https://codepen.io/brechtvdv">@brechtvdv</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+              <p>
+              Deze manier van voorstellen zorgt er weliswaar voor dat verbanden tussen complexe objecten moeilijker te benaderen zijn in spreadsheets. De spreadsheet is bijgevolg meer een verkennende methode voor niet-technische profielen. In volgende tutorial wordt getoond hoe rechtstreeks vragen gesteld kunnen worden over de Linked Data.</p>
+            </section>
+            <section>
+              <h2 class="h2" id="tut-2">Tutorial 2: uw website query'en</h2>
+              <p>Het bevragen of query'en van Linked Datasets kan op verschillende manieren gebeuren. Meestal hangt dit af van het soort interface (SPARQL-endpoint, RDF datadump...) die aangeboden wordt. Recent wordt er meer ingezet op tools die met meerdere interfaces kan omgaan.</p>
+              <dl class="dl">
+                <dt>In een javascript omgeving</dt>
+                <dd>todo
+                </dd>
+                <dt>In niet-javascript omgeving (PHP, Java...)</dt>
+                <dd>todo
+                </dd>
+              </dl>
+            </section>
+    </div>
+  </div>
+</div>
