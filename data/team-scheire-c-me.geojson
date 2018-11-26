@@ -4,33 +4,33 @@
     "properties": "@graph",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "published": {
-      "@id": "http://www.w3.org/ns/activitystreams#published",
+      "@id": "https://www.w3.org/ns/activitystreams#published",
       "@type": "xsd:dateTime"
     },
     "latitude": {
-      "@id": "http://www.w3.org/ns/activitystreams#latitude",
+      "@id": "https://www.w3.org/ns/activitystreams#latitude",
       "@type": "xsd:float"
     },
     "longitude": {
-      "@id": "http://www.w3.org/ns/activitystreams#longitude",
+      "@id": "https://www.w3.org/ns/activitystreams#longitude",
       "@type": "xsd:float"
     },
     "altitude": {
-      "@id": "http://www.w3.org/ns/activitystreams#altitude",
+      "@id": "https://www.w3.org/ns/activitystreams#altitude",
       "@type": "xsd:float"
     },
     "radius": {
-      "@id": "http://www.w3.org/ns/activitystreams#radius",
+      "@id": "https://www.w3.org/ns/activitystreams#radius",
       "@type": "xsd:float"
     },
     "Like": {
-      "@id": "http://www.w3.org/ns/activitystreams#Like"
+      "@id": "https://www.w3.org/ns/activitystreams#Like"
     },
     "Dislike": {
-      "@id": "http://www.w3.org/ns/activitystreams#Dislike"
+      "@id": "https://www.w3.org/ns/activitystreams#Dislike"
     },
     "object": {
-      "@id": "http://www.w3.org/ns/activitystreams#object"
+      "@id": "https://www.w3.org/ns/activitystreams#object"
     },
     "license": {
       "@id": "http://purl.org/dc/terms/license",
