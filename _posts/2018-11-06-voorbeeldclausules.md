@@ -1,5 +1,5 @@
 ---
-title: Smart Flanders interview met Open & Agile Smart Cities 
+title: Open Data Charter vertaald in bruikbare voorbeeldclausules 
 layout: post
 category: nieuws
 ---
