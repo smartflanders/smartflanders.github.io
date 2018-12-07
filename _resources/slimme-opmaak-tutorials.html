@@ -12,15 +12,20 @@ permalink: resources/slimme-opmaak-tutorials
             <h1 class="h1">Slimme opmaak tutorials</h1>
             <p>Dit document is kladversie 0.1</p>
             <div class="teaser">
-              Steeds meer organisaties wensen hun data te ontsluiten volgens de principes van <a href="https://5stardata.info/en/">Linked Data</a>. Hun “zaken”, bijvoorbeeld een feed van nieuwsberichten, worden vaak ontsloten met hun website, maar is niet leesbaar voor machines. Eén methode om de data te publiceren op het Web is om deze webpagina’s te annoteren met Linked Data (cfr. <a href="/resources/slimme-opmaak">slimme opmaak</a>). Doordat deze methode meer gefragmenteerd is dan traditionele publicatiemethodes (SPARQL-endpoint of RDF data dump) is er onzekerheid over hoe een eindgebruiker automatisch de data van de ganse website kan verzamelen en vragen hierover kan stellen. Met behulp van tutorials tonen we hoe een eindgebruiker zelf aan de slag kan met geannoteerde data. Dit document beschrijft hoe een spreadsheet (CSV-bestand) gegenereerd kan worden en hoe vragen (SPARQL-queries) gesteld kunnen worden, zowel over de website-data als over andere databronnen zoals <a href="http://wikidata.org">Wikidata</a>. Door deze tutorials te volgen en de gebruikte dataset te analyseren krijgen organisaties niet alleen meer inzicht hoe slimme opmaak een kosten-efficiënte manier van Linked Data publicatie is, maar kunnen ook controlleren of de data bevraagbaar is met de aangeboden toolset. De dataset van deze tutorials maakt enkel gebruik van paginering om de subject-pages aan elkaar te linken. Als toekomstig werk worden er andere vormen van hypermedia toegevoegd om bijvoorbeeld full-text-search over basislijsten te kunnen doen.
+              Steeds meer organisaties wensen hun data te ontsluiten volgens de principes van <a href="https://5stardata.info/en/">Linked Data</a>. Hun “zaken”, bijvoorbeeld een feed van nieuwsberichten, ontsluiten ze met een website, maar deze laatste is meestal niet leesbaar voor machines. Hun website is met name gebouwd om mensen een mooie weergave van de zaken te tonen. Eén methode om de ruwe machine-leesbare data te publiceren op het Web is om de website te annoteren met Linked Data (cfr. <a href="/resources/slimme-opmaak">slimme opmaak</a>). Doordat deze methode meer gefragmenteerd is dan traditionele Linked Data-publicatiemethodes (SPARQL-endpoint of datadump) is er onzekerheid over hoe een eindgebruiker automatisch de data van de gehele website kan verzamelen en vragen hierover kan stellen. Met behulp van deze tutorials tonen we hoe een eindgebruiker zelf aan de slag kan met geannoteerde websites. Dit document beschrijft hoe een spreadsheet (CSV-bestand) gegenereerd kan worden en hoe vragen (SPARQL-queries) gesteld kunnen worden, zowel over de data op de website als over andere databronnen (cfr. <a href="http://wikidata.org">Wikidata</a>). Door deze tutorials te volgen en de gebruikte dataset te analyseren krijgen organisaties niet alleen meer inzicht hoe slimme opmaak een kosten-efficiënte manier van Linked Data-publicatie is, maar kunnen ook hun data testen met de aangeboden toolset.
             </div>
             <section>
               <h2 class="h2" id="gebruikte-dataset">Gebruikte dataset</h2>
-              <p>De tutorials maken gebruik van een recent gepubliceerde slimme-opmaak-dataset: het <a href="https://hetarchief.be">krantenarchief</a> van de eerste Wereldoorlog. Deze website bevat een gepagineerde <a href="https://hetarchief.be/nl/zoeken/%2A?Filetype%5Bdocument%5D=document&sort=none">lijst</a> van meer dan 50.000 kranten. De principes van een gepagineerde lijst die hier worden aangekaart voor kranten blijven hetzelfde bij een ander soort objecten. Hierbij zijn er twee zaken waar op gelet moet worden tijdens het opstellen van de Linked Data: eerst moet ervoor gezorgd worden dat de domein-specifieke metadata, hier krantenmetadata, wordt voorzien, ten tweede mag een machine niet enkel data van één pagina terugvinden, maar ook kan verder zoeken naar de volgende of vorige pagina’s met behulp van hypermedia links.</p>
+              <p>De tutorials maken gebruik van een recent gepubliceerde 'slimme-opmaak'-dataset: het <a href="https://hetarchief.be">krantenarchief</a> van de eerste Wereldoorlog. Deze website bevat een gepagineerde <a href="https://hetarchief.be/nl/zoeken/%2A?Filetype%5Bdocument%5D=document&sort=none">lijst</a> van meer dan 50 000 kranten. De Linked Data bevat twee onderdelen: ten eerste is er de domein-specifieke metadata, zoals de metadata over een krant. Ten tweede mag een machine niet enkel data van één pagina terugvinden, maar moet ook verder kunnen zoeken naar de volgende of vorige pagina’s met behulp van hypermedia controls.</p>
 
+              <p>Om de slimme opmaak van de krantendataset te vinden, ga je naar een krant zoals deze <a href="https://hetarchief.be/nl/media/semaine-religieuse-du-dioc%C3%A8se-de-li%C3%A8ge/L1eWGUl8QYiOdfGQhvSWrwVx">krant</a> en klik je met je rechtermuisknop op ‘Bekijk paginabron’ (View page-source). Bovenaan zie je een script-tag met de Linked Data in JSON-LD formaat. Deze vorm van slimme opmaak noemt 'rich snippets'.</p>
+
+              <dl class="dl">
+                <dt>Domein-specifieke metadata</dt>
+                <dd>
               <p>
-In het voorbeeld van kranten kan je bovenstaande zaken bekijken door op ‘Bekijk paginabron’ (View page-source) te klikken bij een <a href="https://hetarchief.be/nl/media/semaine-religieuse-du-dioc%C3%A8se-de-li%C3%A8ge/L1eWGUl8QYiOdfGQhvSWrwVx">krant</a>. Bovenaan zie je een script-tag met de Linked Data in JSON-LD formaat, de zogenaamde rich snippet. De domein-specifieke metadata voor een krantenpagina wordt als volgt weergegeven:</p>
-<code>
+De domein-specifieke metadata van een krantenpagina wordt als volgt weergegeven:</p>
+<pre class="prettyprint">
       { "@context": [
             "http://schema.org/",
             {
@@ -58,36 +63,91 @@ In het voorbeeld van kranten kan je bovenstaande zaken bekijken door op ‘Bekij
             "http://anet.be/record/abraham/opacbnc/c:bnc:5326"
         ],
         "pageNumber": "7"
-    },
-</code>
+    }
+</pre>
+<div class="caption"><em><span style="font-size: small;">Snippet 1: eigenschappen van een krantenpagina beschreven volgens semantische standaarden.</span></em></div>
+
+<p>Bovenstaande snippet toont hoe metadata zoals titel, uitgever, datum van creatie etc. worden gemapt naar datastandaarden in de <code>@context</code>, e.g. DCTerms, FOAF, schema.org. Deze metadata is in lijn met de design-principes van Linked Data:
+  <ol class="ol">
+    <li><em>Gebruik HTTP URI's (webadressen) om zaken te benoemen:</em> Een krant heeft bijvoorbeeld volgend webadres: <code>https://hetarchief.be/pid/6688g8g656</code>. Pagina 7 van deze laatste heeft volgend webadres: <code>https://hetarchief.be/pid/6688g8g656/7</code></li>
+    <li><em>Wanneer iemand dit webadres opzoekt, geef relevante informatie terug:</em> Dankzij rich snippets is er niet alleen mens-leesbare (HTML), maar ook machine-leesbare informatie (JSON-LD) die semantische standaarden volgt.</li>
+    <li><em>Voeg links naar andere relevante databronnen:</em> Er is een verwijzing opgenomen naar de catalogus van Belgische kranten (<a href="http://anet.be/record/abraham/opacbnc/c:bnc:5326">ABRAHAM</a>). Deze beschrijft diezelfde krant en bevat dus andere relevante informatie.</li>
+  </ol>
 <p>
-  Om hypermedia metadata toe te voegen werd er gekeken naar wat er zich reeds bevindt op de website. Zoals je kan zien in onderstaande figuur bestaat er reeds een link naar de vorige en volgende item.
-</p>
-<img class="image" src="/assets/hetarchief-paginering.jpg">
-<p>Om dit machine-leesbaar te maken werd de generieke hypermedia <a href="https://github.com/Informatievlaanderen/generieke-hypermedia-api/blob/master/paginering.md">standaard</a> van OSLO op het semantisch niveau gevolgd:</p>
-<code>
+
+<p>Een eindgebruiker kan makkelijk informatie terugvinden in een website, onder andere door de verscheidene navigatie-middelen die ter beschikking gesteld worden: een overzichtpagina, zoekbalk, paginering etc. In volgende paragraaf bekijken we hoe deze stuurmiddelen, zogenaamd hypermedia controls, ook voor een machine nuttig zijn en hoe deze toegepast worden voor paginering.</p>
+</dd>
+</dt>
+<dt>Hypermedia controls</dt>
+<dd>
+  <p>
+    Hypermedia controls laten toe dat een gebruiker hints ziet om meer informatie te vinden. Een kaart laat bijvoorbeeld toe om in een bepaald geografisch gebied te zoeken. Voor de gebruikte dataset van kranten werd er gekeken wat er reeds bij elke krant zichtbaar is. In figuur 1 zie je dat de krant een verwijzing heeft naar een vorige en volgende krant. Bijgevolg is de volledige collectie aan elkaar gelinkt.
+  </p>
+
+<img class="image" src="/assets/hetarchief-paginering.jpg" style="border: 1px solid #888; padding: 2px; border-radius: 3px;">
+<div class="caption"><em><span style="font-size: small;">Figuur 1: een krant bevat mens-leesbare links naar de vorige en volgende krant.</span></em></div>
+
+<p>Voor een mens is het visueel logisch wat deze knoppen doen, maar een machine weet niet wat hier precies mee bedoeld wordt, behalve dat het links zijn. Om dit semantisch te beschrijven met termen die een machine wel kan verstaan wordt er gekeken naar de veelgebruikte Web API standaard <em>Hydra</em>. Deze zegt dat een volgende pagina wordt aangeduid met de term <code>http://www.w3.org/ns/hydra/core#next</code> en vice versa <code>http://www.w3.org/ns/hydra/core#previous</code>. Deze manier van annoteren wordt ook door de Vlaamse Overheid gepromoot in de <a href="https://github.com/Informatievlaanderen/generieke-hypermedia-api/blob/master/paginering.md">generieke hypermedia standaard</a> binnen het Open Standaarden voor Linkende Organisaties (<a href="https://data.vlaanderen.be/">OSLO</a>) traject.</p>
+
+<p>Snippet 2 toont hoe paginering in een rich snippet is beschreven. <code>@id</code> verwijst naar het webadres van het document van de krant en dus niet het webadres van de krant zelf. <code>Next</code> en <code>previous</code> verwijzen door naar het volgende en vorige document.</p>
+<pre class="prettyprint">
   {
     "@context": "http://www.w3.org/ns/hydra/context.jsonld",
     "@id": "https://hetarchief.be/nl/media/semaine-religieuse-du-dioc%C3%A8se-de-li%C3%A8ge/L1eWGUl8QYiOdfGQhvSWrwVx",
     "previous": "https://hetarchief.be/nl/media/semaine-religieuse-du-dioc\u00e8se-de-li\u00e8ge/Q2eHAKighhXbNhWjXaGCsDA1",
     "next": "https://hetarchief.be/nl/media/semaine-religieuse-du-dioc\u00e8se-de-li\u00e8ge/qOVsIWKTfhXlqaNUQ4cQZcOY"
   }
-</code>
+</pre>
+<div class="caption"><em><span style="font-size: small;">Snippet 2: een krant bevat machine-leesbare links naar de vorige en volgende krant.</span></em></div>
+
+<p>
+  Tot slot willen we nog even aankaarten hoe krachtig deze hypermedia links zijn. Deze links laten toe om met een eenvoudig script alle data te downloaden wat voorheen enorm veel manueel werk vroeg (cfr. <a href="https://nl.wikipedia.org/wiki/Scrapen">Web scraping</a>). Onderstaande GIF demonstreert hoe met één commando (<a href="https://www.npmjs.com/package/ldfetch">LDFetch</a>) alle data als een stream gedownload kan worden. LDFetch leest het document dat opgegeven werd in en geeft alle gevonden triples terug. Met de parameter <code>-p</code> kan een <em>p</em>redikaat meegegeven worden waarvan de eventuele gevonden waarde gevolgd moet worden. Zo ontstaat er een ketting van documenten die opgevraagd worden. Dit commando is generiek gebouwd waardoor het ook op andere datasets gebruikt kan worden.
+</p>
+
+<img class="image" src="/assets/hetarchief.gif" style="border: 1px solid #888; padding: 2px; border-radius: 3px;">
+<div class="caption"><em><span style="font-size: small;">Met behulp van één commando kan de volledige dataset als een stream gedownload worden.</span></em></div>
+</dd>
+</dl>
+
+<p>
+In volgend hoofdstuk bespreken we hoe een gebruiker een gepagineerde dataset kan downloaden als een spreadsheet.
+</p>
             </section>
             <section>
               <h2 class="h2" id="tut-1">Tutorial 1: uw website als een spreadsheet</h2>
-              <p>Linked Data gebruikt het Resource Description Framework (RDF) als methode om kennis weer te geven. Elk stukje kennis wordt voorgesteld als een triple: subject - predikaat - object. Deze stukjes samen kunnen weergegeven worden als een graaf waardoor RDF dus een graafmodel is. Bij een spreadsheet wordt een tabulair formaat gebruikt, bijvoorbeeld het Comma Seperated Value (CSV) formaat. De graaf van triples zal bijgevolg omgevormd worden naar een tabel zoals weergegeven in onderstaande figuur. Het idee hierbij is dat in de meest linkse kolom het onderwerp (subject) staat waarover uitgespraken gedaan worden. De kolomwaardes in de header stellen de predikaten voor en de cellen per rij stellen de objects voor. Deze objects kunnen ofwel verwijzen naar een ander onderwerp (complex object) of bevatten een echte waarde (string, integer, datum...).</p>
-              <img class="image" src="/assets/slimme-opmaak-tutorials-graaf-naar-tabel.jpg">
 
-              <p data-height="265" data-theme-id="0" data-slug-hash="Kryjvr" data-default-tab="result" data-user="brechtvdv" data-pen-title="Slimme opmaak als spreadsheet" class="codepen">See the Pen <a href="https://codepen.io/brechtvdv/pen/Kryjvr/">Slimme opmaak als spreadsheet</a> by Brecht Van de Vyvere (<a href="https://codepen.io/brechtvdv">@brechtvdv</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+              <p>Linked Data gebruikt het Resource Description Framework (RDF) als model om data op te stellen. Elke stukje data wordt als een <a href="https://nl.wikipedia.org/wiki/Resource_Description_Framework">triple</a> (subject-predikaat-object) beschreven waarbij subject en object een node zijn en het predikaat de verbinding tussen die twee nodes. RDF data stelt dus een graaf van nodes en verbindingen voor. Een spreadsheet daarentegen werkt met een tabulair model van rijen en kolommen.</p>
+
+              <p>Om de graaf van gelinkte data naar een tabel te converteren kan de SPARQL query-taal gebruikt worden. Een SPARQL-query beschrijft een bepaalde vraag aan de hand van patronen waaraan het resultaat moet voldoen. Om een voorbeeld te geven toont snippet 3 hoe alle kranten opgevraagd kunnen worden met in de eerste kolom de identificator van de krant en in de tweede kolom de datum van publicatie. Dit brengt ons meteen waarom we een SPARQL-query gebruiken om een spreadsheet op te bouwen: wat er vermeld staat in de <code>SELECT</code>-clausule stelt de kolommen voor van de spreadsheet. Bijgevolg stelt elk gevonden resultaat een rij van de tabel voor.
+              Meer informatie over SPARQL-queries kan <a href="https://medium.com/wallscope/constructing-sparql-queries-ca63b8b9ac02">hier</a> gevonden worden.</p>
+
+              <pre class="prettyprint">
+              SELECT ?krant ?publicatiedatum
+              WHERE {
+                ?krant &lt;http://www.w3.org/2000/01/rdf-schema#type&gt; &lt;http://schema.org/Newspaper&gt; .
+                ?krant &lt;http://schema.org/datePublished&gt; ?publicatiedatum .
+              }</pre>
+              <div class="caption"><em><span style="font-size: small;">Snippet 3: SPARQL-query om een lijstje van kranten en bijhorende publicatiedatum op te vragen.</span></em></div>
 
               <p>
-              Deze manier van voorstellen zorgt er weliswaar voor dat verbanden tussen complexe objecten moeilijker te benaderen zijn in spreadsheets. De spreadsheet is bijgevolg meer een verkennende methode voor niet-technische profielen. In volgende tutorial wordt getoond hoe rechtstreeks vragen gesteld kunnen worden over de Linked Data.</p>
+                Deze tutorial maakt gebruik van Codepens om code uit te voeren. Een Codepen is een sandbox waarbinnen HTML, CSS en JavaScript gedraaid kan worden. Dit laat toe dat iedereen makkelijk in de code kan duiken om bepaalde technieken te leren.
+                Om de data op te vragen maken we gebruik van <a href="http://comunica.linkeddatafragments.org/">Comunica</a>. Deze bibliotheek laat toe om verschillende soorten databronnen te bevragen. Binnen deze tutorial bevragen we de gepagineerde krantencollectie en extraheren we hieruit een CSV-bestand.
+              </p>
+
+              <!-- <img class="image" src="/assets/slimme-opmaak-tutorials-graaf-naar-tabel.jpg">-->
+
+              <p data-height="542" data-theme-id="0" data-slug-hash="ebOzXB" data-default-tab="result" data-user="brechtvdv" data-pen-title="Converteren van website naar spreadsheet" class="codepen">See the Pen <a href="https://codepen.io/brechtvdv/pen/ebOzXB/">Converteren van website naar spreadsheet</a> by Brecht Van de Vyvere (<a href="https://codepen.io/brechtvdv">@brechtvdv</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+              <div class="caption"><em><span style="font-size: small;">Codepen 1: webapplicatie om een spreadsheet te downloaden door te verwijzen naar een dataset.</span></em></div>
+
+              <p>
+                In volgende hoofdstuk beschrijven hoe de gepagineerde dataset bevraagd kan worden met andere databronnen zoals <a href="https://www.wikidata.org/wiki/Wikidata:Main_Page">Wikidata</a>.
+              </p>
             </section>
             <section>
               <h2 class="h2" id="tut-2">Tutorial 2: uw website query'en</h2>
-              <p>Het bevragen of query'en van Linked Datasets kan op verschillende manieren gebeuren. Meestal hangt dit af van het soort interface (SPARQL-endpoint, RDF datadump...) die aangeboden wordt. Recent wordt er meer ingezet op tools die met meerdere interfaces kan omgaan.</p>
+              <h3>Onder constructie</h3>
+              <!-- <p>Het bevragen van Linked Data kan op verschillende manieren gebeuren. Typisch hangt dit samen met het soort interface (SPARQL-endpoint, RDF datadump...) die aangeboden wordt. Dankzij de Comunica-engine is het mogelijk om over verschillende soorten interfaces te query'en. Net zoals hierboven gebruiken we Comunica als een Javascript-bibliotheek in de browser. Nu gaan niet enkel de gepagineerde dataset query'en, maar ook met de databron Wikidata.</p>
               <dl class="dl">
                 <dt>In een javascript omgeving</dt>
                 <dd>todo
@@ -96,6 +156,9 @@ In het voorbeeld van kranten kan je bovenstaande zaken bekijken door op ‘Bekij
                 <dd>todo
                 </dd>
               </dl>
+
+              <p>Ook externe partijen kunnen analyses maken hierbovenop. Comunica kan hier makkelijk mee overweg door bijvoorbeeld Linked Data bestanden toe te voegen aan het query-commando.
+              </p> -->
             </section>
     </div>
   </div>
