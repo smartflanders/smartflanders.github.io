@@ -1,5 +1,5 @@
 ---
-title: Publicatie "Open Data: Opportuniteiten en Uitdagingen voor Lokale Besturen" beschikbaar 
+title: Publicatie Open Data: Opportuniteiten en Uitdagingen voor Lokale Besturen beschikbaar 
 layout: post
 category: nieuws
 ---
