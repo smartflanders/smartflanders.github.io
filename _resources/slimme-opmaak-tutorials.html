@@ -141,24 +141,76 @@ In volgend hoofdstuk bespreken we hoe een gebruiker een gepagineerde dataset kan
               <div class="caption"><em><span style="font-size: small;">Codepen 1: webapplicatie om een spreadsheet te downloaden door te verwijzen naar een dataset.</span></em></div>
 
               <p>
-                In volgende hoofdstuk beschrijven hoe de gepagineerde dataset bevraagd kan worden met andere databronnen zoals <a href="https://www.wikidata.org/wiki/Wikidata:Main_Page">Wikidata</a>.
+                In volgende hoofdstuk beschrijven hoe de dataset bevraagd kan worden met behulp van GraphQL-LD.
               </p>
             </section>
             <section>
               <h2 class="h2" id="tut-2">Tutorial 2: uw website query'en</h2>
-              <h3>Onder constructie</h3>
-              <!-- <p>Het bevragen van Linked Data kan op verschillende manieren gebeuren. Typisch hangt dit samen met het soort interface (SPARQL-endpoint, RDF datadump...) die aangeboden wordt. Dankzij de Comunica-engine is het mogelijk om over verschillende soorten interfaces te query'en. Net zoals hierboven gebruiken we Comunica als een Javascript-bibliotheek in de browser. Nu gaan niet enkel de gepagineerde dataset query'en, maar ook met de databron Wikidata.</p>
-              <dl class="dl">
-                <dt>In een javascript omgeving</dt>
-                <dd>todo
-                </dd>
-                <dt>In niet-javascript omgeving (PHP, Java...)</dt>
-                <dd>todo
-                </dd>
-              </dl>
+              <p>De doelstelling van deze tutorial is om aan te tonen hoe je Linked Open Data van een webpagina op een makkelijke manier kunt ophalen zodat deze herbruikbaar is voor andere doeleinden. SPARQL is de meest gebruikte manier om Linked Open Data te bevragen, maar heeft als heikel punt dat het resultaat een verzameling van triples is. Recent werd hierop ingespeeld met een object georiënteerde taal <a href="https://github.com/RubenVerborgh/LDflex">LDflex</a> die we hier niet verder bespreken. Bij Web ontwikkelaars gaat de voorkeur om te werken met JSON-objecten. Comunica biedt hier ook een antwoord op dankzij <a href="https://github.com/rubensworks/GraphQL-LD.js">GraphQL-LD</a>. In volgende paragraaf beschrijven een ontwikkelaar dit kan gebruiken om een JSON-object te genereren uit een webpagina.
 
-              <p>Ook externe partijen kunnen analyses maken hierbovenop. Comunica kan hier makkelijk mee overweg door bijvoorbeeld Linked Data bestanden toe te voegen aan het query-commando.
-              </p> -->
+              Comunica heeft een uitgebreide <a href="https://github.com/comunica/comunica/tree/master/packages/actor-init-sparql">documentatie</a> om dit te installeren op zowel de server-side, client-side als command line (cli). Binnen deze tutorial demonstreren we hoe de command line gebruikt kan worden voor GraphQL commando's. Dit heeft als voordeel dat de data doorgestuurd kan worden naar een andere applicatie. 
+
+              Open een terminal en voer volgend commando uit om Comunica globaal te installeren (merk op dat je <a href="https://www.npmjs.com/get-npm>">NPM</a> geïnstalleerd moet hebben):
+
+              <pre class="prettyprint">
+              $ [sudo] npm install -g @comunica/actor-init-sparql
+              </pre>
+              <div class="caption"><em><span style="font-size: small;">Snippet 4: Comunica als globaal commando installeren in de command line.</span></em></div>
+
+              Comunica werkt met GraphQL-LD, een Linked Data-compatibele versie van GraphQL. Dit houdt in dat de termen in de GraphQL-query globale identificatoren krijgen met behulp van een JSON-LD context. Volgende query haalt een Krant (id) op, toont de titel van de krant en een oplijsting van de pagina-id's: 
+
+               <pre class="prettyprint">
+              query @single(scope: all) {
+                graph 
+                id
+                type
+                ... on Krant { 
+                  titel
+                  paginas {
+                    id
+                    type
+                  } 
+                }
+              }
+              </pre>
+              <div class="caption"><em><span style="font-size: small;">Snippet 5: GraphQL query om de metadata van een krant op te halen.</span></em></div>
+
+              Volgende JSON-LD context mapt de termen van de GraphQL-query naar globale identificatoren (URI's). Merk op dat deze overeen komen met de URI's die gebruikt worden in de Linked Open Data-set: 
+               <pre class="prettyprint">
+              {
+                "@context": {
+                  "titel": "http://purl.org/dc/terms/title",
+                  "type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "Krant": "http://schema.org/Newspaper",
+                  "paginas": "http://schema.org/hasPart"
+                }
+              }
+              </pre>
+              <div class="caption"><em><span style="font-size: small;">Snippet 6: met een JSON-LD context wordt de GraphQL-query gealigneerd met het datamodel van de gebruikte Linked Open Dataset.</span></em></div>
+
+              Om de GraphQL-query uit te voeren met Comunica dient de JSON-LD context opgeslagen te worden in een JSON-bestand (bv. graphql-config.json). Voer daarna volgend commando uit:
+              <pre class="prettyprint">
+              comunica-sparql https://nieuwsvandegrooteoorlog.hetarchief.be/nl/media/verordeningsblad-voor-het-etappengebied-van-het-4e-leger/F1tQSYoRdEmTSnhWmwIE82be -q 'query @single(scope: all){ graph id type ... on Krant { titel paginas { id type } } }' -c graphql-config.json -i graphql -t tree
+              </pre>
+              <div class="caption"><em><span style="font-size: small;">Snippet 7: het uitvoeren van de GraphQL-query.</span></em></div>
+
+              Dit geeft onderstaand JSON-object terug als resultaat. Een applicatie kan het comunica-commando uitvoeren met een script, het resultaat opslaan in een bestand of dit <a href="http://www.westwind.com/reference/os-x/commandline/pipes.html">pipen</a> (`|`) en via standaard input inlezen.
+             
+              <pre class="prettyprint">
+              {
+                "id": "https://hetarchief.be/pid/804xg9gs1q",
+                "type": "http://schema.org/Newspaper",
+                "graph": "https://nieuwsvandegrooteoorlog.hetarchief.be/nl/media/verordeningsblad-voor-het-etappengebied-van-het-4e-leger/F1tQSYoRdEmTSnhWmwIE82be",
+                "paginas": {
+                  "type": "http://schema.org/CreativeWork",
+                  "id": "https://hetarchief.be/pid/804xg9gs1q/1"
+                },
+                "titel": "Verordeningsblad voor het Etappengebied van het 4e Leger"
+              }
+              </pre>
+              <div class="caption"><em><span style="font-size: small;">Snippet 8: Het resultaat in JSON</span></em></div>
+
+              </p>
             </section>
     </div>
   </div>
