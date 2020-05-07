@@ -22,4 +22,7 @@ Eenmaal je vertrouwd bent met hoe github op jouw machine werkt moet je Jekyll in
  * Als je een nieuwe pagina wilt aanmaken, volg dat het voorbeeld van `about.html`. Je kan ook dit in plaats van HTML in Markdown schrijven. Maak dan een file aan met de extensie .md in plaats van .html. Je zal wel dezelfde jekyll "frontmatter" nodig hebben (iets tussen `---` aan het begin van de pagina).
  * Als je wil prutsen aan het theme, zijn `_layouts` en `_includes` goeie startpunten. De CSS bevindt zich dan weer in `assets/`
 
-
+## Branches
+* Development branch bevat wijzigingen die naar master zouden moeten geraken. Maak andere "feature" branches als je gewoon wil experimenteren.
+* Test branch staat dicht. Deze deployt naar de test omgeving.
+* Master branch staat eveneens dicht. Deze deployt naar https://smart.flanders.be.
