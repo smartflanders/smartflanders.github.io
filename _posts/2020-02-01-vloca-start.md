@@ -10,4 +10,4 @@ Slimme steden en gemeenten steunen op technologische oplossingen. Dat digitale p
 
 Elke stad of gemeente kan zo een digitaal bouwplan voor zichzelf uitvinden maar dat is niet efficiënt en leidt tot verschillende visies. Door hier op een Vlaamse schaal aan te werken komen we tot één uniforme architectuur die richtinggevend kan werken voor alle steden en gemeenten en de bedrijfswereld waar de slimme toepassingen van morgen zullen worden ontwikkeld. Op deze manier maken we het verhaal van de slimme stad ook behapbaar voor kleinere gemeenten die over minder technische expertise beschikken. Cruciaal in dit project is dan ook de betrokkenheid van de lokale besturen zelf. De ontwikkeling van het bouwplan zal een participatief traject zijn, met betrokkenheid van de lokale besturen, het bedrijfsleven, IT-leveranciers, en onderzoeksinstellingen
 
-Het (team Stedenbeleid)[http://stedenbeleid.vlaanderen.be/] van het Agentschap Binnenlands Bestuur neemt de coördinatie van dit project op.
+Het [team Stedenbeleid](http://stedenbeleid.vlaanderen.be/) van het Agentschap Binnenlands Bestuur neemt de coördinatie van dit project op.
