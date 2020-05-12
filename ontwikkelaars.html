@@ -1,73 +1,59 @@
 ---
-layout: default
+layout: empty_side_nav
 title: Voor ontwikkelaars
 permalink: /ontwikkelaars.html
 order: 6
 ---
-<div class="page">
-  <div id="main" itemprop="mainContentOfPage" role="main" tabindex="-1" class="main-content">
-    <section class="region">
-      <div class="layout layout--wide">
-        <div class="grid">
-          <div class="col--4-6 col--1-1--s">
-            <div class="js-scrollspy__content">
-              <h1 class="h1" id="about">Voor ontwikkelaars (alfaversie)</h1>
-              <div class="teaser">
-                <p>
-                  Voor je aan de slag gaat met de ruwe gegevens, willen we ontwikkelaars uitdagen op een nieuwe manier applicaties te ontwikkelen.
-                  In plaats van zelf de URL’s te creëren op client-side, willen we dat ontwikkelaars enkel de URL’s gebruiken die te vinden zijn vanaf een bepaalde start-punt.
-                  Vanaf de URL van zo’n start-punt moet een library zelf, door middel van het volgen van links, zelf kunnen meer informatie ophalen voor zijn eind-gebruiker.
-                  Ieder nieuw document moet je code in staat stellen verder stappen te zien (het hypermedia-principe).
-                </p>
-              </div>
-              <section>
-                <h2 class="h2" id="library">Aan de slag met een library</h2>
-                <p>
-                  We werken ook zelf aan een bibliotheek in Javascript (voor zowel NodeJS als de Browser) om aan de slag te gaan met de data, zonder dat je zelf nog moet nadenken over HTTP-requests, parsing en interpretatie van de gegevens.
-                  <a href="https://www.npmjs.com/package/smartflanders-data-query">Ga aan de slag met de open source Smart Flanders NPM bibliotheek</a>.
-                </p>
-              </section>
-              <section>
-                <h2 class="h2" id="ruwegegevens">Aan de slag met de ruwe gegevens</h2>
-                <p>
-                  Vandaag staat al een dataset voor de real-time en historische beschikbaarheden van parkeergarages online.
-                  Een start-punt kan je vinden op <a href="https://datapiloten.be/parking/catalog.ttl">onze machine-leesbare data-catalogus</a> (volgt het <a href="https://www.w3.org/TR/vocab-dcat/">DCAT domeinmodel</a>).
-                  Een link in een distributie volgen geeft je bijvoorbeeld de machine-leesbare versie voor parkeergarages in Gent (stel uw HTTP Accept-header in op <code class="code">application/trig</code>): <a href="https://linked.open.gent/parking">https://linked.open.gent/parking</a>.
-                </p><p>
-                  Om deze data te parsen kan je gebruik maken van een RDF1.1 parser naar keuze.
-                  Onze favorieten:
-                  <dl class="dl">
-                    <dt>PHP</dt>
-                    <dd><a href="https://github.com/pietercolpaert/hardf">Hardf</a></dd>
-                    <dt>Javascript</dt>
-                    <dd><a href="https://github.com/rubenverborgh/n3.js">N3.js</a> of <a href="https://github.com/pietercolpaert/ldfetch">ldfetch</a> om ook de HTTP requests te abstraheren</dd>
-                    <dt>Java</dt>
-                    <dd><a href="https://jena.apache.org/documentation/io/rdf-input.html#example-3-using-rdfparser">Jena</a> of <a href="http://rdf4j.org/">RDF4J</a></dd>
-                    <dt>Python</dt>
-                    <dd><a href="https://rdflib.readthedocs.io/">RDFLIB</a></dd>
-                </p>
-                <p>
-                  Eens een document geparset is kan je enerzijds de data zelf uitlezen.
-                  Anderzijds kan je ook handige metadata vinden in ieder antwoord.
-                  Bouwblokken waarop je kan steunen zijn:
-                  <dl class="dl">
-                    <dt>Meerdere metingen in 1 bestand</dt>
-                    <dd>Hou de graphs in de gaten. Als ergens een graph wordt beschreven met een <a href="http://www.w3.org/ns/prov#generatedAtTime">prov:generatedAtTime</a>, dan wilt dit zeggen dat statements in deze context enkel geldig waren op een bepaald tijdstip.</dd>
-                    <dt>Links naar meer data via paginering</dt>
-                    <dd>Indien meerdere pagina’s voor handen zijn, worden via het <a href="http://www.hydra-cg.com/spec/latest/core/">Hydra domeinmodel</a> <a href="http://www.w3.org/ns/hydra/core#next">hydra:next</a> en <a href="http://www.w3.org/ns/hydra/core#previous">hydra:previous</a> links toegevoegd.</dd>
-                    <dt>Licenties</dt>
-                    <dd>Bij de identificator voor het document zelf (de URL), wordt een <a href="http://creativecommons.org/ns#license">cc:license</a> eigenschap toegevoegd, met een van de Vlaamse opendatalicenties. Deze laten toe om automatisch te ontdekken aan welke zaken je juridisch verplicht toe bent.</dd>
-                    <dt>Specifieke domeinmodellen</dt>
-                    <dd>Domeinmodellen kan je zelf handmatig ontdekken en je client meer leren omgaan door de URI’s van deze termen hard te coderen. Voor de real-time beschikbaarheid van parkeergarages, gebruiken we bijvoorbeeld het Datex2 domeinmodel, en meer specifiek speelt <a href="http://vocab.datex.org/terms#datex:parkingNumberOfVacantSpaces">datex:parkingNumberOfVacantSpaces</a> een grote rol.</dd>
-                    <dt>Unieke identificatoren</dt>
-                    <dd>Over alle documenten die je kan vinden in deze “Vlaamse Knowledge Graph”, gebruiken we dezelfde URI’s voor bijvoorbeeld de parkeergarages. In andere bronnen kan je meer informatie vinden over een bepaald ding en als een bepaalde URI dus wordt hergebruikt, kan je met zekerheid weten dat het over hetzelfde ding gaat.</dd>
-                  </dl>
-                </p>
-              </section>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
+<h1 class="h1" id="about">Voor ontwikkelaars (alfaversie)</h1>
+<div class="teaser">
+	<p>
+	Voor je aan de slag gaat met de ruwe gegevens, willen we ontwikkelaars uitdagen op een nieuwe manier applicaties te ontwikkelen.
+	In plaats van zelf de URL’s te creëren op client-side, willen we dat ontwikkelaars enkel de URL’s gebruiken die te vinden zijn vanaf een bepaalde start-punt.
+	Vanaf de URL van zo’n start-punt moet een library zelf, door middel van het volgen van links, zelf kunnen meer informatie ophalen voor zijn eind-gebruiker.
+	Ieder nieuw document moet je code in staat stellen verder stappen te zien (het hypermedia-principe).
+	</p>
 </div>
+<section>
+	<h2 class="h2" id="library">Aan de slag met een library</h2>
+	<p>
+	We werken ook zelf aan een bibliotheek in Javascript (voor zowel NodeJS als de Browser) om aan de slag te gaan met de data, zonder dat je zelf nog moet nadenken over HTTP-requests, parsing en interpretatie van de gegevens.
+	<a href="https://www.npmjs.com/package/smartflanders-data-query">Ga aan de slag met de open source Smart Flanders NPM bibliotheek</a>.
+	</p>
+</section>
+<section>
+	<h2 class="h2" id="ruwegegevens">Aan de slag met de ruwe gegevens</h2>
+	<p>
+	Vandaag staat al een dataset voor de real-time en historische beschikbaarheden van parkeergarages online.
+	Een start-punt kan je vinden op <a href="https://datapiloten.be/parking/catalog.ttl">onze machine-leesbare data-catalogus</a> (volgt het <a href="https://www.w3.org/TR/vocab-dcat/">DCAT domeinmodel</a>).
+	Een link in een distributie volgen geeft je bijvoorbeeld de machine-leesbare versie voor parkeergarages in Gent (stel uw HTTP Accept-header in op <code class="code">application/trig</code>): <a href="https://linked.open.gent/parking">https://linked.open.gent/parking</a>.
+	</p><p>
+	Om deze data te parsen kan je gebruik maken van een RDF1.1 parser naar keuze.
+	Onze favorieten:
+	<dl class="dl">
+		<dt>PHP</dt>
+		<dd><a href="https://github.com/pietercolpaert/hardf">Hardf</a></dd>
+		<dt>Javascript</dt>
+		<dd><a href="https://github.com/rubenverborgh/n3.js">N3.js</a> of <a href="https://github.com/pietercolpaert/ldfetch">ldfetch</a> om ook de HTTP requests te abstraheren</dd>
+		<dt>Java</dt>
+		<dd><a href="https://jena.apache.org/documentation/io/rdf-input.html#example-3-using-rdfparser">Jena</a> of <a href="http://rdf4j.org/">RDF4J</a></dd>
+		<dt>Python</dt>
+		<dd><a href="https://rdflib.readthedocs.io/">RDFLIB</a></dd>
+	</p>
+	<p>
+	Eens een document geparset is kan je enerzijds de data zelf uitlezen.
+	Anderzijds kan je ook handige metadata vinden in ieder antwoord.
+	Bouwblokken waarop je kan steunen zijn:
+	<dl class="dl">
+		<dt>Meerdere metingen in 1 bestand</dt>
+		<dd>Hou de graphs in de gaten. Als ergens een graph wordt beschreven met een <a href="http://www.w3.org/ns/prov#generatedAtTime">prov:generatedAtTime</a>, dan wilt dit zeggen dat statements in deze context enkel geldig waren op een bepaald tijdstip.</dd>
+		<dt>Links naar meer data via paginering</dt>
+		<dd>Indien meerdere pagina’s voor handen zijn, worden via het <a href="http://www.hydra-cg.com/spec/latest/core/">Hydra domeinmodel</a> <a href="http://www.w3.org/ns/hydra/core#next">hydra:next</a> en <a href="http://www.w3.org/ns/hydra/core#previous">hydra:previous</a> links toegevoegd.</dd>
+		<dt>Licenties</dt>
+		<dd>Bij de identificator voor het document zelf (de URL), wordt een <a href="http://creativecommons.org/ns#license">cc:license</a> eigenschap toegevoegd, met een van de Vlaamse opendatalicenties. Deze laten toe om automatisch te ontdekken aan welke zaken je juridisch verplicht toe bent.</dd>
+		<dt>Specifieke domeinmodellen</dt>
+		<dd>Domeinmodellen kan je zelf handmatig ontdekken en je client meer leren omgaan door de URI’s van deze termen hard te coderen. Voor de real-time beschikbaarheid van parkeergarages, gebruiken we bijvoorbeeld het Datex2 domeinmodel, en meer specifiek speelt <a href="http://vocab.datex.org/terms#datex:parkingNumberOfVacantSpaces">datex:parkingNumberOfVacantSpaces</a> een grote rol.</dd>
+		<dt>Unieke identificatoren</dt>
+		<dd>Over alle documenten die je kan vinden in deze “Vlaamse Knowledge Graph”, gebruiken we dezelfde URI’s voor bijvoorbeeld de parkeergarages. In andere bronnen kan je meer informatie vinden over een bepaald ding en als een bepaalde URI dus wordt hergebruikt, kan je met zekerheid weten dat het over hetzelfde ding gaat.</dd>
+	</dl>
+	</p>
+</section>

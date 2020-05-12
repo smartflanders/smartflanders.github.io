@@ -12,10 +12,20 @@
 
 		<main class="page-content" aria-label="Content">
 			<div class="wrapper">
-				<div class="home layout layout--wide">
-					<div class="main">
-
+				<div class="page">
+					<div id="main" itemprop="mainContentOfPage" role="main" tabindex="-1" class="main-content">
+						<section class="region">
+							<div class="layout layout--wide">
+								<div class="grid">
+									<div class="col--4-6 col--1-1--s">
+										<div class="js-scrollspy__content">
 											{{ content }}
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
 					</div>
 				</div>
 			</div>

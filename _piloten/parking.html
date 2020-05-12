@@ -1,87 +1,75 @@
 ---
-layout: default
+layout: empty_side_nav
 title: Real-time informatie over parkeergarages in Vlaamse centrumsteden
 permalink: piloten/parkeren
 ---
-<div class="page">
-  <div id="main" itemprop="mainContentOfPage" role="main" tabindex="-1" class="main-content">
-    <section class="region">
-      <div class="layout layout--wide">
-        <div class="grid">
-          <div class="col--4-6 col--1-1--s">
-            <h1 class="h1">Parkeren</h1>
-            <div class="teaser">
-	      Ongeveer 30% van het verkeer in een stad is zoekverkeer.
-              Als automobilisten kunnen beter worden geïnformeerd over off-street parkeerplaatsen, zodat dit verkeer meer rechtstreeks naar een beschikbare parkeerplaats gaat.
-              Ze kunnen deze informatie kunnen krijgen via veel verschillende wegen: via borden langs de weg, via interfaces in de wagen, via routeplannings-apps, via de radio, via gespecialiseerde parkeer-apps, enzovoort.
-              Al deze interfaces van dezelfde kwaliteit data  voorzien is een echte opendata-uitdaging.
-            </div>
-            <section>
-              <h2 class="h2" id="publiceren">Publiceren van parkeergegevens: organisationeel</h2>
-              <p>
-                De gegevens van parkeergarages zijn zelf binnen een bepaalde stad niet altijd en makkelijk te vinden.
-                Veel parkeergarages zijn in het beheer van private spelers. Anderen hebben een beheersovereenkomst met de gemeente.
-                Het is op dit laatste geval dat we ook eisen kunnen stellen aan de beheerder, en de gegevens kunnen zien als eigendom van de gemeente.
-                In zo’n bestek, of overeenkomst met de parkeeruitbater, is het dan slim om hier een opendata-paragraaf in te voorzien.
-                We verwijzen naar de webstek <a href="http://cc.its.be/parking-information/open-data">cc.its.be</a>.
-              </p>
-              <p>
-                Nu moet ook worden beslist of de historische gegevens ook relevant zijn om bijvoorbeeld beleidsbeslissingen te nemen.
-                Deze historische gegevens kunnen worden bewaard als indicator 
-                Het laatste wat we uiteraard willen is uiteraard om deze gegevens te moeten inkopen van een private speler omdat de gemeente deze niet heeft opgeslagen.
-                
-              </p>
-            </section>
-            <section>
-              <h2 class="h2" id="publiceren">Publiceren van parkeergegevens: technisch</h2>
-              <p>
-                We volgen alsook het aanbevolen domeinmodel en specificatie van <a href="http://cc.its.be/parking-information/open-data">cc.its.be</a>: Datex 2.
-                Echter breiden we dit uit met onze eigen technische principes: we gebruiken URI’s voor de parkeergarages, stellen ook historische informatie ter beschikking, fragmenteren de dataset in handige fragmenten, en voegen HTTP-headers toe.
-              </p>
-              <section>
-                <!-- URIs voor parkeren-->
-                <!--<h3>URI’s</h3>
-                <p>
-                  Uniforme Resource Identificatoren (URI’s), of een web-adres, zorgt ervoor dat we decentraal uitspraken kunnen doen, en toch zeker kunnen zijn dat we het over hetzelfde iets praten.
-                </p>-->
-              </section>
-              <p>
-                
-                <!-- domeinmodel: datex en prov-o -->
-              </p>
-              <p>
-                <!-- fragmenteren -->
-              </p>
-            </section>
-            <section>
-              <h2 class="h2" id="poc">Toegang tot de gegevens</h2>
-              <h3 class="h3">Demo-code</h3>
-              <p>Een live demo met code-voorbeelden:</p>
-              <p data-height="265" data-theme-id="light" data-slug-hash="rdPYXQ" data-default-tab="js,result" data-user="pietercolpaert" data-embed-version="2" data-pen-title="Example of open data reuse ― Smart Flanders demo" class="codepen">See the Pen <a href="https://codepen.io/pietercolpaert/pen/rdPYXQ/">Example of open data reuse ― Smart Flanders demo</a> by Pieter Colpaert (<a href="https://codepen.io/pietercolpaert">@pietercolpaert</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-              <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
-              <h3 class="h3">Een beetje uitleg</h3>
-              <p> 
-                Het voordeel van het implementeren van de Smart Flanders principes voor parkeergarages, is dat het eenvoudig wordt om deze gegevens in een interface te krijgen.
-                Zo is het mogelijk om direct in de browser een overzicht te geven van wat momenteel de stad is met de meeste beschikbare plaatsen.
-                
-              </p>
-              <p>
-                Hoe je deze gegevens zelf kan verwerken in je eigen app lees je op de pagina <a href="/ontwikkelaars/">voor ontwikkelaars</a>, of bekijk ter inspiratie eens de broncode van deze pagina.
-              </p>
-            </section>
-            <section>
-              <h2 class="h2" id="future-work">Volgende stappen</h2>
-              <p>
-                Momentel host IMEC de historische gegevens voor de steden, en creëert ook zelf URI’s voor de parkeergarages.
-                De volgende stappen zijn in 2018 om de gemeenten zelf de data laten publiceren, opslaan en de identificatoren voorzien.
-              </p>
-              <p>
-                Nadat de gegevens publiek staan, gegoten in een duidelijk proces bij de steden, worden ook stappen gezet richting hergebruikers, om deze gegevens te gebruiken in productie.
-              </p>
-            </section>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
+<h1 class="h1">Parkeren</h1>
+<div class="teaser">
+	Ongeveer 30% van het verkeer in een stad is zoekverkeer.
+	Als automobilisten kunnen beter worden geïnformeerd over off-street parkeerplaatsen, zodat dit verkeer meer rechtstreeks naar een beschikbare parkeerplaats gaat.
+	Ze kunnen deze informatie kunnen krijgen via veel verschillende wegen: via borden langs de weg, via interfaces in de wagen, via routeplannings-apps, via de radio, via gespecialiseerde parkeer-apps, enzovoort.
+	Al deze interfaces van dezelfde kwaliteit data  voorzien is een echte opendata-uitdaging.
 </div>
+<section>
+	<h2 class="h2" id="publiceren">Publiceren van parkeergegevens: organisationeel</h2>
+	<p>
+	De gegevens van parkeergarages zijn zelf binnen een bepaalde stad niet altijd en makkelijk te vinden.
+	Veel parkeergarages zijn in het beheer van private spelers. Anderen hebben een beheersovereenkomst met de gemeente.
+	Het is op dit laatste geval dat we ook eisen kunnen stellen aan de beheerder, en de gegevens kunnen zien als eigendom van de gemeente.
+	In zo’n bestek, of overeenkomst met de parkeeruitbater, is het dan slim om hier een opendata-paragraaf in te voorzien.
+	We verwijzen naar de webstek <a href="http://cc.its.be/parking-information/open-data">cc.its.be</a>.
+	</p>
+	<p>
+	Nu moet ook worden beslist of de historische gegevens ook relevant zijn om bijvoorbeeld beleidsbeslissingen te nemen.
+	Deze historische gegevens kunnen worden bewaard als indicator 
+	Het laatste wat we uiteraard willen is uiteraard om deze gegevens te moeten inkopen van een private speler omdat de gemeente deze niet heeft opgeslagen.
+
+	</p>
+</section>
+<section>
+	<h2 class="h2" id="publiceren">Publiceren van parkeergegevens: technisch</h2>
+	<p>
+	We volgen alsook het aanbevolen domeinmodel en specificatie van <a href="http://cc.its.be/parking-information/open-data">cc.its.be</a>: Datex 2.
+	Echter breiden we dit uit met onze eigen technische principes: we gebruiken URI’s voor de parkeergarages, stellen ook historische informatie ter beschikking, fragmenteren de dataset in handige fragmenten, en voegen HTTP-headers toe.
+	</p>
+	<section>
+		<!-- URIs voor parkeren-->
+		<!--<h3>URI’s</h3>
+	  <p>
+	  Uniforme Resource Identificatoren (URI’s), of een web-adres, zorgt ervoor dat we decentraal uitspraken kunnen doen, en toch zeker kunnen zijn dat we het over hetzelfde iets praten.
+	  </p>-->
+	</section>
+	<p>
+
+	<!-- domeinmodel: datex en prov-o -->
+	</p>
+	<p>
+	<!-- fragmenteren -->
+	</p>
+</section>
+<section>
+	<h2 class="h2" id="poc">Toegang tot de gegevens</h2>
+	<h3 class="h3">Demo-code</h3>
+	<p>Een live demo met code-voorbeelden:</p>
+	<p data-height="265" data-theme-id="light" data-slug-hash="rdPYXQ" data-default-tab="js,result" data-user="pietercolpaert" data-embed-version="2" data-pen-title="Example of open data reuse ― Smart Flanders demo" class="codepen">See the Pen <a href="https://codepen.io/pietercolpaert/pen/rdPYXQ/">Example of open data reuse ― Smart Flanders demo</a> by Pieter Colpaert (<a href="https://codepen.io/pietercolpaert">@pietercolpaert</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+	<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+	<h3 class="h3">Een beetje uitleg</h3>
+	<p> 
+	Het voordeel van het implementeren van de Smart Flanders principes voor parkeergarages, is dat het eenvoudig wordt om deze gegevens in een interface te krijgen.
+	Zo is het mogelijk om direct in de browser een overzicht te geven van wat momenteel de stad is met de meeste beschikbare plaatsen.
+
+	</p>
+	<p>
+	Hoe je deze gegevens zelf kan verwerken in je eigen app lees je op de pagina <a href="/ontwikkelaars/">voor ontwikkelaars</a>, of bekijk ter inspiratie eens de broncode van deze pagina.
+	</p>
+</section>
+<section>
+	<h2 class="h2" id="future-work">Volgende stappen</h2>
+	<p>
+	Momentel host IMEC de historische gegevens voor de steden, en creëert ook zelf URI’s voor de parkeergarages.
+	De volgende stappen zijn in 2018 om de gemeenten zelf de data laten publiceren, opslaan en de identificatoren voorzien.
+	</p>
+	<p>
+	Nadat de gegevens publiek staan, gegoten in een duidelijk proces bij de steden, worden ook stappen gezet richting hergebruikers, om deze gegevens te gebruiken in productie.
+	</p>
+</section>
