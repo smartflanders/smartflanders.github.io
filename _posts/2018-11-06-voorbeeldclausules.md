@@ -2,6 +2,8 @@
 title: Open Data Charter vertaald in bruikbare voorbeeldclausules 
 layout: post
 category: nieuws
+languages:
+- nl
 ---
 
 <div style="text-align: justify;margin-bottom: 1em;">Een van voornaamste verwezenlijkingen van het Smart Flanders programma tot dusver is het <a href="https://smart.flanders.be/open-data-charter/">Open Data Charter</a> dat na de zomer van 2018 in alle centrumsteden werd goedgekeurd op de gemeenteraad of (in twee gevallen) in het college van burgemeester en schepenen. Het Charter werd bovendien <a href="https://overheid.vlaanderen.be/informatie-vlaanderen/ontdek-onze-producten-en-diensten/open-data-bij-de-vlaamse-overheid">overgenomen door de Vlaamse Overheid</a> via het Stuurorgaan Vlaams Informatie- en ICT-beleid. Dit wil zeggen dat de principes uit het charter als ambitie geldend worden voor alle departementen en afdelingen van de Vlaamse Overheid, een sterk signaal dat het belang van meer en betere open data onderstreept.</div>

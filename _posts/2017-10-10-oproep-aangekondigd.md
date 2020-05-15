@@ -2,6 +2,8 @@
 title: Projectoproep rond slimme oplossingen voor alle Vlaamse steden en gemeenten aangekondigd 
 layout: post
 category: nieuws
+languages:
+- nl
 ---
 
 ![oproep](http://www.philippemuyters.be/sites/parlement.n-va.be/files/styles/style_news_detail_retina/public/generated/images/news-picture/smart_city3x.png?itok=kleiQARm&timestamp=1507630929)

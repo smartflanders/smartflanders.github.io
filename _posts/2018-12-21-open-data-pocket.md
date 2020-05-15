@@ -2,6 +2,8 @@
 title: Publicatie rond Open Data voor lokale besturen beschikbaar 
 layout: post
 category: nieuws
+languages:
+- nl
 ---
 
 <div style="text-align: justify;margin-bottom: 1em;">

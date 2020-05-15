@@ -26,10 +26,15 @@ github_username: smartflanders
 markdown: kramdown
 plugins:
   - jekyll-feed
+  - jekyll-language-plugin
+
 exclude:
   - Gemfile
   - Gemfile.lock
-  
+
+language_data: data.lang.%%
+language_includes_dir: _i18n
+
 # Collections
 collections:
   events:

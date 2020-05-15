@@ -2,6 +2,8 @@
 title: Smart Portraits 2017-2019 
 layout: post
 category: nieuws
+languages:
+- nl
 ---
 
 <div style="text-align: justify;margin-bottom: 1em;">

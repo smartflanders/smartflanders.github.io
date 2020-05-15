@@ -2,6 +2,8 @@
 title: Vlaamse Open City Architectuur van start
 layout: post
 category: nieuws
+languages:
+- nl
 ---
 
 De Vlaamse Regering kende op 20 december 2019 op voorstel van Vlaams minister Bart Somers een projectsubsidie van 850.000 euro toe aan Imec en VITO voor de ontwikkeling van een Vlaams Open City Architectuur (VLOCA). Met dit project wil de Vlaamse regering werk maken van een gedragen referentiekader met gestandaardiseerde architectuurcomponenten voor projecten en toepassingen voor slimme steden, gemeenten en regio’s in Vlaanderen.

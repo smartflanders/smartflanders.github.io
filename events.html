@@ -3,6 +3,8 @@ layout: default
 title: Events
 permalink: /events/
 published: false
+languages:
+- nl
 ---
 {% assign events = site.events | sort: 'startDate' | reverse %}
 {% capture nowunix %}{{'now' | date: '%y%m%d'}}{% endcapture %}
@@ -20,7 +22,7 @@ published: false
                                 
                                 <ul class="grid grid--is-stacked u-spacer">
                                     {% for event in events reversed limit:3 %}
-                                        {% capture eventdate %}{{event.date | date: '%y%m%d'}}{% endcapture %}
+                                        {% capture eventdate %}{{event.date | tdate: 'post.date_format' }}{% endcapture %}
                                             {% if eventdate < nowunix %}
                                                 {% continue %}
                                             {% endif %}

@@ -2,6 +2,8 @@
 title: Bouw mee aan de Vlaamse Open City Architectuur
 layout: post
 category: nieuws
+languages:
+- nl
 ---
 ![VLOCA visual kick-off](/assets/VLOCA visual kick-off.jpg)
 
