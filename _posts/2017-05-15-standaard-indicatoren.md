@@ -11,4 +11,4 @@ Ballon maakt zich de bedenking of het invullen van een lange lijst indicatoren v
 
 >‘Aalter heeft zes keer zoveel verkozenen als Eindhoven. Prima. Maar maakt dat Aalter dan echt zes keer slimmer? Bovendien moet je weten dat het ISO37120-certificaat geen award is: je krijgt het niet omdat je goed scoort, maar omdat je scoort. De stad Riyad in Saudi-Arabië scoort slecht met 3,74 procent van de inwoners die geregistreerd is om te stemmen. Het gaat er niet om dat dit schandalig is, je krijgt het certificaat omdat je het gemeten hebt.’ - PIETER BALLON, Professor VUB, auteur ‘Smart cities’
 
-Het is belangrijk dat het idee van lijstjes en rankings op basis van onaangepaste indiactoren losgelaten wordt, maar dat er op samenwerking en impact gefocust wordt, een van de speerpunten van het Smart Flanders programma.
+Het is belangrijk dat het idee van lijstjes en rankings op basis van onaangepaste indiactoren losgelaten wordt, maar dat er op samenwerking en impact gefocust wordt, een van de speerpunten van het Smart Flanders-programma.
