@@ -19,13 +19,13 @@ Werk je bij een lokaal bestuur, ben je actief in het bedrijfsleven, doe je acade
 
 Naast het online infomoment, organiseren we ook 2 interactieve werksessies met elk een verschillende focus. Tijdens deze werksessies zal je vernemen hoe je kan participeren en wat de vervolgstappen van het traject zullen zijn. Hou zeker onderstaande data vrij in je agenda: 
 
-**Donderdag 25 juni (10.00-12.00 uur)**: deze sessie richt zich tot managementprofielen en beleidsmedewerkers uit lokale besturen, kennisinstellingen of het bedrijfsleven. Tijdens deze sessie zullen we bespreken hoe een idee vanuit het bedrijfsleven of lokaal bestuur ingang kan vinden binnen VLOCA, en op welke manier er binnen VLOCA gewerkt zal worden om een idee om te zetten in een concrete bouwsteen
+**Donderdag 25 juni (10.00-12.00 uur)**: deze sessie richt zich tot managementprofielen en beleidsmedewerkers uit lokale besturen, kennisinstellingen of het bedrijfsleven. Tijdens deze sessie zullen we bespreken hoe een idee vanuit het bedrijfsleven of lokaal bestuur ingang kan vinden binnen de VLOCA, en op welke manier er binnen de VLOCA gewerkt zal worden om een idee om te zetten in een concrete bouwsteen.
 
-**Dinsdag 30 juni (13.30-15.30 uur)**: deze sessie richt zich tot medewerkers met een technische achtergrond. Via “learning by doing” gaan we in deze sessie dieper in rond principes en standaarden die in de Vlaamse Open City architectuur aan bod zullen komen, geïllustreerd aan de hand van milieugerelateerde data, zoals bv. luchtkwaliteit.
+**Dinsdag 30 juni (13.30-15.30 uur)**: deze sessie richt zich tot medewerkers met een technische achtergrond. Via “learning by doing” gaan we in deze sessie dieper in op principes en standaarden die in de VLOCA aan bod zullen komen, geïllustreerd aan de hand van milieugerelateerde data, zoals bv. luchtkwaliteit.
 
-Meer info over de werksessies vind je binnenkort terug op de website. [Ontdek hier meer over de VLOCA.](https://smart.flanders.be/vloca.html)
+Meer info over het online infomoment en de werksessies vind je binnenkort terug op de website. [Ontdek hier meer over de VLOCA.](https://smart.flanders.be/vloca.html)
 
 Vragen?
-Contacteer [stedenbeleid@vlaanderen.be](mailto:stedenbeleid@vlaanderen.be)
+Contacteer [stedenbeleid@vlaanderen.be](mailto:stedenbeleid@vlaanderen.be).
 
 Heel graag tot dan! 
