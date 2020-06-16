@@ -7,7 +7,7 @@ languages:
 ---
 ![VLOCA visual kick-off](/assets/VLOCA visual kick-off.jpg)
 
-**Het online infomoment is volzet. Maar geen nood, het event wordt opgenomen en zal op 17 juni beschikbaar zijn op het [VLOCA portaal](https://vlaanderen.be/VLOCA).**
+**Het online infomoment is volzet. Maar geen nood, het event wordt opgenomen en zal op 17 juni beschikbaar zijn op het [VLOCA portaal](https://vlaanderen.be/VLOCA). Registreren voor de twee interactieve werksessies kan ook vanaf 17 juni op het VLOCA portaal.**
 
 Het Agentschap Binnenlands Bestuur en de onderzoekscentra imec en VITO nodigen je uit om deel te nemen aan het online infomoment over [de Vlaamse Open City Architectuur (VLOCA)](https://smart.flanders.be/vloca.html). Dat vindt plaats op **woensdag 17 juni 2020 van 10.00 tot 12.00 uur**.  
 
