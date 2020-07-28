@@ -1,0 +1,19 @@
+- title: Nieuws en opinies
+  permalink: /nieuws-en-opinies
+  teaser: 'Lees onze laatste ontwikkelingen'
+  order: 1
+
+- title: Open Data Charter
+  permalink: /open-data-charter
+  teaser: 'Lees het volledige Open Data Charter'
+  order: 2
+
+- title: Kennis en instrumenten
+  permalink: /kennis-en-instrumenten
+  teaser: 'Alles wat jij nodig hebt'
+  order: 3
+
+- title: Goede praktijken
+  permalink: /goede-praktijken
+  teaser: 'Bekijk onze laatste verwezelijkingen'
+  order: 4

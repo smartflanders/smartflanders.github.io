@@ -1,0 +1,102 @@
+---
+layout: default
+---
+<section class="region">
+	<div class="layout layout--wide practices">
+
+		<h1 class="h1" id="initiatieven">Goede praktijken</h1>
+
+		<div class="introduction">
+			<p>Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit sit amet non magna. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec sed odio dui. Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper.</p>
+		</div>
+
+    <div class="grid grid--is-stacked u-spacer">
+      <div class="col col--1-12--xl col--2-12--l col--1-1--s">
+      Filteren op:
+      </div>
+      <div class="col col--11-12--xl col--10-12--l col--1-1--s">
+      {%
+        include
+        pill-navigation.html
+        collection="practices"
+        map="tags"
+        url="goede-praktijken"
+      %}
+      </div>
+    </div>
+
+		<div class="grid grid--is-stacked u-spacer">
+			{% assign posts = paginator.posts | sort: 'date' | sort: 'highlight' | reverse %}
+			{% assign sorted = posts  %}
+			{% for practice in sorted %}
+
+				<div class="col--3-12 col--4-12--m col--6-12--s col--1-1--xs">
+          <div class="spotlight green spotlight--link">
+  					<article>
+              <a href="{{ practice.url | relative_url}}">
+  							<header class="spotlight__header">
+  								<div class="spotlight__image spotlight__image--focus-center-center">
+  									<img class="spotlight__image__img" src="{{ practice.thumb | relative_url}}" alt="">
+  								</div>
+  								<div class="spotlight__title-wrapper">
+  									<h1 class="spotlight__title">{{ practice.title | escape }}</h1>
+  								</div>
+  							</header>
+  							<div class="spotlight__text-wrapper">
+  								<div class="spotlight__text">
+  									{{ practice.teaser | escape }}
+  								</div>
+  							</div>
+    					</a>
+              <div class="category bullet-list bullet-list--tag">
+                <div class="bullet-list__item">
+                  {% for tag in practice.tags %}
+									{% assign tag-path = tag | replace: ' ', '-'  | downcase %}
+                    <a class="" href="{{site.baseurl}}/initiatieven/{{tag-path}}">{{ tag | capitalize }}</a>{% if forloop.last != true %}, {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+  					</article>
+          </div>
+				</div>
+
+				<!-- contact blok op nieuwpagina -->
+				{% if forloop.index0 == 1 %}
+					<div class="col--1-1 show-mobile">
+						{% include crosslink.html block-class="alt shadow" url="/contact/" title="Klaar om mee te helpen met onze community?" text="Maak een profiel aan op de VLOCA kennishub en deel jouw interesses" cta="Maak een profiel aan" icon="kennishub" %}
+					</div>
+				{% elsif forloop.index0 == 2 %}
+						<div class="col--1-1 show-tablet">
+						{% include crosslink.html block-class="alt shadow" url="/contact/" title="Klaar om mee te helpen met onze community?" text="Maak een profiel aan op de VLOCA kennishub en deel jouw interesses" cta="Maak een profiel aan" icon="kennishub" %}
+						</div>
+				{% elsif forloop.index0 == 3 %}
+					<div class="col--1-1 show-desktop">
+					{% include crosslink.html block-class="alt shadow" url="/contact/" title="Klaar om mee te helpen met onze community?" text="Maak een profiel aan op de VLOCA kennishub en deel jouw interesses" cta="Maak een profiel aan" icon="kennishub" %}
+					</div>
+				{% endif %}
+				<!-- end contact block -->
+
+			{% endfor %}
+
+
+      <!--
+        Showing buttons to move to the next and to the previous list of posts (pager buttons).
+      -->
+      {% if paginator.total_pages > 1 %}
+      <ul class="pager">
+          {% if paginator.previous_page %}
+          <li class="previous">
+              <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; vorige</a>
+          </li>
+          {% endif %}
+          {% if paginator.next_page %}
+          <li class="next">
+              <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">volgende &rarr;</a>
+          </li>
+          {% endif %}
+      </ul>
+      {% endif %}
+
+	  </div>
+	</div>
+</section>

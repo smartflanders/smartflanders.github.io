@@ -1,0 +1,68 @@
+.share-button {
+
+  &, &:hover, &:active, &:focus {
+    background: none !important;
+  }
+  &:before {
+    color: $text-color;
+  }
+
+  &.share-button--youtube:before,
+  &.share-button--instagram:before,
+  &.share-button--github:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    text-align: center;
+    background: url($baseurl + '/assets/img/icons/icon_youtube--blue.svg') center center no-repeat transparent;
+    background-size: 32px auto;
+  }
+
+  &.share-button--youtube:hover:before {
+    background-image: url($baseurl + '/assets/img/icons/icon_youtube--blue-light.svg');
+  }
+
+  &.share-button--instagram:before{
+    background-size: 24px auto;
+    background-image: url($baseurl + '/assets/img/icons/icon_instagram--blue.svg');
+  }
+
+  &.share-button--instagram:hover:before {
+    background-image: url($baseurl + '/assets/img/icons/icon_instagram--blue-light.svg');
+  }
+
+  &.share-button--github:before{
+    background-size: 20px auto;
+    background-image: url($baseurl + '/assets/img/icons/icon_github--blue.svg');
+  }
+
+  &.share-button--github:hover:before {
+    background-image: url($baseurl + '/assets/img/icons/icon_github--blue-light.svg');
+  }
+
+}
+
+
+.social {
+  .share-buttons {
+    border-top: 0;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+  }
+  .share-button {
+    width: 2.3rem;
+    margin-right: 1.3rem;
+
+    &:before {
+      color: $link-color;
+    }
+    &:hover:before {
+      color: $hover-color;
+    }
+
+  }
+}

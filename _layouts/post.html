@@ -1,31 +1,35 @@
 ---
 layout: default
 ---
-<div class="page">
-    <div id="main" itemprop="mainContentOfPage" role="main" tabindex="-1" class="main-content">
-        <section class="region">
-            <div class="layout layout--wide">
-                <div class="grid">
-                    <div class="col--4-6 col--1-1--s">
-                        <div>
-                            <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-                                <header class="post-header">
-                                    <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
-                                    <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | tdate: "post.date_format" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
-                                </header>
-                                <div class="post-content" itemprop="articleBody" style="text-align: justify;margin-bottom: 1em;">
-                                    {{ content }}
-                                </div>
-                                {% if site.disqus.shortname %}
-                                    {% include disqus_comments.html %}
-                                {% endif %}
-                            </article>
-                        </div>
-                    </div>
-                    <div class="col--2-6 col--1-1--s">
-                    </div>
-                </div>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="region intro">
+    <div class="layout layout--condensed">
+    	<div class="grid">
+
+        <div class="content__wrapper col--1-1">
+          <div class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%-d/%m/%Y" }}</time></div>
+          <div class="headings">
+          	<h1 class="h1">{{page.title | escape}}</h1>
+          </div>
+
+          <div class="category bullet-list bullet-list--tag">
+            <div class="bullet-list__item">
+              {% for category in page.categories %}
+              {% assign category-path = category | replace: ' ', '-'  | downcase  %}
+              <a href="{{site.baseurl}}/{{site.collections.posts.path}}/{{category-path}}">{{ category | capitalize }}</a>{% if forloop.last != true %}, {% endif %}
+              {% endfor %}
             </div>
-        </section>
+          </div>
+
+          <div class="introduction">
+            <p>{{page.intro}}</p>
+          </div>
+    		</div>
+
+    	</div>
     </div>
-</div>
+  </header>
+  <section class="region paragraphs">
+    {{ content }}
+  </section>
+</article>

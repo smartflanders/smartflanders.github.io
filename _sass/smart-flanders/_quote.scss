@@ -1,0 +1,60 @@
+.quote {
+  overflow: visible;
+  //background: linear-gradient(-110deg,transparent 90%,#ffe615 90%);
+  margin-top: 4rem;
+  height: 100%;
+
+  &:before{
+    content: "";
+    background-color: $green;
+    display: block;
+    position: absolute;
+    top: -2rem;
+    right: 0;
+    height: 14rem;
+    left: 0;
+    transform: translateX(-50%) skewX(15deg);
+
+    @media only screen and (min-width: 767px){
+      content: "";
+      background-color: $green;
+      display: block;
+      position: absolute;
+      height: auto;
+      bottom: -6rem;
+      transform: translateX(calc(-100% + 100px)) skewX(15deg);
+    }
+  }
+
+  .dark:after {
+    background-color: grey;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: -4rem;
+    bottom: -10rem;
+    right: 0;
+  }
+
+}
+
+.quote__image-wrapper {
+  width: 10rem;
+  height: 10rem;
+  margin: 0rem 2rem 2rem 5rem;
+  &:before {
+    width: 4.6rem;
+    font-size: 6rem;
+    height: 3.6rem;
+    padding-right: 1.5rem;
+    padding-top: .5rem;
+    padding-left: .5rem;
+    line-height: 1;
+    background: -webkit-linear-gradient(200deg,transparent 20px,$white 20px);
+    background: linear-gradient(-110deg,transparent 20px,$white 20px)
+  }
+  @media only screen and  (max-width: 766px){
+    float: none;
+    margin: 0 auto 4rem auto;
+  }
+}

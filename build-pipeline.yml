@@ -5,7 +5,7 @@
 
 trigger:
 - test
-- master
+
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -13,7 +13,7 @@ pool:
 steps:
 - task: UseRubyVersion@0
   inputs:
-    versionSpec: '>= 2.7'
+    versionSpec: '>= 2.5'
 
 - script: |
     gem install jekyll bundler jekyll-feed
@@ -35,4 +35,3 @@ steps:
   inputs:
     pathtoPublish: '$(Build.ArtifactStagingDirectory)'
     artifactName: site
-

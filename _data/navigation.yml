@@ -1,0 +1,39 @@
+- title: Smart Flanders 2.0
+  permalink: /smart-flanders-2
+  order: 1
+
+- title: Financiering
+  permalink: /financiering
+  order: 2
+
+- title: Over VLOCA
+  permalink: /over-vloca
+  order: 3
+
+- title: Nieuws en opinies
+  permalink: /nieuws-en-opinies
+  order: 4
+
+- title: Goede praktijken
+  permalink: /goede-praktijken
+  order: 5
+
+- title: Open Data Charter
+  permalink: /open-data-charter
+  order: 6
+
+- title: Kennis en instrumenten
+  permalink: /kennis-en-instrumenten
+  order: 7
+  submenuitems:
+    - title: Voorbeeld datasets
+      permalink: '/voorbeeld-datasets'
+
+    - title: Voor ontwikkelaars
+      permalink: '/voor-ontwikkelaars'
+
+    - title: Datapiloten
+      permalink: '/datapiloten'
+
+    - title: Resources
+      permalink: '/resources'

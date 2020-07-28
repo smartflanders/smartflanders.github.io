@@ -1,0 +1,50 @@
+.card {
+  position: relative;
+  padding: 4rem;
+  background: $white;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+
+  &__image{
+    margin-bottom: 6rem;
+  }
+
+  &__header{
+
+  }
+
+  &__content {
+
+  }
+
+  &__social-wrapper {
+
+    margin-top: auto;
+
+    .share-buttons {
+      margin-top: 4rem;
+      padding-top: 4rem;
+      text-align: center;
+    }
+
+    .share-button {
+      padding: 0;
+      margin: 0 1rem;
+    }
+
+    .share-button:before {
+      color: $primary;
+      font-size: 2.5rem;
+    }
+
+    .share-button:hover:before {
+      color: $primary-light;
+    }
+  }
+
+  @media only screen and (min-width: 767px) {
+    padding: 6rem;
+  }
+
+}

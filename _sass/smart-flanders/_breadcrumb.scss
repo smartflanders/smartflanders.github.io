@@ -1,0 +1,99 @@
+
+@media screen and (max-width: 767px) {
+    .custom-breadcrumb {
+        display:none;
+    }
+}
+
+/*
+.block-webuniversum-fullbreadcrumb {
+  position: sticky;
+  top: 94px;
+  background: $white;
+}
+*/
+
+.custom-breadcrumb {
+  padding: 5px 0;
+  border-bottom: 1px solid #cbd2da;
+  margin-bottom: 48px;
+  margin-bottom: 0rem;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+
+  ul {
+    margin: 0;
+  }
+
+  li.custom-breadcrumb__item {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 30px;
+    margin-left: 5px;
+    padding: 0;
+    margin-bottom: 0;
+    white-space: nowrap;
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      font-weight: 500;
+    }
+    &:not(:first-child):before {
+      display: inline-block;
+      position: static;
+      color: #b2b2b2;
+      content: '›';
+      margin-right: 10px;
+      font-size: 14px;
+      line-height: 30px;
+    }
+  }
+
+  .dropdown-navigation__title {
+    text-decoration: none;
+    color: $text-color;
+  }
+
+  a.dropdown-navigation__title {
+    transition: color .2s;
+  }
+
+  a.dropdown-navigation__title:hover {
+    color: #3184d6;
+  }
+
+  .dropdown-navigation__toggle {
+    width: 16px;
+    width: 1rem;
+  }
+
+  .dropdown-navigation__toggle:before {
+    font-size: 10px;
+  }
+
+  .dropdown-navigation__dropdown {
+    left: -19.2px;
+    left: -1.2rem;
+    right: auto;
+    -webkit-transform: translateY(-30px);
+    -ms-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+
+  .js-popover--open .dropdown-navigation__dropdown {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-transition: opacity .2s,-webkit-transform .3s;
+    transition: opacity .2s,-webkit-transform .3s;
+    transition: opacity .2s,transform .3s;
+    transition: opacity .2s,transform .3s,-webkit-transform .3s;
+  }
+
+  .dropdown-navigation__dropdown:before {
+    left: 12px;
+    right: auto;
+  }
+}

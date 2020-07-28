@@ -1,0 +1,19 @@
+.doormat {
+  border-color: $primary;
+
+  &:focus, &:hover {
+    border-left-color: $primary-light;
+  }
+
+  &__title {
+    color: $primary;
+  }
+}
+
+a.doormat:focus,
+a.doormat:hover,
+a.doormat:focus .doormat__title,
+a.doormat:hover .doormat__title {
+  text-decoration: underline;
+  color: $primary-light;
+}

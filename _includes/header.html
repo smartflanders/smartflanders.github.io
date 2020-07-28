@@ -1,55 +1,29 @@
-<header class="content-header" role="banner">
-  <div class="content-header__wrapper">
-    <picture>
-      <!--[if IE 9]>
-      <video style="display: none;"><![endif]-->
-      <source srcset="//www.vlaanderen.be/sites/default/files/ip_acm/page_banner_wide_alt/header.jpg 1x" media="(min-width: 1024px)">
-      <source srcset="//www.vlaanderen.be/sites/default/files/ip_acm/page_banner_mobile_alt/header.jpg 1x" media="(max-device-width: 767px)">
-      <source srcset="//www.vlaanderen.be/sites/default/files/ip_acm/page_banner_narrow/header.jpg 1x" media="(max-width: 1023px)">
-      <!--[if IE 9]></video><![endif]-->
-      <!--[if lt IE 9]>
-      <img itemprop="image" src=//www.vlaanderen.be/sites/default/files/ip_acm/page_banner_wide_alt/header.jpg" alt="" title=""/>
-      <![endif]-->
-      <!--[if !lt IE 9]><!-->
-      <img src="//www.vlaanderen.be/sites/default/files/ip_acm/page_banner_wide_alt/header.jpg" srcset="//www.vlaanderen.be/sites/default/files/ip_acm/page_banner_mobile_alt/header.jpg 320w, //www.vlaanderen.be/sites/default/files/ip_acm/page_banner_narrow/header.jpg 1024w, //www.vlaanderen.be/sites/default/files/ip_acm/page_banner_wide_alt/header.jpg 1600w" alt="" title="">
-      <!-- <![endif]-->
-    </picture>
-    <div class="layout layout--wide">
-      <div class="content-header__content">
-          <h1 class="content-header__title"><span class="content-header__title__content"><a class="link-no-style" href="{{ "/" | relative_url}}">Smart Flanders</a></span></h1>
-      </div>
-    </div>
-  </div>
-</header>
-<div class="tabs__wrapper">
-  <ul class="tabs tabs--alt" data-tabs-list>
-      <li class="tab">
-        <a class="tab__link" href="{{ "/" | relative_url}}"><i class="fa fa-home" aria-hidden="true"></i></a>
-      </li>
-        {% assign pages_list = site.pages | sort:"order" %}
-        {% for my_page in pages_list %}
-            {% if my_page.title %}
-                <li class="tab">
-                    <a class="tab__link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
-                </li>
-            {% endif %}
-                {% endfor %}
-      <li class="tab">
-        <a class="tab__link" href="/piloten/">Datapiloten</a>
-      </li>
+<header class="content-header content-header--alt content-header--large content-header--has-context" role="banner">
+	<div class="content-header__wrapper">
+		<div class="content-header__bg hide-mobile">
+			<picture>
+				<source media="(min-width: 1024px)" srcset="{{ site.baseurl }}/assets/img/page_banner_wide_alt/header.jpg 1x">
+				<source media="(max-device-width: 767px)" srcset="{{ site.baseurl }}/assets/img/page_banner_mobile_alt/header.jpg 1x">
+				<source media="(max-width: 1023px)" srcset="{{ site.baseurl }}/assets/img/page_banner_narrow_alt/header.jpg 1x">
+				<img alt="" src="{{ site.baseurl }}/assets/img/page_banner_wide_alt/header.jpg" srcset="{{ site.baseurl }}/assets/img/page_banner_mobile_alt/header.jpg 320w, {{ site.baseurl }}/assets/img/page_banner_narrow/header.jpg 1024w, {{ site.baseurl }}/assets/img/page_banner_wide_alt/header.jpg 1600w" title="">
+			</picture>
+		</div>
 
-      <li class="tab">
-        <a class="tab__link" href="/resources/">Resources</a>
-      </li>
-        {% if site.github_username %}
-            <li class="tab">
-                {% include icon-github.html username=site.github_username %}
-            </li>
-        {% endif %}
-        {% if site.twitter_username %}
-            <li class="tab">
-                {% include icon-twitter.html username='search?q=%23smartflanders' %}
-            </li>
-        {% endif %}
-  </ul>
-</div>
+		<div class="layout layout--wide">
+			<div class="content-header__content">
+
+        {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
+        <div class="content-header__logo-wrapper">
+          <a href="{{ site.baseurl }}/" class="site-logo hide-mobile">
+						<img src="{{ site.baseurl }}/assets/img/logo-smart-flanders.svg"/>
+					</a>
+
+					<a href="{{ site.baseurl }}/" class="site-logo show-mobile">
+						<img src="{{ site.baseurl }}/assets/img/logo-smart-flanders-mobile.svg" width="245" height="32"/>
+					</a>
+      	</div>
+
+      </div>
+		</div>
+	</div>
+</header>

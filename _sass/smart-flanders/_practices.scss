@@ -1,0 +1,114 @@
+/* practices overview */
+.page.practices .main-content{
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: $background-light;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 25vh;
+    z-index: 0;
+    @media only screen and (min-width: 767px){
+      height: 570px;
+    }
+  }
+}
+
+/* page layout initiative */
+.page.practices {
+
+  .headings {
+    margin-bottom: 1rem;
+    margin-top: 3rem;
+    @media only screen and (min-width: 767px) {
+      margin-top: 0;
+    }
+    h1 {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .intro {
+    position: relative;
+
+    &:before,
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100vw;
+      height: 100%;
+      background: $background-light;
+      right: 0;
+      top: 0;
+    }
+
+    &:after {
+      display: none;
+    }
+
+    .img {
+      display: block;
+      position: relative;
+      width: 100%;
+      background: $background-light;
+      background-size: cover;
+      background-position: center center;
+      top: -1px;
+      height: 35vh;
+      z-index: 2;
+    }
+
+    @media only screen and (min-width: 767px){
+      &:before {
+        right: 4rem;
+      }
+      &:after {
+        display: block;
+        top: -1px;
+        height: 1px;
+        width: 4rem;
+        background: $white;
+      }
+      .img {
+        position: absolute;
+        width: calc(50% - 8rem);
+        height: 100%;
+        right: 4rem;
+      }
+    }
+
+  }
+
+  .intro > .layout{
+    @media only screen and (min-width: 767px){
+      padding-bottom: 6.25rem;
+
+      &:before {
+        width: 100vw;
+        height: 6.25rem;
+        background: $white;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        transform: translateX(calc(-50% + 4rem));
+        z-index: 0;
+        content: '';
+      }
+    }
+  }
+
+  .introduction {
+    padding-top: 2.4rem;
+    @media only screen and (min-width: 767px) {
+      font-size: 1.8rem;
+    }
+  }
+
+  .spotlight {
+    background: none;
+  }
+
+}

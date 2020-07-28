@@ -1,5 +1,0 @@
-<filesMatch ".geojson$">
-    Header set Cache-Control "public, max-age=31536000, immutable"
-    Header set Content-Type "application/ld+json"
-</filesMatch>
-Header set Access-Control-Allow-Origin "*"

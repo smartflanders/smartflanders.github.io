@@ -1,0 +1,21 @@
+<div id="block-webuniversum-default-fullbreadcrumb" class="block block-webuniversum-blocks block-webuniversum-fullbreadcrumb">
+{% if page.is_front != true %}
+  <nav id="breadcrumbs" class="custom-breadcrumb">
+    <div class="layout layout--wide">
+    <ul>
+  {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
+  <li class="custom-breadcrumb__item dropdown-navigation">
+    <a href="{{ site.baseurl }}/" class="dropdown-navigation__title">Home</a>
+  </li>
+  {% for crumb in crumbs offset: 1 %}
+    <li class="custom-breadcrumb__item dropdown-navigation">
+      {% if forloop.last %}
+        <div class="dropdown-navigation__title">{{ page.title }}</div>
+      {% else %}
+        <a href="{{ site.baseurl }}{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' | replace:'without-plugin/','without-plugins/' }}{% endfor %}" class="dropdown-navigation__title">{{ crumb | replace:'-',' ' | remove:'.html' | capitalize }}</a>
+      {% endif %}
+    </li>
+  {% endfor %}
+  </div>
+{% endif %}
+</div>

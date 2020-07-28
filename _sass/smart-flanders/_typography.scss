@@ -1,0 +1,25 @@
+.introduction {
+  line-height: 2.8rem;
+  margin-bottom: 3.8rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+@media only screen and (max-width: 766px) {
+  .introduction {
+    font-size: 1.6rem;
+  }
+}
+
+@media only screen and (min-width: 579px){
+  .h1 {
+    margin-bottom: 3.8rem;
+  }
+
+  .introduction {
+    line-height: 3.8rem;
+    margin-bottom: 3.8rem;
+  }
+}

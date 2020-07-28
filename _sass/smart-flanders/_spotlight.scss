@@ -1,0 +1,165 @@
+.spotlight {
+
+  padding: 0;
+  margin-bottom: 2.4rem;
+  background: $background-light;
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  &.green,
+  &.green:hover,
+  &.green:focus {
+    &.spotlight--link:before,
+    &:before {
+      background-color: $green;
+    }
+  }
+
+  article > a:before,
+  article content > a:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  article .bullet-list__item a {
+    position: relative;
+    z-index: 2;
+  }
+
+
+  .bullet-list__item {
+    padding-left: 2rem;
+    font-size: 1.4rem;
+    @media only screen and (min-width: 767px){
+      font-size: 1.6rem;
+      padding-left: 2.4rem;
+    }
+    &:before {
+      font-size: 1.4rem;
+      @media only screen and (min-width: 767px){
+        font-size: 1.7rem;
+      }
+    }
+  }
+
+  .bullet-list--location {
+    font-weight: 500;
+  }
+
+  &.highlight {
+    .spotlight__image{
+      height: 100%;
+      @media only screen and (min-width: 500px){
+        min-height: 280px;
+      }
+      @media only screen and (min-width: 767px){
+        min-height: 350px;
+      }
+      @media only screen and (min-width: 1024px){
+        min-height: 530px;
+      }
+    }
+
+    content{
+      padding: 3rem;
+    }
+
+    @media only screen and (min-width: 767px){
+      .spotlight__title {
+        font-size: 3.4rem;
+      }
+
+      .spotlight__text {
+        font-size: 1.8rem;
+        line-height: 3.2rem;
+      }
+    }
+  }
+
+  @media only screen and (min-width: 767px) {
+    margin-bottom: 0;
+  }
+
+}
+
+.spotlight__header{
+  max-height: none;
+  margin: 0;
+}
+
+.spotlight__text {
+  line-height: 2.8rem;
+  margin-bottom: 1.6rem;
+}
+
+// Nieuws spotlight
+.news .spotlight {
+
+  padding-bottom: 2rem;
+
+  .spotlight__title-wrapper {
+    padding-left: 0;
+
+    &:before {
+      content:none;
+    }
+
+    .spotlight__title{
+      padding: 1rem 2rem;
+      display: inline-block;
+      max-width: 85%;
+      margin-bottom: 0;
+      background-color: $background-light;
+    }
+  }
+
+  .spotlight__text{
+    padding: 0 2rem;
+    margin-bottom: 1rem;
+    @media only screen and (min-width: 767px){
+      padding: 0 2rem 1rem 2rem;
+    }
+  }
+
+  .bullet-list--tag {
+    padding-left:2rem;
+  }
+
+}
+
+// Initiatieven spotlight
+.practices .spotlight {
+
+  .spotlight__image {
+    padding-top: 25rem;
+  }
+
+  .spotlight__title-wrapper{
+    margin-bottom: 0;
+    transform: none;
+    padding: 1rem 0;
+
+    &:before,
+    &:after {
+      content: none;
+    }
+  }
+
+  .spotlight__title,
+  .spotlight__text {
+    max-width: none;
+    background: transparent;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+}

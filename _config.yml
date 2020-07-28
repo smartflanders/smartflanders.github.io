@@ -16,36 +16,60 @@
 title: Smart Flanders
 email: stedenbeleid@vlaanderen.be
 description: > # this means to ignore newlines until "baseurl:"
-   Een ondersteuningsprogramma van de Vlaamse Overheid voor de digitale transitie van lokale overheden naar slimme steden
+   Co-creatie en kennisdelingsplatform voor de Vlaamse Open City Architectuur
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://url-strategie.binnenlandsbestuur.vlaanderen" # the base hostname & protocol for your site, e.g. http://example.com
+permalink: pretty
 twitter_username: vl_stedenbeleid
-github_username: smartflanders
+github_username: Agentschap-Binnenlands-Bestuur
+
 
 # Build settings
 markdown: kramdown
 plugins:
   - jekyll-feed
-  - jekyll-language-plugin
-
+gems:
+  - jekyll-paginate-v2
 exclude:
   - Gemfile
   - Gemfile.lock
-  - build_pipeline.yml
-
-language_data: data.lang.%%
-language_includes_dir: _i18n
 
 # Collections
 collections:
-  events:
+  practices:
     output: true
-    permalink: /:collection/:path/
-  resources:
+    permalink: /goede-praktijken/:title/
+    bodyclass: "practices"
+  posts:
     output: true
-    permalink: /:collection/:path/
-  piloten:
-    output: true
-    permalink: /:collection/:path/
-  initiatives:
+    permalink: /nieuws-en-opinies/:title/
+  directs:
     output: false
+
+# Pagination Settings
+pagination:
+  enabled: true
+  per_page: 2
+  permalink: '/page/:num/'
+  title: 'Pagina :num'
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
+
+defaults:
+  - scope:
+      path: "assets/img"
+    values:
+      image: true
+  - scope:
+      type: "practices"
+    values:
+      layout: practice
+      bodyclass: "practices"
+      path: 'goede-praktijken'
+  - scope:
+      type: "posts"
+    values:
+      layout: post
+      bodyclass: "news"
+      path: 'nieuws-en-opinies'

@@ -38,7 +38,7 @@ h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
 ul, ol, dl, figure,
 %vertical-rhythm {
-  margin-bottom: $spacing-unit / 2;
+  //margin-bottom: $spacing-unit / 2;
 }
 
 
@@ -70,7 +70,7 @@ figcaption {
  * Lists
  */
 ul, ol {
-  margin-left: $spacing-unit;
+  //margin-left: $spacing-unit;
 }
 
 li {
@@ -89,27 +89,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: $base-font-weight;
 }
 
-
-
-/**
- * Links
- */
-a {
-  color: $brand-color;
-  text-decoration: none;
-
-  &:visited {
-    color: darken($brand-color, 15%);
-  }
-
-  &:hover {
-    color: $text-color;
-    text-decoration: underline;
-  }
-}
-
-
-
 /**
  * Blockquotes
  */
@@ -125,8 +104,6 @@ blockquote {
     margin-bottom: 0;
   }
 }
-
-
 
 /**
  * Code formatting

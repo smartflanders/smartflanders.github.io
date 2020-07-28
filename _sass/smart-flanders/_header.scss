@@ -1,0 +1,37 @@
+header.content-header {
+  background: transparent;
+  @media only screen and (max-width: 766px) {
+    min-height: initial;
+  }
+
+  &.content-header--large .content-header__wrapper>.layout {
+    min-height: initial;
+    justify-content: center;
+
+    @media only screen and (min-width: 767px) {
+      min-height: 43.5rem;
+    }
+  }
+
+  // images
+  picture {
+    height: 100%;
+    max-height: none;
+  }
+  .content-header {
+    &__title h1{
+      margin: 0;
+    }
+
+    &__title__link {
+      margin-bottom: 0;
+    }
+  }
+
+  // site logo
+  @media only screen and (min-width: 767px) {
+    .site-logo {
+      width: 200px;
+    }
+  }
+}

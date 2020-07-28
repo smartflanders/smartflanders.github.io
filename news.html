@@ -1,22 +1,12 @@
 ---
-layout: post_list
+layout: news
 title: Nieuws en opinies
-permalink: /news/
-order: 4
-languages:
-- nl
+teaser: Lees hier de allerlaatste nieuws en blog berichten rond de Open City Architectuur
+permalink: /nieuws-en-opinies/
+order: 1
+pagination:
+  enabled: true
+  collection: posts
+  permalink: /:num/
+  per_page: 12
 ---
-<h1 class="h1">Nieuws en opinies</h1>
-<section>
-	<ul class="post-list">
-		{% for post in site.posts %}
-		<li>
-			<span class="post-meta">{% if post.author %}{{ post.author }} - {% endif %}{{ post.date | tdate: 'post.date_format' }}</span>
-			<h2 class="h2">
-				<a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-			</h2>
-			<p >{{ post.excerpt }}</p>
-		</li>
-		{% endfor %}
-	</ul>
-</section>

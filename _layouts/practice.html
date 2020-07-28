@@ -1,0 +1,49 @@
+---
+layout: default
+---
+<article>
+  <header class="region intro">
+    <div class="col img shadow" style="background-image:url({{ site.baseurl }}/{{page.img}})"></div>
+    <div class="layout layout--wide">
+    	<div class="grid">
+
+        <div class="content__wrapper col--6-12 col--1-1--s">
+          <div class="headings">
+          	<h1 class="h1">{{page.title | escape}}</h1>
+            <h2 class="h4">{{page.tagline}}</h2>
+            {% if page.date %}
+            <div class="date">Gepost op {{ page.date | date: "%m/%d/%Y" }}</div>
+            {% endif %}
+          </div>
+
+
+          {% if page.location %}
+          <div class="category bullet-list bullet-list--location">
+            <div class="bullet-list__item">{{ page.location | join: ", " | capitalize}}</div>
+          </div>
+          {% endif %}
+
+          {% if page.tags %}
+          <div class="category bullet-list bullet-list--tag">
+            <div class="bullet-list__item">
+              {% for tag in page.tags %}
+              {% assign tag-path = tag | replace: ' ', '-'  | downcase %}
+                <a href="{{site.baseurl}}/initiatieven/{{tag-path}}">{{ tag | capitalize }}</a>{% if forloop.last != true %}, {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+          {% endif %}
+
+          <div class="introduction">
+            <p>{{page.intro}}</p>
+          </div>
+
+    		</div>
+
+    	</div>
+    </div>
+  </header>
+  <section class="region paragraphs">
+    {{ content }}
+  </section>
+</article>

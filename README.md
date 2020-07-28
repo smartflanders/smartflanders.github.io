@@ -1,28 +1,36 @@
-# Smart Flanders website
+# VLOCA-portal
+[Jekyll](https://jekyllrb.com/) based web site for the Flemish government "Vlaamse Open City Architectuur" initiative. Refer to https://www.vlaanderen.be/vloca for more info on VLOCA itself..
 
-Current status: speeltuin om vertrouwd te graken met github, HTML en Jekyll
+## Branches in this repo
+Three branches are significant:
+* dev: gathers commits from developers. Start your work here. Always unless you know your specific work should not start here.
+* test: after checks by ABB this branch deploys to the test site URL.
+* master: deploys to https://www.vlaanderen.be/vloca
+## Build the site
+Download the repository.
+* Install jekyll. See https://jekyllrb.com/docs/installation/ ; on Windows 10, see below.
+* Run `jekyll build` in the repository root.
+* Serve the files in `/_site` on a webserver or use `jekyll s` and browse to https://localhost:4000 (unless you've changed that).
 
-Jekyll is een statische site generator. Daarmee kan je werk uitsparen: je moet immers niet op iedere pagina opnieuw de header en footer ontwikkelen, en de links tussen de pagina's worden automatisch gegenereerd.
-Verder wordt ook de CSS uitgebreid met SASS.
-Vanaf je iets verandert op github, zal github de site opnieuw genereren en online plaatsen. Voorlopig is dat op https://smartflanders.github.io
+### Building on Windows 10
+Ruby and Windows are not the ideal combination. But :-)
 
-Templates for events, posts and initiatives are in `_templates`, just copy the file in the appropriate folder when you wish to add content.
+Windows 10 now has the Windows Subsystem for Linux. See https://docs.microsoft.com/en-us/windows/wsl/wsl2-index and https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux to know more.
 
-## Op uw eigen machine runnen
-
-Als je een stapje verder wilt gaan dan in de browser iedere file te wijzigen, kan je ook de functionaliteiten van git gebruiken. Daar heb je uiteraard git voor nodig dan. Volg de tutorial op https://help.github.com/
-
-Eenmaal je vertrouwd bent met hoe github op jouw machine werkt moet je Jekyll installeren, de statische site generator. Deze kan je hier vinden: https://jekyllrb.com/
-
-## Veel gebruikte bestanden en mappen
-
- * Plaats uw images in `assets/`
- * De content van de home pagina zit in index.html
- * Als je een post wil schrijven, moet die in `_posts` geplaatst worden. Volg het voorbeeld dat er al instaat, of de tutorial hier: https://jekyllrb.com/docs/posts/
- * Als je een nieuwe pagina wilt aanmaken, volg dat het voorbeeld van `about.html`. Je kan ook dit in plaats van HTML in Markdown schrijven. Maak dan een file aan met de extensie .md in plaats van .html. Je zal wel dezelfde jekyll "frontmatter" nodig hebben (iets tussen `---` aan het begin van de pagina).
- * Als je wil prutsen aan het theme, zijn `_layouts` en `_includes` goeie startpunten. De CSS bevindt zich dan weer in `assets/`
-
-## Branches
-* Development branch bevat wijzigingen die naar master zouden moeten geraken. Maak andere "feature" branches als je gewoon wil experimenteren.
-* Test branch staat dicht. Deze deployt naar de test omgeving.
-* Master branch staat eveneens dicht. Deze deployt naar https://smart.flanders.be.
+Installing Ruby and Jekyll becomes very easy using WSL!
+* Install your favourite distro from the Microsoft Store.
+  * If you don't know your favourite distro, choose Ubuntu: https://www.microsoft.com/store/productId/9NBLGGH4MSV6 , more info at https://wiki.ubuntu.com/WSL. Follow the steps at your first run.
+* Install git and ruby-bundler.
+  *  In Ubuntu: `sudo apt-get install git build-essential bundler`
+* Next clone the repository from WSL.
+  * `git clone https://github.com/Agentschap-Binnenlands-Bestuur/vloca-portal.git`
+* Install ruby requirements:
+  * `cd vloca-portal`
+  * `bundle install`
+* Serve the site:
+  * `bundle exec jekyll serve`
+  * Point your browser to http://localhost:4000
+* As of Windows 10 1903 there is safe file sharing between W10 and running WSL environments.
+  * Explorer and your favourite editor can open files in your WSL environment via `\\wsl$\Ubuntu\<path_to_repo>
+  * If you don't have a favourite editor yet, install Visual Studio Code, which doesn't need admin privileges: https://code.visualstudio.com/?wt.mc_id=vscom_downloads
+  * Pay attention to the branch you're working in! __Don't work in test or master!__

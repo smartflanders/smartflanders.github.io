@@ -1,27 +1,39 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}" prefix="schema: http://schema.org/ 
-	    dct: http://purl.org/dc/terms/
-	    cito: http://purl.org/spar/cito/
-	    og: http://ogp.me/ns#">
+<html lang="{{ page.lang | default: site.lang | default: "en" }}" prefix="schema: http://schema.org/
+dct: http://purl.org/dc/terms/
+cito: http://purl.org/spar/cito/
+og: http://ogp.me/ns#">
 
 	{% include head.html %}
 
-	<body>
+	<body translate="no">
+		<div class="page {{page.bodyclass}}">
 
-		{% include header.html %}
+			{% include header.html %}
+			{% include mobile-navigation.html %}
+			{% include navigation.html %}
+			{% include breadcrumbs.html %}
 
-		<main class="page-content" aria-label="Content">
-			<div class="wrapper">
-				<div class="home layout layout--wide">
-					<div class="main">
-
-											{{ content }}
-					</div>
-				</div>
+			<div class="main-content" id="main" itemprop="mainContentOfPage" role="main" tabindex="-1">
+				{{ content }}
 			</div>
-		</main>
+
+		</div>
 
 		{% include footer.html %}
+
+		<script src="https://use.fontawesome.com/415c4aae00.js"></script>
+		<script src="//dij151upo6vad.cloudfront.net/2.latest/js/vlaanderen-ui.js"></script>
+		<script type="text/javascript" src="//widgets.vlaanderen.be/widget/live/de7a5cafba0c4a1794038a84ff879bce"></script>
+		<script src="//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+		<script src="{{site.baseurl}}/assets/js/jquery3-5-1.min.js"></script>
+		<script type="text/javascript">
+			var jQuery = $.noConflict(true);
+			var $ = jQuery;
+		</script>
+
+		<script src="{{site.baseurl}}/assets/js/jquery.fancybox.min.js"></script>
+		<script src="{{site.baseurl}}/assets/js/smart-flanders.js?is=lkj"></script>
 
 	</body>
 

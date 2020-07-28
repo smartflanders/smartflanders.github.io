@@ -1,0 +1,13 @@
+{% assign collection = include.collection %}
+{% assign maps = include.map ? include.map : 'tags' %}
+{% assign url = include.url ? include.url : 'initiatieven' %}
+
+{% assign collection = site[collection] | map: maps | join: ','  | split: ',' | uniq %}
+{% for col in collection %}
+  {% assign col-label = col | replace: ' ', '-' %}
+  {% if page.url contains col-label %}
+  <div class="pill pill--closable active"><span>{{col | capitalize}}</span><a class="pill__close" href="{{ site.basurl }}/{{url}}/">sluiten</a></div>
+  {% else %}
+  <a class="pill pill--clickable" href="{{ site.basurl }}/{{url}}/{{col-label}}">{{col | capitalize}}</a>
+  {% endif %}
+{% endfor %}

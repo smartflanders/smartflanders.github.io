@@ -1,0 +1,93 @@
+---
+layout: default
+---
+<div class="news layout">
+  <section class="region">
+
+    <div class="layout layout--wide">
+      <h1 class="h1">{{page.title  | escape}}</h1>
+
+      <div class="grid grid--is-stacked u-spacer">
+        <div class="col col--1-12--xl col--2-12--l col--1-1--s">
+        Filteren op:
+        </div>
+        <div class="col col--11-12--xl col--10-12--l col--1-1--s">
+        {%
+          include
+          pill-navigation.html
+          collection="posts"
+          map="categories"
+          url= site.collections.posts.path
+        %}
+        </div>
+      </div>
+
+      <div class="grid grid--is-stacked u-spacer">
+        {% assign posts = paginator.posts | sort: 'date' | sort: 'highlight' | reverse %}
+        {% for post in posts %}
+          <div class="col--4-12 col--6-12--s col--1-1--xs">
+            <div class="spotlight green spotlight--link">
+              <article>
+                <a href="{{ post.url | relative_url}}" >
+                <header class="spotlight__header">
+                  <div class="spotlight__image spotlight__image--focus-center-center">
+                    <img class="spotlight__image__img" src="{{ post.thumb | relative_url}}" alt="">
+                  </div>
+                  <div class="spotlight__title-wrapper">
+                    <h1 class="spotlight__title">{{ post.title | escape }}</h1>
+                  </div>
+                </header>
+                <div class="spotlight__text-wrapper">
+                  <div class="spotlight__text">
+                    {{ post.teaser | escape }}
+                  </div>
+                </div>
+                </a>
+                <div class="category bullet-list bullet-list--tag">
+                  <div class="bullet-list__item">
+                  {% for category in post.categories %}
+                    {% assign category-path = category | replace: ' ', '-' | downcase %}
+                    <a href="{{site.baseurl}}/{{site.collections.posts.path}}/{{category-path}}">{{ category | capitalize }}</a>{% if forloop.last != true %}, {% endif %}
+                  {% endfor %}
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- contact blok op nieuwpagina -->
+          {% if forloop.index0 == 4 %}
+            <div class="col--1-1 hide-desktop">
+              {% include crosslink.html block-class="shadow" url="/contact/" title="Wil je meer informatie krijgen rond de laatste ontwikkelingen op ons platform?" text="Neem contact met ons op." cta="Contacteer ons" icon="addressbook" %}
+            </div>
+          {% elsif forloop.index0 == 5 %}
+            <div class="col--1-1 show-tablet show-desktop">
+            {% include crosslink.html block-class="shadow" url="/contact/" title="Wil je meer informatie krijgen rond de laatste ontwikkelingen op ons platform?" text="Neem contact met ons op." cta="Contacteer ons" icon="addressbook" %}
+            </div>
+          {% endif %}
+          <!-- end contact block -->
+
+        {% endfor %}
+
+        <!--
+          Showing buttons to move to the next and to the previous list of posts (pager buttons).
+        -->
+        {% if paginator.total_pages > 1 %}
+        <ul class="pager">
+            {% if paginator.previous_page %}
+            <li class="previous">
+                <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; vorige</a>
+            </li>
+            {% endif %}
+            {% if paginator.next_page %}
+            <li class="next">
+                <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">volgende &rarr;</a>
+            </li>
+            {% endif %}
+        </ul>
+        {% endif %}
+
+    </div>
+
+  </section>
+</div>

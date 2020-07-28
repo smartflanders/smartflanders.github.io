@@ -1,0 +1,61 @@
+.content-split {
+  position: relative;
+  padding: 4rem 0 2rem;
+  @media only screen and (min-width: 767px) {
+    padding-bottom: 10rem;
+  }
+
+  &:before, content:after {
+    width: 100%;
+    height: 6.25rem;
+    background: $background-light;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+  }
+
+  .img {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 55vh;
+    background: $background-light;
+    background-size: cover;
+    background-position: center center;
+
+    top: 0;
+
+    @media only screen and (min-width:767px){
+      position: absolute;
+      width: calc(50% - 2rem);
+      height: 100%;
+    }
+  }
+
+  .content__wrapper {
+    padding: 4rem 2rem;
+
+    @media only screen and (min-width: 767px){
+      padding: 8rem 2rem;
+    }
+
+    hr {
+      margin: 4rem 0;
+    }
+
+  }
+
+  &.image-left {
+    .img{
+      @media only screen and (min-width:767px){
+        left: calc(50% + 2rem);
+      }
+    }
+
+    .content-wrapper {
+      padding-left: 0;
+    }
+  }
+
+}

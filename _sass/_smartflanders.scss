@@ -24,8 +24,9 @@ p.center-p {
    text-align: center;
 }
 
-.footer-logos {
-    padding-bottom: 10px;
+.footer-logos img {
+	margin:0 10px 0 10px;
+    vertical-align: middle;
 }
 
 .link-no-style > a:hover > span > svg > path{
@@ -52,7 +53,7 @@ iframe {
 
 .excerpt {
     height: 10rem;
-    
+
     & > p {
         text-overflow: ellipsis;
         height: 100%;

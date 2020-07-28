@@ -1,2 +1,80 @@
-<script type="text/javascript" src="//widgets.vlaanderen.be/widget/live/de7a5cafba0c4a1794038a84ff879bce"></script>
-</html>
+<section class="region region--overlap">
+	<div class="layout layout--wide">
+		<div class="contact-block wide">
+			<div class="grid grid--is-stacked">
+				<div class="col--4-12 col--12-12--m">
+					<div class="info-block">
+						<header role="presentation" class="info-block__header">
+							<div class="badge badge--accent badge--m badge--icon">
+								<i class="badge__icon vi vi-addressbook" aria-hidden="true"></i>
+							</div>
+							<h2 class="info-block__title h4">Contact</h2>
+						</header>
+					</div>
+				</div>
+				<div class="col--7-12 push--1-12 col--12-12--m push--reset--m as-center">
+					<div class="properties"><dl class="properties__list">
+						<dt class="properties__label">
+								E-mail
+							</dt> <dd class="properties__data"><p><a href="https://www.vlaanderen.be/nl/vlaamse-overheid/contact/stuur-een-e-mail" class="link">
+								Stuur een e-mail
+							</a></p>
+							</dd>
+						</dl>
+					</div>
+				</div>
+			</div>
+
+			<hr class="wave hr mar--top mar--bottom">
+
+			<div class="grid grid--is-stacked">
+				<div class="col--4-12 col--12-12--m">
+					<div class="info-block">
+						<header role="presentation" class="info-block__header">
+							<div class="badge badge--accent badge--m badge--icon">
+								<i class="badge__icon vi vi-share" aria-hidden="true"></i>
+							</div>
+							<h2 class="info-block__title h4">Volg ons</h2>
+						</header>
+					</div>
+				</div>
+				<div class="col--7-12 push--1-12 col--12-12--m push--reset--m">
+					<div class="properties">
+						Blijf op de hoogte van onze laatste ontwikkelingen en volg ons op de verschillende social media kanalen.
+						<div class="social">
+					    <div class="share-buttons">
+								<a class="share-button share-button--linkedin" target="_blank" href="" title="Linkedin">Linkedin</a>
+					      <a class="share-button share-button--facebook" target="_blank" href="" title="Facebook">Facebook</a>
+					      <a class="share-button share-button--twitter" target="_blank" href="" title="Twitter">Twitter</a>
+					      <a class="share-button share-button--github" target="_blank" href="" title="Github">Github</a>
+					    </div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<footer class="content-footer">
+	<div class="content-footer__wrapper">
+		<div class="layout layout--wide">
+				<ul class="grid grid--is-stacked">
+
+					{% assign doormat = site.data.doormat | sort: 'order' %}
+          {% for dm in doormat %}
+						<li class="col--6-12 col--12-12--xs">
+							<a class="doormat js-equal-height" href="{{ nav.permalink | relative_url }}">
+								<h2 class="doormat__title" data-clamp="2">{{ dm.title | escape }}</h2>
+								<div class="doormat__text">
+									{{ dm.teaser }}
+								</div>
+							</a>
+						</li>
+					{% endfor %}
+
+					</ul>
+			</div>
+		</div>
+	</footer>

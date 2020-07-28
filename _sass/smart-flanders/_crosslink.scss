@@ -1,0 +1,90 @@
+.crosslink {
+  $v: &;
+  padding: 6rem 4rem;
+  background: $background-light;
+  display: flex;
+  flex-flow: column wrap;
+  margin-bottom: 4rem;
+  align-items: center;
+
+  &.alt {
+    background: $green;
+
+    .badge {
+      background: $white;
+    }
+
+    #{$v}__text {
+      color: $white;
+      text-shadow: 0 0 6px rgba($black, .25);
+    }
+
+    #{$v}__cta a{
+      background: $dark-green;
+      border-top-color: $dark-green;
+      &:hover, &:focus {
+        background: $primary;
+        border-top-color: $primary;
+      }
+    }
+
+  }
+
+  &__icon {
+    margin-bottom: 2rem;
+  }
+
+  &__text {
+    margin: 0 0 2rem 0;
+
+    .h1, .h2, .h3, .h4, .h5, .h6 {
+      margin-bottom: 0;
+    }
+  }
+
+  &__cta {
+    width: 100%;
+    a {
+      display: block;
+    }
+  }
+
+  .badge__icon.vi-kennishub:before {
+    content: "";
+    background: url( $baseurl + "/assets/img/icons/icon_kennishub.svg") no-repeat center center;
+    display: block;
+    width: 32px;
+    height: 33px;
+  }
+
+  @media only screen and (min-width: 440px) {
+    flex-flow: row wrap;
+    align-items: flex-start;
+
+    &__icon {
+      width: 10rem;
+      margin-bottom: 0;
+    }
+    &__text {
+      width: calc( 100% - 10rem);
+    }
+    &__cta {
+      width: auto;
+      margin-left: 10rem;
+    }
+  }
+
+  @media only screen and (min-width: 767px) {
+    padding: 4rem;
+    align-items: center;
+
+    &__text {
+      margin-top: 2rem;
+      width: calc( 100% - 32rem);
+    }
+    &__cta {
+      margin-left: auto;
+    }
+  }
+
+}

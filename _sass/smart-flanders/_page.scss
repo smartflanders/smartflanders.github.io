@@ -1,0 +1,33 @@
+.page .page{
+
+  .partners {
+    position: relative;
+
+    &:after {
+      content: '';
+      height: 10rem;
+      width: 100%;
+      display:block;
+      position:absolute;
+      bottom: 0;
+      background: $white;
+      z-index: 0;
+    }
+
+    .grid > * {
+      padding-bottom: 4rem;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+}
+
+.page.contact .content-split{
+    &:before{
+      background-color: $white;
+      @media only screen and (max-width: 767px) {
+        content: none;
+      }
+    }
+}

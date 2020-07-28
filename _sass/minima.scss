@@ -1,6 +1,5 @@
 // Define defaults for each variable.
 
-$base-font-family: Georgia,Times,Times New Roman,serif !default;
 $base-font-size:   16px !default;
 $base-font-weight: 400 !default;
 $small-font-size:  $base-font-size * 0.875 !default;
@@ -9,13 +8,29 @@ $base-line-height: 1.5 !default;
 $spacing-unit:     30px !default;
 $spacing-unit:     50px;
 
-$text-color:       #111 !default;
+$text-color:       #424235 !default;
 $background-color: #fdfdfd !default;
 $brand-color:      #2a7ae2 !default;
 
 $grey-color:       #828282 !default;
 $grey-color-light: lighten($grey-color, 40%) !default;
 $grey-color-dark:  darken($grey-color, 25%) !default;
+
+
+// Smart Flanders colours
+$color-label:      #696969;
+$link-color:       #15465B;
+$hover-color:      #3184d6;
+$black:            #000000;
+$white:            #FFFFFF;
+$background-normal:#E8EBEE;
+$background-light: #F9F9F9;
+$border-color:     rgba(#707070, .2);
+$green:            #A3CC00;
+$dark-green:       #6F8B00;
+$primary:          #8BAE00;
+$primary-light:    lighten($primary, 3%);
+$highlight:        #32B2E9;
 
 // Width of the content area
 $content-width:    800px !default;
@@ -43,6 +58,26 @@ $on-laptop:        800px !default;
   "minima/layout",
   "minima/syntax-highlighting",
   "minima/radial-elem",
-  "smartflanders"
+  "smart-flanders/base",
+  "smart-flanders/header",
+  "smart-flanders/typography",
+  "smart-flanders/breadcrumb",
+  "smart-flanders/navigation",
+  "smart-flanders/page",
+  "smart-flanders/news",
+  "smart-flanders/practices",
+  "smart-flanders/direct-to",
+  "smart-flanders/doormat",
+  "smart-flanders/spotlight",
+  "smart-flanders/content-split",
+  "smart-flanders/crosslink",
+  "smart-flanders/quote",
+  "smart-flanders/card",
+  "smart-flanders/contact-block",
+  "smart-flanders/share",
+  "smart-flanders/faq",
+  "smart-flanders/homepage",
+  "smart-flanders/paragraphs",
+  "smart-flanders/filter",
+  "smart-flanders/footer"
 ;
-

@@ -1,0 +1,46 @@
+<div class="region region--mobile-navigation layout layout--wide">
+  <div id="block-mobilenavigation" class="block block-webuniversum-blocks block-webuniversum-mobile-navigation">
+    <nav class="mobilemenu">
+
+      <!-- creating first level navigation -->
+      <div class="level1 show">
+        <button type="button" class="mobilemenu__toggle vi vi-burger">
+        <span>Menu</span>
+        </button>
+  			<div class="mobilemenu__wrapper">
+    			<ul data-mobilemenu-depth="1">
+            {% assign navigation = site.data.navigation | sort: 'order' %}
+            {% for nav in navigation %}
+              <li class="mobilemenu__link active-trail"><a href="{{ site.baseurl }}{{ nav.permalink }}" {% if nav.submenuitems %}data-menu="menu--{{nav.order}}"{% endif %} class="active-trail {% if page.url contains {{nav.permalink}} %}active{% endif %} {% if nav.submenuitems %}link--icon--caret link--icon--after{% endif %}">{{ nav.title | escape }}</a>
+            {% endfor %}
+            </li>
+    			</ul>
+        </div>
+      </div>
+
+      <!-- creating second level navigation -->
+      {% assign navigation = site.data.navigation | sort: 'order' %}
+      {% for nav in navigation %}
+        {% if nav.submenuitems %}
+        <div class="level2 hide menu--{{ nav.order }}">
+          <div class="options">
+      			<div class="back link--icon--caret link--icon--caret--back">Terug</div>
+            <button type="button" class="close vi vi-cross">
+      			</button>
+          </div>
+    			<div class="mobilemenu__wrapper">
+      			<ul data-mobilemenu-depth="2">
+                <li class="mobilemenu__link all-link"><a href="{{ site.baseurl }}{{ nav.permalink }}"">Alles over {{ nav.title | escape }}</a</li>
+                {% for subnav in nav.submenuitems %}
+                <li class="mobilemenu__link active-trail"><a class="active-trail {% if page.url contains {{subnav.permalink}} %}active{% endif %}" href="{{site.baseurl}}{{nav.permalink}}{{subnav.permalink}}">{{subnav.title | escape}}</a>
+                {% endfor %}
+              </li>
+      			</ul>
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+
+		</nav>
+  </div>
+</div>

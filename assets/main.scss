@@ -4,7 +4,7 @@
 @charset "utf-8";
 
 // Our variables
-$base-font-family: Georgia,Times,Times New Roman,serif; 
+$base-font-family: Georgia,Times,Times New Roman,serif;
 $base-font-size:   16px;
 $base-font-weight: 400;
 $small-font-size:  $base-font-size * 0.875;
@@ -12,7 +12,6 @@ $base-line-height: 1.5;
 
 $spacing-unit:     30px;
 
-$text-color:       #111;
 $background-color: #fdfdfd;
 $brand-color:      #2a7ae2;
 
@@ -26,6 +25,8 @@ $content-width:    800px;
 $on-palm:          600px;
 $on-laptop:        800px;
 
+$baseurl:          "{{ site.baseurl }}";
+
 // Minima also includes a mixin for defining media queries.
 // Use media queries like this:
 // @include media-query($on-palm) {
@@ -37,52 +38,3 @@ $on-laptop:        800px;
 
 // Import partials from the `minima` theme.
 @import "minima";
-
-.team {
-
-}
-
-.tote {
-      text-align: center;
-}
-
-.tote img {
-      text-align: center;
-      border-radius: 50%;
-      height: auto;
-      margin: 0 4em 1em -0%;
-      width: 20%;
-}
-
-.logo {
-      height: 50px;
-}
-
-.hero {
-      width: 100%;
-      font-size: 110%;
-      /*      background-color: #EEE;*/
-}
-
-.hero .title {
-      width: 100%;
-      text-align: center;
-}
-
-nav {
-}
-
-nav ul {
-    margin-left: 0px;
-}
-
-nav ul li {
-    display: block;
-    padding: 5px 5px;
-    list-decoration: none;
-}
-
-.caption {
-    text-align: center;
-    padding-bottom: 1em;
-}

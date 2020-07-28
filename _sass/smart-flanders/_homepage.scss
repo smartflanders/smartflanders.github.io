@@ -1,0 +1,106 @@
+.home {
+
+  .region{
+    &.practices {
+      padding-top: 4rem !important;
+
+      @media only screen and (min-width: 767px) {
+        padding-top: 12rem !important;
+        padding-bottom: 12rem !important;
+        margin-bottom: -8rem;
+      }
+    }
+  }
+
+  .intro {
+    .grid > div:last-child{
+      margin-top: 4rem;
+    }
+
+    .h1, .h2 {
+      font-size: 4.6rem;
+      line-height: 6rem;
+    }
+
+    .h1 {
+      font-weight: 800;
+      margin-bottom: 0;
+    }
+
+    .h2 {
+      margin-bottom: 4rem;
+    }
+
+    .introduction {
+      margin-bottom: 6rem;
+    }
+
+    @media only screen and (min-width: 767px) {
+      .links {
+        display: flex;
+        align-items: center;
+      }
+      .links > * {
+        margin-right: 2rem;
+        width: auto;
+      }
+    }
+  }
+
+  .usps {
+    padding: 12rem 0 18rem 0 !important;
+
+    .spotlight{
+      background: $white;
+
+      &, article {
+        height: 100%;
+      }
+
+      a {
+        display: flex;
+        flex-flow: column wrap;
+        height: 100%;
+      }
+
+      &__image {
+        min-height: 42rem;
+      }
+
+      &__title-wrapper {
+        padding: 2rem 3rem;
+        -webkit-transform: none;
+        -ms-transform: none;
+        transform: none;
+        margin-top: -7.4rem;
+        margin-bottom: auto;
+
+        &:before {
+          width: 90%;
+        }
+      }
+
+      &__title{
+        font-size: 3.4rem;
+      }
+
+      &__text-wrapper {
+        padding: 0 3rem 4rem;
+        display: flex;
+        flex-flow: column;
+        flex: 1;
+      }
+
+      .link--block {
+        margin-top: auto;
+      }
+
+    }
+
+  }
+
+  .direct-to {
+    margin-top: -8rem;
+  }
+
+}

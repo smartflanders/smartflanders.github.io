@@ -1,0 +1,39 @@
+<section class="info-block info-block--faq">
+  <header class="info-block__header">
+    <h1 class="info-block__title">Top veelgestelde vragen</h1>
+  </header>
+  <div class="info-block__content">
+
+      <div class="grid">
+
+        {% assign top-faqs = site.faqs | where:'top', 'true' %}
+        {% for faq in top-faqs %}
+          <div class="col--6-12 col--1-1--xs">
+            <a href="#link-to-detailpage" class="toggle--arrow-down" data-drawer-id="faq-draw" data-drawer-content-id="{{forloop.index}}">{{ faq.title }}</a>
+          </div>
+        {% endfor %}
+
+        <div class="drawer drawer--small js-drawer--small" data-drawer="faq-draw" tabindex="-1">
+
+          <a href="" class="link--icon--close drawer__close js-drawer__close">
+            <span class="u-visually-hidden">Venster sluiten</span>
+          </a>
+
+          <div class="layout layout--wide">
+            {% for faq in top-faqs %}
+            <div class="drawer__content" data-drawer-content="{{forloop.index}}">
+              <h1 class="h3">{{faq.title}}</h1>
+              <div class="typography">
+                {{faq.content}}
+              </div>
+            </div>
+            {% endfor %}
+        </div>
+      </div>
+
+      <div class="col--1-1 pad--top">
+        <a class="link--icon--caret strong" href="{{ site.baseurl }}/veelgestelde-vragen">Bekijk alle veelgestelde vragen</a>
+      </div>
+
+  </div>
+</section>
