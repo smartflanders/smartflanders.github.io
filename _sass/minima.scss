@@ -28,6 +28,7 @@ $background-light: #F9F9F9;
 $border-color:     rgba(#707070, .2);
 $green:            #A3CC00;
 $dark-green:       #6F8B00;
+$darkest-green:    #7DA02B;
 $primary:          #8BAE00;
 $primary-light:    lighten($primary, 3%);
 $highlight:        #32B2E9;
@@ -60,6 +61,7 @@ $on-laptop:        800px !default;
   "minima/radial-elem",
   "semantic/dropdown",
   "semantic/transition",
+  "semantic/icon",
   "smart-flanders/base",
   "smart-flanders/header",
   "smart-flanders/typography",

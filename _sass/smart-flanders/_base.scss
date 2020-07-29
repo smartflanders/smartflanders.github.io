@@ -11,7 +11,6 @@ body {
 }
 
 p {
-  font-family: flanders-sans,sans-serif;
   line-height: 3.2rem;
   &:not(:last-child){
     margin-bottom: 1.6rem;
@@ -248,6 +247,22 @@ section {
 // Video Player
 .video-player .plyr__play-large {
   background: $primary;
+}
+
+// Badge
+.badge--accent {
+  background: $green;
+  color: $white;
+
+  .badge__icon {
+    color: $white;
+    fill: $white;
+
+    .alt & {
+      color: $darkest-green;
+      fill: $darkest-green;
+    }
+  }
 }
 
 @media only screen and (min-width: 1320px) {

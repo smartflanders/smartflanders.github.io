@@ -9,6 +9,10 @@
         padding-bottom: 12rem !important;
         margin-bottom: -8rem;
       }
+
+      .spotlight:hover content a h1{
+        color: #3184d6;
+      }
     }
   }
 
@@ -62,6 +66,10 @@
   .usps {
     padding: 12rem 0 18rem 0 !important;
 
+    .grid--is-stacked > * {
+      margin-top: 3rem;
+    }
+
     .spotlight{
       background: $white;
 
@@ -88,12 +96,15 @@
         margin-bottom: auto;
 
         &:before {
-          width: 90%;
+          width: calc(100% - 3rem);
         }
       }
 
       &__title{
         font-size: 3.4rem;
+        width: 100%;
+        padding-right: 3rem;
+        display: block;
       }
 
       &__text-wrapper {
@@ -113,6 +124,23 @@
 
   .direct-to {
     margin-top: -8rem;
+  }
+
+  .history .h1{
+      position: relative;
+      &:before {
+      @media only screen and (min-width: 1024px){
+        content: "";
+        width: 170px;
+        height: 5px;
+        display: block;
+        z-index: 200;
+        position: absolute;
+        top: 2.5rem;
+        left: calc((100% - 1280px) / 2);
+      }
+      @extend .wave;
+    }
   }
 
 }

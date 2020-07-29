@@ -27,7 +27,7 @@
       display: inline-block;
       padding: 0;
 
-      a {
+      > a {
         position: relative;
         display: inline-block;
         padding: 1.2rem 1.2rem;
@@ -53,6 +53,10 @@
           margin-right: -2.8rem;
           padding-right: 3.2rem;
         }
+      }
+
+      .dropdown-navigation__dropdown a{
+        padding: 1.2rem 1.2rem;
       }
     }
   }
