@@ -12,7 +12,7 @@
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 30;
 }
 
 .top-navigation {
@@ -48,6 +48,11 @@
           bottom: 0;
           left: 0;
         }
+
+        &.has-subnav{
+          margin-right: -2.8rem;
+          padding-right: 3.2rem;
+        }
       }
     }
   }
@@ -71,6 +76,7 @@
 
   .dropdown-navigation__wrapper {
     display: inline-block;
+    position: relative;
 
     button:before {
       font-size: 1rem;
