@@ -76,12 +76,12 @@ layout: default
         <ul class="pager">
             {% if paginator.previous_page %}
             <li class="previous">
-                <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; vorige</a>
+                <a class="link--icon--caret link--icon--caret--back" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">vorige</a>
             </li>
             {% endif %}
             {% if paginator.next_page %}
             <li class="next">
-                <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">volgende &rarr;</a>
+                <a class="link--icon--caret link--icon--after" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">volgende</a>
             </li>
             {% endif %}
         </ul>

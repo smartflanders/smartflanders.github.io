@@ -19,12 +19,12 @@ steps:
     gem install jekyll bundler jekyll-feed
     bundle install --retry=3 --jobs=4
   displayName: 'bundle install'
- 
+
 - script: |
     bundle install
     bundle exec jekyll build
   displayName: 'jekyll'
- 
+
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
   inputs:

@@ -21,7 +21,7 @@
   });
 
   /// submenu handling
-  let _menuItems = document.body.querySelectorAll(".link--icon--after");
+  let _menuItems = document.body.querySelectorAll(".mobilemenu .link--icon--after");
   let _level1 = document.body.querySelector(".level1");
   let _level2;
 

@@ -8,16 +8,22 @@
     left: 0;
     top: 0;
     right: 0;
-    height: 25vh;
     z-index: 0;
     @media only screen and (min-width: 767px){
       height: 570px;
     }
   }
+  .spotlight {
+    background: none;
+  }
+
+  .introduction {
+    margin-bottom: 3.8rem;
+  }
 }
 
 /* page layout initiative */
-.page.practices {
+.page.practice {
 
   .headings {
     margin-bottom: 1rem;

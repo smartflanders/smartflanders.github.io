@@ -1,6 +1,6 @@
 {% assign collection = include.collection %}
 {% assign maps = include.map ? include.map : 'tags' %}
-{% assign url = include.url ? include.url : 'initiatieven' %}
+{% assign url = include.url ? include.url : 'goede-praktijken' %}
 
 {% assign collection = site[collection] | map: maps | join: ','  | split: ',' | uniq %}
 {% for col in collection %}

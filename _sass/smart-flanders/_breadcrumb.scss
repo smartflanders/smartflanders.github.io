@@ -6,14 +6,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 85px;
   background: $white;
-  z-index: 20;
-  @media only screen and (min-width: 767px) {
-    top: 50px;
-  }
 }
 
 
@@ -52,6 +45,14 @@
     display: inline-block;
     font-size: 14px;
     line-height: 30px;
+    overflow:hidden;
+    vertical-align: middle;
+
+    &:last-child{
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: calc(100% - 3rem);
+    }
 	}
 	em{
 		font-style:normal;

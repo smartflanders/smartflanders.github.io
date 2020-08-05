@@ -102,3 +102,9 @@
   }
 
 }
+
+
+// if first element in paragraphs is not full-image -> remove padding
+header.region.intro + .paragraphs > .paragraph:not(.paragraph__full-image):first-child{
+  padding-top: 0;
+}

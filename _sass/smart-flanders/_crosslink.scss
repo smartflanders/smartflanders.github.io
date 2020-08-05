@@ -15,6 +15,38 @@
       border: 2px solid $dark-green;
     }
 
+    .badge__icon.vi-network:before{
+      background-image: url( $baseurl + "/assets/img/icons/icon_network--green.svg");
+    }
+    .badge__icon.vi-better-air:before{
+      background-image: url( $baseurl + "/assets/img/icons/icon_better-air--green.svg");
+    }
+    .badge__icon.vi-cleverness:before{
+      background-image: url( $baseurl + "/assets/img/icons/icon_cleverness--green.svg");
+    }
+    .badge__icon.vi-disadvantaged-groups:before{
+      background-image: url( $baseurl + "/assets/img/icons/icon_disadvantaged-groups--green.svg");
+    }
+    .badge__icon.vi-urban-distribution:before{
+      background-image: url( $baseurl + "/assets/img/icons/icon_urban-distribution--green.svg");
+    }
+    .badge__icon.vi-open-data:before{
+      background-image: url( $baseurl + "/assets/img/icons/icon_open-data--green.svg");
+    }
+    .badge__icon.vi-renewable-energy:before{
+      background-image: url( $baseurl + "/assets/img/icons/icon_renewable-energy--green.svg");
+    }
+    .badge__icon.vi-smart-governance:before{
+      background-image: url( $baseurl + "/assets/img/icons/icon_smart-governance--green.svg");
+    }
+    .badge__icon.vi-smart-metering:before{
+      background-image: url( $baseurl + "/assets/img/icons/icon_smart-metering--green.svg");
+    }
+    .badge__icon.vi-smart-park:before{
+      background-image: url( $baseurl + "/assets/img/icons/icon_smart-park--green.svg");
+    }
+
+
     #{$v}__text {
       color: $white;
       text-shadow: 0 0 6px rgba($black, .25);
@@ -50,50 +82,6 @@
     }
   }
 
-  .badge__icon.vi-better-air:before,
-  .badge__icon.vi-cleverness:before,
-  .badge__icon.vi-disadvantaged-groups:before,
-  .badge__icon.vi-urban-distribution:before,
-  .badge__icon.vi-netwerk:before,
-  .badge__icon.vi-open-data:before,
-  .badge__icon.vi-renewable-energy:before,
-  .badge__icon.vi-smart-governance:before,
-  .badge__icon.vi-smart-metering:before,
-  .badge__icon.vi-smart-park:before {
-    content: "";
-    background: url( $baseurl + "/assets/img/icons/icon_kennishub.svg") no-repeat center center;
-    display: block;
-    width: 32px;
-    height: 33px;
-  }
-
-  .badge__icon.vi-better-air:before{
-    background-image: url( $baseurl + "/assets/img/icons/icon_better-air--green.svg");
-  }
-  .badge__icon.vi-cleverness:before{
-    background-image: url( $baseurl + "/assets/img/icons/icon_cleverness--green.svg");
-  }
-  .badge__icon.vi-disadvantaged-groups:before{
-    background-image: url( $baseurl + "/assets/img/icons/icon_disadvantaged-groups--green.svg");
-  }
-  .badge__icon.vi-distribution:before{
-    background-image: url( $baseurl + "/assets/img/icons/icon_urban-distribution--green.svg");
-  }
-  .badge__icon.vi-open-data:before{
-    background-image: url( $baseurl + "/assets/img/icons/icon_open-data--green.svg");
-  }
-  .badge__icon.vi-renewable-energy:before{
-    background-image: url( $baseurl + "/assets/img/icons/icon_renewable-enegery--green.svg");
-  }
-  .badge__icon.vi-smart-governance:before{
-    background-image: url( $baseurl + "/assets/img/icons/icon_smart-governance--green.svg");
-  }
-  .badge__icon.vi-smart-metering:before{
-    background-image: url( $baseurl + "/assets/img/icons/icon_smart-metering--green.svg");
-  }
-  .badge__icon.vi-smart-park:before{
-    background-image: url( $baseurl + "/assets/img/icons/icon_smart-park--green.svg");
-  }
 
   @media only screen and (min-width: 440px) {
     flex-flow: row wrap;

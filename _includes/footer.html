@@ -65,7 +65,7 @@
 					{% assign doormat = site.data.doormat | sort: 'order' %}
           {% for dm in doormat %}
 						<li class="col--6-12 col--12-12--xs">
-							<a class="doormat js-equal-height" href="{{ nav.permalink | relative_url }}">
+							<a class="doormat js-equal-height" href="{{ dm.permalink | relative_url }}">
 								<h2 class="doormat__title" data-clamp="2">{{ dm.title | escape }}</h2>
 								<div class="doormat__text">
 									{{ dm.teaser }}
