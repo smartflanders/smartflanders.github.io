@@ -4,16 +4,70 @@ title: 'Voor ontwikkelaars (alfaversie)'
 intro: 'Voor je aan de slag gaat met de ruwe gegevens, willen we ontwikkelaars uitdagen op een nieuwe manier applicaties te ontwikkelen. In plaats van zelf de URL’s te creëren op client-side, willen we dat ontwikkelaars enkel de URL’s gebruiken die te vinden zijn vanaf een bepaalde start-punt. Vanaf de URL van zo’n start-punt moet een library zelf, door middel van het volgen van links, zelf kunnen meer informatie ophalen voor zijn eind-gebruiker. Ieder nieuw document moet je code in staat stellen verder stappen te zien (het hypermedia-principe). '
 ---
 <div class="paragraph paragraph__text">
-  <div class='layout layout--wide'>
-    <div class="grid grid--is-stacked">
-      <div class="col--1-1">
-        <div class="paragraph__content">
+	<div class='layout layout--wide'>
+		<div class="grid grid--is-stacked">
+			<div class="col--1-1">
+				<div class="paragraph__title">
+					<h2 class="h2">Aan de slag met een library</h2>
+				</div>
+				<div class="paragraph__content">
+
 					<p style="text-align: justify;">
-					Zoals voorzien in de beleidsnota van Binnenlands Bestuur en Stedenbeleid werkt Bart Somers, minister bevoegd voor het Binnenlands Bestuur en Stedenbeleid samen met de Minister-President, bevoegd voor ICT en digitalisering en de minister bevoegd voor Economie, Innovatie en Werk aan de uitbouw van een Vlaamse ecosysteem rond Smart Cities. Op die manier zorgen we ervoor dat Vlaanderen evolueert tot een slimme regio. Dit gebeurt in goed partnerschap met alle partners uit de quadruple helix, met bijzondere aandacht voor de lokale besturen.
+					We werken ook zelf aan een bibliotheek in Javascript (voor zowel NodeJS als de Browser) om aan de slag te gaan met de data, zonder dat je zelf nog moet nadenken over HTTP-requests, parsing en interpretatie van de gegevens. <a href="https://www.npmjs.com/package/smartflanders-data-query">Ga aan de slag met de open source Smart Flanders NPM bibliotheek.</a>
+					</p>
+				</div>
+				<div class="paragraph__title">
+					<h2 class="h2">Aan de slag met de ruwe gegevens</h2>
+				</div>
+				<div class="paragraph__content">
+					<p style="text-align: justify;">
+					Vandaag staat al een dataset voor de real-time en historische beschikbaarheden van parkeergarages online. Een start-punt kan je vinden <a href="https://datapiloten.be/parking/catalog.ttl">op onze machine-leesbare data-catalogus</a> (volgt het <a href="https://www.w3.org/TR/vocab-dcat/">DCAT domeinmodel</a>). Een link in een distributie volgen geeft je bijvoorbeeld de machine-leesbare versie voor parkeergarages in Gent (stel uw HTTP Accept-header in op application/trig): <a href="https://linked.open.gent/parking">https://linked.open.gent/parking</a>.
 					</p>
 					<p style="text-align: justify;">
-					In dit verband stemt de Vlaamse Regering, op voorstel van de minister bevoegd voor het Binnenlands Bestuur en Stedenbeleid in met de subsidie van 850.000 euro voor het uittekenen en documenteren van een Vlaamse Open City Architectuur.
+					Om deze data te parsen kan je gebruik maken van een RDF1.1 parser naar keuze. Onze favorieten:
 					</p>
+					<h3 class="h3">PHP</h3>
+					<ul class="link-list">
+						<li><a class="link--icon--caret" href="https://github.com/pietercolpaert/hardf">Hardf</a></li>
+					</ul>
+					<h3 class="h3">Javascript</h3>
+					<ul class="link-list">
+						<li><a class="link--icon--caret" href="https://github.com/rubenverborgh/n3.js">N3.js</a></li>
+						<li><a class="link--icon--caret" href="https://github.com/pietercolpaert/ldfetch">ldfetch</a> om ook de http request te abstraheren</li>
+					</ul>
+					<h3 class="h3">Java</h3>
+					<ul class="link-list">
+						<li><a class="link--icon--caret" href="https://jena.apache.org/documentation/io/rdf-input.html#example-3-using-rdfparser">Jena</a></li>
+						<li><a class="link--icon--caret" href="http://rdf4j.org/">RDF4J</a></li>
+					</ul>
+					<h3 class="h3">Python</h3>
+					<ul class="link-list">
+						<li><a class="link--icon--caret" href="https://rdflib.readthedocs.io/">RDFlib</a></li>
+					</ul>
+					<p style="text-align: justify;">
+					Eens een document geparset is kan je enerzijds de data zelf uitlezen. Anderzijds kan je ook handige metadata vinden in ieder antwoord. Bouwblokken waarop je kan steunen zijn:
+					</p>
+					<h3 class="h3">Meerdere metingen in 1 bestand</h3>
+					<p style="text-align: justify;">
+					Hou de graphs in de gaten. Als ergens een graph wordt beschreven met een <a href="http://www.w3.org/ns/prov#generatedAtTime">prov:generatedAtTime</a>, dan wilt dit zeggen dat statements in deze context enkel geldig waren op een bepaald tijdstip.
+					</p>
+					<h3 class="h3">Links naar meer data via paginering</h3>
+					<p style="text-align: justify;">
+					Indien meerdere pagina’s voor handen zijn, worden via het <a href="http://www.hydra-cg.com/spec/latest/core/">Hydra domeinmodel</a> <a href="http://www.w3.org/ns/hydra/core#next">hydra:next</a> en <a href="http://www.w3.org/ns/hydra/core#previous">hydra:previous</a> links toegevoegd.
+					</p>
+					<h3 class="h3">Licenties</h3>
+					<p style="text-align: justify;">
+					Bij de identificator voor het document zelf (de URL), wordt een <a href="http://creativecommons.org/ns#license">cc:license</a> eigenschap toegevoegd, met een van de Vlaamse opendatalicenties. Deze laten toe om automatisch te ontdekken aan welke zaken je juridisch verplicht toe bent.
+					</p>
+					<h3 class="h3">Specifieke domeinmodellen</h3>
+					<p style="text-align: justify;">
+					Domeinmodellen kan je zelf handmatig ontdekken en je client meer leren omgaan door de URI’s van deze termen hard te coderen. Voor de real-time beschikbaarheid van parkeergarages, gebruiken we bijvoorbeeld het Datex2 domeinmodel, en meer specifiek speelt <a href="http://vocab.datex.org/terms#datex:parkingNumberOfVacantSpaces">datex:parkingNumberOfVacantSpaces</a> een grote rol.
+					</p>
+					<h3 class="h3">Unieke identificatoren</h3>
+					<p style="text-align: justify;">
+					Over alle documenten die je kan vinden in deze “Vlaamse Knowledge Graph”, gebruiken we dezelfde URI’s voor bijvoorbeeld de parkeergarages. In andere bronnen kan je meer informatie vinden over een bepaald ding en als een bepaalde URI dus wordt hergebruikt, kan je met zekerheid weten dat het over hetzelfde ding gaat.
+					</p>
+
 				</div>
 			</div>
 		</div>
