@@ -1,4 +1,4 @@
-- title: Smart Flanders 2.0
+- title: Over
   permalink: /smart-flanders-2
   order: 1
 
@@ -6,7 +6,7 @@
   permalink: /financiering
   order: 2
 
-- title: Over VLOCA
+- title: VLOCA
   permalink: /over-vloca
   order: 3
 
@@ -22,9 +22,6 @@
   permalink: /kennis-en-instrumenten
   order: 7
   submenuitems:
-    - title: Voorbeeld datasets
-      permalink: '/voorbeeld-datasets'
-
     - title: Voor ontwikkelaars
       permalink: '/voor-ontwikkelaars'
 
