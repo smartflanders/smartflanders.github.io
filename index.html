@@ -15,7 +15,7 @@ og-descrition: "Welcome to the homepage of VLOCA"
           <h2 class="h2">Van lokale overheden naar slimme steden</h2>
           <p class="introduction">In een slimme stad werken burgers, ondernemingen, lokale besturen en onderzoeksinstellingen samen aan efficiëntere en meer effectieve oplossingen voor stedelijke uitdagingen. Ze zoeken naar innovatieve oplossingen zonder de lokale context en de eigenheid van de stad uit het oog te verliezen.</p>
           <div class="links">
-            <a class="button button__primary" href="/over-vloca">Meer weten over VLOCA</a>
+            <a class="button button__primary" href="/open-data-charter">Meer weten over Open Data Charter</a>
             <a class="link--icon--caret strong" href="/smart-flanders-2">Meer over Smart Flanders</a>
           </div>
         </div>
@@ -34,7 +34,7 @@ og-descrition: "Welcome to the homepage of VLOCA"
               <a href="{{site.baseurl}}/smart-flanders-2">
                 <header class="spotlight__header">
                   <div class="spotlight__image spotlight__image--focus-center-center">
-                    <img class="spotlight__image__img" src="{{site.baseurl}}/assets/img/homepage/usp/smart-flanders.jpg" alt="">
+                    <img class="spotlight__image__img" src="{{site.baseurl}}/assets/img/homepage/usp/smart_flanders_2.jpg" alt="Smart Flanders 2 logo">
                   </div>
                   <div class="spotlight__title-wrapper">
                     <h1 class="spotlight__title">Smart Flanders 2.0</h1>
@@ -67,7 +67,7 @@ og-descrition: "Welcome to the homepage of VLOCA"
                   <div class="spotlight__text">
                     De Vlaamse overheid wil de maturiteit en de kennis van de steden en gemeenten vergroten om Europese subsidieprogramma’s binnen te halen. We vertrekken vanuit de noden en behoeften van de steden.
                   </div>
-                  <div class="link--icon--caret link--block strong" href="/financiering">Alles over de financiering</div>
+                  <div class="link--icon--caret link--block strong" href="/financiering">Alles over financiering</div>
                 </div>
               </a>
 
@@ -169,95 +169,10 @@ og-descrition: "Welcome to the homepage of VLOCA"
     </div>
   </section>
 
-  <section class="region tint practices">
-    <div class='layout layout--wide'>
-      <div class="grid grid--align-space-between--l grid--align-space-between--m grid--v-bottom overview-header">
-        <div class="col">
-          <h2 class="h2" id="goede-praktijken">Goede praktijken</h2>
-        </div>
-        <div class="col">
-          <a class="link--icon--caret strong show-tablet show-desktop" href="{{ site.baseurl }}/goede-praktijken">Bekijk alle goede praktijken</a>
-        </div>
-      </div>
-      <div class="grid grid--is-stacked u-spacer">
-        {% assign sorted = site.practices | sort: 'date' | sort: 'highlight' | reverse %}
-        {% for practice in sorted limit : 5 %}
-          {% if forloop.index0 == 0 %}
-          <div class="col--1-1">
-            <div class="spotlight green highlight shadow spotlight--link">
-              <article class="grid">
-                <header class="spotlight__header col--9-12 col--8-12--m col--6-12--s col--1-1--xs">
-                  <a href="{{ practice.url | relative_url}}">
-                    <div class="spotlight__image spotlight__image--focus-center-center">
-                      <img class="spotlight__image__img" src="{{ practice.img | relative_url}}" alt="">
-                    </div>
-                  </a>
-                </header>
-                <content class="col--3-12 col--4-12--m col--6-12--s col--1-1--xs">
-                  <a href="{{ practice.url | relative_url}}">
-                    <div class="spotlight__title-wrapper">
-                      <h1 class="spotlight__title">{{ practice.title | escape }}</h1>
-                    </div>
-                    <div class="spotlight__text-wrapper">
-                      <div class="spotlight__text">
-                        {{ practice.teaser | escape }}
-                      </div>
-                    </div>
-                  </a>
-                  <div class="category bullet-list bullet-list--tag">
-                    <div class="bullet-list__item">
-                      {% for tag in practice.tags %}
-                      {% assign tag-path = tag | replace: ' ', '-'  | downcase %}
-                        <a class="" href="{{site.baseurl}}/goede-praktijken/{{tag-path}}">{{ tag | capitalize }}</a>{% if forloop.last != true %}, {% endif %}
-                      {% endfor %}
-                    </div>
-                  </div>
-                </content>
-              </article>
-            </div>
-          </div>
-          {% else %}
-          <div class="col--3-12 col--4-12--m col--6-12--s col--1-1--xs">
-            <div class="spotlight green spotlight--link">
-    					<article>
-                <a href="{{ practice.url | relative_url}}">
-    							<header class="spotlight__header">
-    								<div class="spotlight__image spotlight__image--focus-center-center">
-    									<img class="spotlight__image__img" src="{{ practice.thumb | relative_url}}" alt="">
-    								</div>
-    								<div class="spotlight__title-wrapper">
-    									<h1 class="spotlight__title">{{ practice.title | escape }}</h1>
-    								</div>
-    							</header>
-    							<div class="spotlight__text-wrapper">
-    								<div class="spotlight__text">
-    									{{ practice.teaser | escape }}
-    								</div>
-    							</div>
-      					</a>
-                <div class="category bullet-list bullet-list--tag">
-                  <div class="bullet-list__item">
-                    {% for tag in practice.tags %}
-                    {% assign tag-path = tag | replace: ' ', '-'  | downcase %}
-                      <a class="" href="{{site.baseurl}}/goede-praktijken/{{tag-path}}">{{ tag | capitalize }}</a>{% if forloop.last != true %}, {% endif %}
-                    {% endfor %}
-                  </div>
-                </div>
-    					</article>
-            </div>
-  				</div>
-
-          {% endif %}
-        {% endfor %}
-      </div>
-      <a class="link--icon--caret strong show-mobile" href="{{ site.baseurl }}/goede-praktijken">Bekijk alle goede praktijken</a>
-    </div>
-  </section>
-
   {% include crosslink.html
     layout-class='normal'
     block-class='alt shadow'
-    url="/open-data-charter"
+    url="open-data-charter"
     title="Wil je weten wat het Open Data Charter is?"
     text="Lees hier alles over de 20 principes die wij hanteren"
     cta="Open Data Charter"
@@ -312,35 +227,4 @@ og-descrition: "Welcome to the homepage of VLOCA"
     </content>
 
   </section>
-
-  <section class="region related">
-    <div class='layout layout--wide'>
-
-      <hr class="wave hr pad--top pad--bottom" />
-
-      <div class="grid">
-        <div class="col--1-1">
-          <h2 class="h2">Enkele interessante links</h2>
-          <div class="grid">
-            <div class="col--6-12 col--1-1--s">
-              <ul class="link-list">
-                <li><a class="link--icon--caret" href="#">This is a link in a list</a></li>
-                <li><a class="link--icon--caret" href="#">This is a link in a list</a></li>
-                <li><a class="link--icon--external" href="#">This is a link in a list</a></li>
-                <li><a class="link--icon--external" href="#">This is a link in a list</a></li>
-              </ul>
-          </div>
-          <div class="col--6-12 col--1-1--s">
-            <ul class="link-list">
-              <li><a class="link--icon--external" href="#">This is a link in a list</a></li>
-              <li><a class="link--icon--external" href="#">This is a link in a list</a></li>
-              <li><a class="link--icon--external" href="#">This is a link in a list</a></li>
-              <li><a class="link--icon--external" href="#">This is a link in a list</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
 </div>
