@@ -19,7 +19,7 @@
   order: 6
 
 - title: Kennis en instrumenten
-  permalink: /kennis-en-instrumenten
+#  permalink: /kennis-en-instrumenten
   order: 7
   submenuitems:
     - title: Voor ontwikkelaars
