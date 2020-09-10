@@ -23,10 +23,10 @@
   order: 7
   submenuitems:
     - title: Voor ontwikkelaars
-      permalink: '/voor-ontwikkelaars'
+      permalink: '/kennis-en-instrumenten/voor-ontwikkelaars'
 
     - title: Datapiloten
-      permalink: '/data-piloten'
+      permalink: '/kennis-en-instrumenten/data-piloten'
 
     - title: Resources
-      permalink: '/resources'
+      permalink: '/kennis-en-instrumenten/resources'

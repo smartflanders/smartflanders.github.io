@@ -45,6 +45,10 @@ collections:
     permalink: /nieuws-en-opinies/:title/
   directs:
     output: false
+  data-piloten:
+    output: true
+    permalink: /kennis-en-instrumenten/:collection/:path/
+
 
 # Pagination Settings
 pagination:
