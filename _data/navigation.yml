@@ -1,25 +1,28 @@
 - title: Over
-  permalink: /smart-flanders-2
+  permalink: /over
   order: 1
+
+- title: Smart Flanders 2
+  permalink: /smart-flanders-2
+  order: 2
 
 - title: Financiering
   permalink: /financiering
-  order: 2
+  order: 3
 
 - title: VLOCA
   permalink: /over-vloca
-  order: 3
+  order: 4
 
 - title: Nieuws en opinies
   permalink: /nieuws-en-opinies
-  order: 4
+  order: 5
 
 - title: Open Data Charter
   permalink: /open-data-charter
   order: 6
 
 - title: Kennis en instrumenten
-#  permalink: /kennis-en-instrumenten
   order: 7
   submenuitems:
     - title: Voor ontwikkelaars

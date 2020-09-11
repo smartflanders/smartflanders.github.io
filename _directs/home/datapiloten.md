@@ -1,5 +1,5 @@
 ---
 title: Datapiloten
-inturl: /datapiloten
+inturl: /kennis-en-instrumenten/data-piloten
 type: home
 ---
