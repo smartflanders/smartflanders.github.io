@@ -21,6 +21,9 @@
 - title: Open Data Charter
   permalink: /open-data-charter
   order: 6
+  submenuitems:
+    - title: Instrumentarium
+      permalink: '/instrumentarium '
 
 - title: Kennis en instrumenten
   order: 7
