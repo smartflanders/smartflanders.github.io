@@ -8,6 +8,8 @@
   submenuitems:
     - title: Citizen Science
       permalink: '/citizen-science'
+    - title: CityFlows
+      permalink: '/cityflows'
 
 - title: Financiering
   permalink: /financiering
