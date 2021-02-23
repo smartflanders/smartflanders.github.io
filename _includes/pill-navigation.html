@@ -4,7 +4,7 @@
 
 {% assign collection = site[collection] | map: maps | join: ','  | split: ',' | uniq %}
 {% for col in collection %}
-  {% assign col-label = col | replace: ' ', '-' %}
+  {% assign col-label = col | replace: ' ', '-' | downcase %}
   {% if page.url contains col-label %}
   <div class="pill pill--closable active"><span>{{col | capitalize}}</span><a class="pill__close" href="{{ site.basurl }}/{{url}}/">sluiten</a></div>
   {% else %}
