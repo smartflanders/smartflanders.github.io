@@ -22,7 +22,25 @@ og-descrition: "Welcome to the homepage of VLOCA"
 			</div>
 		</div>
 	</section>
-
+<section class="region">
+		<div class='layout layout--wide'>
+			<div class="direct-to wide">
+				<label>Direct naar</label>
+				<div class="grid">
+					{% assign directs = site.directs | where: 'type', 'home' %}
+					{% for direct in directs %}
+					<div class="col--4-12 col--6-12--s col--1-1--xs">
+						{% if direct.exturl %}
+						<a href="{{ direct.exturl | absolute_url }}" target="_blank" class="link--icon--external link--block">{{ direct.title }}</a>
+						{% else %}
+						<a href="{{ site.baseurl }}{{ direct.inturl }}" class="link--icon--caret link--block">{{ direct.title }}</a>
+						{% endif %}
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</section>
 	<section class="region usps tint">
 		<div class='layout layout--wide'>
 			<div class="grid grid--is-stacked">
@@ -101,25 +119,7 @@ og-descrition: "Welcome to the homepage of VLOCA"
 		</div>
 	</section>
 
-	<section class="region">
-		<div class='layout layout--wide'>
-			<div class="direct-to wide">
-				<label>Direct naar</label>
-				<div class="grid">
-					{% assign directs = site.directs | where: 'type', 'home' %}
-					{% for direct in directs %}
-					<div class="col--4-12 col--6-12--s col--1-1--xs">
-						{% if direct.exturl %}
-						<a href="{{ direct.exturl | absolute_url }}" target="_blank" class="link--icon--external link--block">{{ direct.title }}</a>
-						{% else %}
-						<a href="{{ site.baseurl }}{{ direct.inturl }}" class="link--icon--caret link--block">{{ direct.title }}</a>
-						{% endif %}
-					</div>
-					{% endfor %}
-				</div>
-			</div>
-		</div>
-	</section>
+	
 
 	<section class="region news">
 		<div class='layout layout--wide'>
