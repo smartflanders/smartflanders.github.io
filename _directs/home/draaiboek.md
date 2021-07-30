@@ -1,5 +1,5 @@
 ---
-title: Draaiboek Citizen Science voor lokale besturen
-inturl: /assets/Draaiboek.citizen.science.voor.lokale.besturen_2021.pdf
+title: Citizen Science
+inturl: /smart-flanders-2.0/citizen-science
 type: home
 ---
