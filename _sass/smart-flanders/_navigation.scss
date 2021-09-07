@@ -58,6 +58,12 @@
       .dropdown-navigation__dropdown a{
         padding: 1.2rem 1.2rem;
       }
+	  
+	  .dropdown-navigation__dropdown:hover>.dropdown.item{
+		display: block;
+	}
+	  
+	  
     }
   }
 
