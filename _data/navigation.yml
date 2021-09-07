@@ -23,21 +23,21 @@
   permalink: /nieuws-en-opinies
   order: 5
 
-- title: Open Data Charter
-  permalink: /open-data-charter
+- title: Open Data Beleid
+  permalink: /open-data-beleid
   order: 6
   submenuitems:
     - title: Instrumentarium
       permalink: '/instrumentarium '
 
-- title: Kennis en instrumenten
+- title: Kennisdeling
   order: 7
   submenuitems:
     - title: Voor ontwikkelaars
-      permalink: '/kennis-en-instrumenten/voor-ontwikkelaars'
+      permalink: '/kennisdeling/voor-ontwikkelaars'
 
     - title: Datapiloten
-      permalink: '/kennis-en-instrumenten/data-piloten'
+      permalink: '/kennisdeling/data-piloten'
 
     - title: Resources
-      permalink: '/kennis-en-instrumenten/resources'
+      permalink: '/kennisdeling/resources'
