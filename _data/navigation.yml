@@ -29,15 +29,22 @@
   submenuitems:
     - title: Instrumentarium
       permalink: '/instrumentarium '
+    - title: Open Data Charter
+      permalink: '/open-data-charter '
+    - title: Voorbeeldclausules
+      permalink: '/voorbeeldclausules '
+    - title: Handboek Open Data
+      permalink: '/handboek-open-data '
 
 - title: Kennisdeling
+  permalink: /kennisdeling
   order: 7
   submenuitems:
     - title: Voor ontwikkelaars
-      permalink: '/kennisdeling/voor-ontwikkelaars'
+      permalink: '/voor-ontwikkelaars'
 
     - title: Datapiloten
-      permalink: '/kennisdeling/data-piloten'
+      permalink: '/data-piloten'
 
     - title: Resources
-      permalink: '/kennisdeling/resources'
+      permalink: '/resources'
