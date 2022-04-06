@@ -10,6 +10,10 @@
       permalink: '/citizen-science'
     - title: CityFlows
       permalink: '/cityflows'
+    - title: Speerpunten
+      permalink: '/speerpunten'
+    - title: PIO Sensorhotels
+      permalink: '/pio-sensorhotels'
 
 - title: Financiering
   permalink: /financiering
