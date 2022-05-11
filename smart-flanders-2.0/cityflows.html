@@ -27,8 +27,9 @@ intro: ''
 					</div>
 					<div class="paragraph__content">
 						<p style="text-align: justify;">
-						Op 1 januari ’21 lanceerde minister Somers een ondersteuningstraject voor de 13 Vlaamse centrumsteden om drukte en mobiliteitsstromen in de stad te meten. Voor dit project werd een subsidie toegekend aan imec vzw voor de maturisatie en uitrol van CityFlows.<br>
-						Het in kaart brengen van drukte en mobiliteitsstromen kan een grote meerwaarde zijn voor de beleidsvoering. Zo kan een zicht op de mobiliteitsstromen in een gemeente of stad bijdragen aan een goede stadsplanning, een sterk economisch beleid, het toerisme en natuurlijk ook het mobiliteitsbeleid. Door op straatniveau de drukte te meten, kunnen lokale besturen ook gepaste acties nemen en snel schakelen wanneer nodig, bijvoorbeeld door het afsluiten van een park of drukke straat.
+						Op 1 januari ’21 lanceerde minister Somers een ondersteuningstraject voor de 13 Vlaamse centrumsteden om drukte en mobiliteitsstromen in de stad te meten. Voor dit project werd een subsidie toegekend aan imec vzw voor de maturisatie en uitrol van CityFlows. Ook werd een subsidie aan het KCVS toegekend om via credits individuele ondersteuning aan de steden toe te kennen voor implementatie van CityFlows in hun grondgebied<br>
+Het in kaart brengen van drukte en mobiliteitsstromen kan een grote meerwaarde zijn voor de beleidsvoering. Zo kan een zicht op de mobiliteitsstromen in een gemeente of stad bijdragen aan een goede stadsplanning, een sterk economisch beleid, het toerisme en natuurlijk ook het mobiliteitsbeleid. Door op straatniveau de drukte te meten, kunnen lokale besturen ook gepaste acties nemen en snel schakelen wanneer nodig, bijvoorbeeld door het afsluiten van een park of drukke straat.
+
 						</p>
 					</div>
 				</div>
@@ -44,7 +45,19 @@ intro: ''
 				</div>
 				<div class="paragraph__content">
 					<p style="text-align: justify;">
-						De ambitie is om de verdere ontwikkeling van het CityFlows-model te realiseren in samenwerking met twee (nog nader te bepalen) Vlaamse pilootsteden. Gedurende twee jaar zullen onderzoekers van imec samen met de twee pilootsteden en het ecosysteem van dataleveranciers werken aan het maturiseren van het CityFlows-model en het operationaliseren van nieuwe slimme toepassingen.
+						Het project bouwt verder op de inzichten die tijdens het eerste Smart  Flanders programma (2017-2019) ontwikkeld zijn in de datapiloot “Drukte in de Stad”. Meer info over deze datapiloot vind je hier. <br>
+Het huidige project heeft een vierdelige scope: <br>
+
+<ol class="ol" id="principles">
+						<li class="li" id="1" about="#1" property="rdfs:comment"> Het uitwerken en verfijnen van het definitiehandboek rond drukte in de stad zoals opgesteld in het eerste traject. De eerste versie van het definitiehandboek vind je hier. De herziene editie zal gepubliceerd worden eind 2023.</li>
+						<li class="li" id="2" about="#2" property="rdfs:comment"> Het verder ontwikkelen van het CityFlows in samenwerking met de twee Vlaamse pilootsteden Mechelen en Gent. </li>
+						<li class="li" id="3" about="#3" property="rdfs:comment"> Het opstellen van een draaiboek “Drukte in de stad” en guidelines bij de (open source) CityFlows componenten. Het draaiboek en de guidelines worden gepubliceerd eind 2023.</li>
+						<li class="li" id="4" about="#4" property="rdfs:comment"> Het bieden van ondersteuning op maat aan de centrumsteden om CityFlows componenten te implementeren in hun werking. Dit gebeurt aan de hand van een creditsysteem.</li>
+						
+					</ol>
+<br>
+Tijdens het volledige traject zal alle kennis die wordt opgedaan continu gedeeld worden met de 13 centrumsteden. Dit gebeurt door systematisch af te stemmen met en terug te koppelen aan een stuurgroep van steden en het open source beschikbaar stellen van de CityFlows componenten.
+
 					</p>
 				</div>
 				<div class="paragraph__title">
@@ -52,19 +65,19 @@ intro: ''
 				</div>
 				<div class="paragraph__content">
 					<p style="text-align: justify;">
-						CityFlows brengt alle beschikbare en relevante informatie rond mobiliteitsstromen in de stad samen om zo in realtime een gedetailleerd beeld te krijgen van de drukte en mobiliteitsstromen. Zo kunnen voorspellingen gemaakt worden over waar en wanneer drukte en files kunnen ontstaan.<br>
-						Het CityFlows systeem verzamelt op verschillende manieren data. Dit zijn bijvoorbeeld telecom gegevens, WI-FI scanning, Floating Car Data, statistieken, open data, enz. Na het bundelen van al deze gegevens worden ze verwerkt door speciale software die verschillende modellen van alle mobiliteitsstromen genereert. <br>
-						CityFlows wordt als proof of concept momenteel al uitgetest in de Smart Zone in Antwerpen. Meer informatie daarover kan je <a href="https://antwerpsmartzone.be/nl/projecten/cityflows">hier terugvinden.</a><br>
-						Dit ondersteuningstraject bouwt verder op inzichten die we eerder tijdens het Smart Flanders-programma al ontwikkelden. Zo vormt het definitiehandboek rond drukte in de stad, dat in 2019 werd ontwikkeld binnen het Smart Flanders-programma, mee de basis voor dit project. Binnen dit project zal het definitiehandboek waar nodig ook verder verfijnd worden.
-
+						CityFlows heeft als doel een volledig beeld van de mobiliteitsstromen in een gebied te bepalen. Dit wil zeggen voor alle tijdstippen, straten en modaliteiten, door gebruik te maken van een procedure die kan worden hergebruikt in andere gebieden. Door alle informatie in een stad op een slimme manier samen te brengen verkrijgen we een gedetailleerd beeld van de drukte in een stad (auto’s, voetgangers, fietsers,...). Waar wandelen, fietsen, pendelen, rijden, … mensen in de stad, in een zone van een stad of in een straat? 
+Het systeem wordt gevoed door diverse datastromen in de achtergrond (slimme verkeerslichten, telecom, Wi-Fi scanning, Floating Car Data, statistieken, open data …). Vaak data waar de publieke sector reeds toegang toe heeft. De technische details van de gebruikte datastromen blijven buiten beeld want deze zijn niet relevant voor eindgebruikers. 
+De manier waarop databronnen worden aangesloten is gestandaardiseerd, zodat het aansluiten van nieuwe databronnen met minimale effort kan verlopen. Na de standaardisatie van sensorgegevens, de fusie ervan naar 1 consistent stadsbeeld, en ten slotte de toepassing van hydrodynamische modellen, presenteren we één globaal beeld in CityFlows. 
+Gedurende het hele proces dient er gewerkt te worden binnen het wettelijk kader en richtlijnen van gegevensbescherming en privacy (DPIA CityFlows, 23 April 2020). De focus ligt op relevante informatie die breed inzetbaar is: intensiteiten, modaliteiten, en flows.
+.CityFlows  is als proof of concept al uitgetest in de Smart Zone in Antwerpen. Dit testproject is afgelopen. Meer informatie daarover kan je <a href="https://antwerpsmartzone.be/nl/projecten/cityflows">hier terugvinden.</a><br>
 					</p>
 				</div>
 				<div class="paragraph__title">
-					<h2 class="h2">Verloop van het project</h2>
+					<h2 class="h2">Pilootsteden</h2>
 				</div>
 				<div class="paragraph__content">
 					<p style="text-align: justify;">
-						Gedurende twee jaar zullen onderzoekers van imec samen met twee pilootsteden aan de slag gaan om het CityFlows-model te maturiseren en nieuwe toepassingen te operationaliseren.
+						Gedurende twee jaar zullen onderzoekers van imec samen met twee pilootsteden aan de slag gaan om het CityFlows-model te maturiseren en nieuwe toepassingen te operationaliseren. De twee pilootsteden zijn Gent en Mechelen. 
 					</p>
 				</div>
 				
@@ -73,13 +86,10 @@ intro: ''
 				</div>
 				<div class="paragraph__content">
 					<p style="text-align: justify;">
-						In navolging van het circulatieplan in de binnenstad, wil de stad Gent wijkmobiliteitsplannen (WMP) opzetten om de leefkwaliteit in de wijken te verbeteren. CityFlows kan de invoering ervan evalueren op basis van verschillende datastromen. Deze stromen moeten tot een beter inzicht leiden van het aantal bezoekers, de duur van een bezoek en de manier waarop ze zich verplaatsen. Om dit te realiseren is er nood aan 3 type databronnen: een databron die alle toegangswegen bevat (om een cordon te maken), een databron om de multimodaliteit of specifieke punten in kaart te brengen, en een databron om inzicht te geven over doorgaand verkeer. Naast de bestaande databronnen wordt er ook specifiek gekeken naar telco databronnen om een datafusiemodel op te maken voor de stad Gent die de voor- en na-analyse kan maken van het wijkmobiliteitsplan.
-					</p>
-					<p style="text-align: justify;">
-						Voor de uitvoering van het CityFlows-model in Gent wordt er gekeken naar twee pistes:
+						In navolging van het circulatieplan in de binnenstad, wil de stad Gent wijkmobiliteitsplannen (WMP) opzetten om de leefkwaliteit in de wijken te verbeteren. CityFlows kan de invoering ervan evalueren op basis van verschillende datastromen. Deze stromen moeten tot een beter inzicht leiden van het aantal bezoekers, de duur van een bezoek en de manier waarop ze zich verplaatsen. Om dit te realiseren is er nood aan 3 type databronnen: een databron die alle toegangswegen bevat (om een cordon te maken), een databron om de multimodaliteit of specifieke punten in kaart te brengen, en een databron om inzicht te geven over doorgaand verkeer. Naast de bestaande databronnen wordt er ook specifiek gekeken naar telco databronnen om een datafusiemodel op te maken voor de stad Gent die de voor- en na-analyse kan maken van het wijkmobiliteitsplan.Voor de uitvoering van het CityFlows-model in Gent wordt er gekeken naar twee pistes:
 					</p>
 					<ul class="bullet-list bullet-list--check">
-						<li class="bullet-list__item">Piste 1:  Voor analyse van WMP Dampoort – Oud Gentbrugge in de periode januari 2021 (historisch)</li>
+						<li class="bullet-list__item">Piste 1: Voor analyse van WMP Dampoort – Oud Gentbrugge in de periode januari 2021 (historisch)</li>
 						<li class="bullet-list__item">Piste 2: Voor analyse WMP Zwijnaarde in periode najaar 2021 (toekomstig)</li>
 					</ul>
 					<p style="text-align: justify;">
@@ -92,7 +102,7 @@ intro: ''
 				</div>
 				<div class="paragraph__content">
 					<p style="text-align: justify;">
-						De stad Mechelen zet in op schoolstraten om de veiligheid en leefbaarheid rondom scholen te verhogen en het fietsgebruik te promoten. Het doet dit onder meer door mobiliteitsingrepen uit te voeren om het aantal auto’s te verminderen in de omgeving. De huidige analyse gebeurt echter voornamelijk via gesprekken en maakt maar beperkt gebruik van databronnen die inzicht geven in de tellingen van fietser, wandelaars en wagens. De inbreng van CityFlows moet de data-awareness en -maturiteit in het mobiliteitsdepartement verhogen zodat de mobiliteitsexpert beleidsbeslissingen op een datagedreven manier kan evalueren. Bij de schoolstraten zal CityFlows: aantallen kunnen geven van 3 modaliteiten (voetgangers, auto’s en fietsers), een indicatie geven over de nauwkeurigheid van deze aantallen, en het mogelijk maken om de aantallen met elkaar te vergelijken. Hiermee kan het effect van een beleidsbeslissing bekeken worden.
+						De stad Mechelen zet in op schoolstraten om de veiligheid en leefbaarheid rondom scholen te verhogen en het fietsgebruik te promoten. Het doet dit onder meer door mobiliteitsingrepen uit te voeren om het aantal auto’s te verminderen in de omgeving. De huidige analyse gebeurt echter voornamelijk via gesprekken en maakt maar beperkt gebruik van databronnen die inzicht geven in de tellingen van fietser, wandelaars en wagens. De inbreng van CityFlows moet de data-awareness en -maturiteit in het mobiliteitsdepartement verhogen. Bij de schoolstraten zal CityFlows aantallen geven van 3 modaliteiten (voetgangers, auto’s en fietsers), een indicatie geven over de nauwkeurigheid van deze aantallen en het mogelijk maken om de aantallen met elkaar te vergelijken.  Zo kan de mobiliteitsexpert beleidsbeslissingen op een datagedreven manier evalueren.
 					</p>
 					<p style="text-align: justify;">
 						Binnen de stad Mechelen worden volgende mobiliteitsingrepen rond scholen bekeken:
@@ -101,24 +111,22 @@ intro: ''
 						<li class="bullet-list__item">Schoolstraat Caputsteen</li>
 						<li class="bullet-list__item">Schoolstraat Muizen</li>
 						<li class="bullet-list__item">Schoolstraat Victor Vandewalle</li>
-						<li class="bullet-list__item">Coloma</li>
+						<li class="bullet-list__item">Coloma wijk</li>
 						<li class="bullet-list__item">Vlindertuin</li>
 					</ul>
 					<p style="text-align: justify;">
 						&nbsp;
 					</p>
-					<p style="text-align: justify;">
-						Tijdens het volledige traject zal alle kennis die wordt opgedaan continu gedeeld worden met de 13 centrumsteden. Dit gebeurt door systematisch af te stemmen met en terug te koppelen aan een stuurgroep van steden en het open source beschikbaar stellen van CityFlows.
-					</p>
 				</div>
 				
 				<div class="paragraph__title">
-					<h2 class="h2">Credits</h2>
+					<h2 class="h2">Creditsysteem</h2>
 				</div>
 				<div class="paragraph__content">
 					<p style="text-align: justify;">
-						Niet elke stad heeft dezelfde vragen rond druktemetingen. Ook de uitdagingen en ambities liggen binnen de 13 centrumsteden niet gelijk. Daarom is het interessant dat elke stad op eigen tempo kan kennismaken met het CityFlows-model, en kan werken rond use cases die aansluiten bij de context binnen de eigen stad. Daarom voorzien we binnen dit project ook ondersteuning aan de 11 centrumsteden die niet optreden als pilootstad. <br>
-						Via credits die ter beschikking worden gesteld door kunnen steden individueel bij imec ondersteuning aanvragen. Imec zal dan samen met de stad in kwestie onderzoeken hoe het CityFlows-model geïmplementeerd kan worden om bepaalde uitdagingen aan te pakken.
+						Niet elke stad heeft dezelfde vragen rond druktemetingen en ook de uitdagingen en ambities liggen binnen de 13 centrumsteden niet gelijk. Daarom is het interessant dat elke stad op eigen tempo kan kennismaken met het CityFlows-model en kan werken rond use cases die aansluiten bij de context binnen de eigen stad. Daarom voorzien we binnen dit project ook ondersteuning aan de 11 centrumsteden die niet optreden als pilootstad.<br>
+Via credits die ter beschikking worden gesteld kunnen steden individueel bij imec ondersteuning aanvragen. Imec zal dan samen met de stad in kwestie onderzoeken hoe het CityFlows-model kan ondersteunen om bepaalde uitdagingen aan te pakken. Het Kenniscentrum Vlaamse Steden coördineert dit creditsysteem. 
+
 
 					</p>
 				</div>
