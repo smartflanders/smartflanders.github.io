@@ -38,3 +38,13 @@ $baseurl:          "{{ site.baseurl }}";
 
 // Import partials from the `minima` theme.
 @import "minima";
+
+.info-block--publications .info-block__header_2:before {
+content: "\E010";
+}
+
+.info-block--publications .info-block__header_3:before {
+content: "\E018";
+}
+
+    
