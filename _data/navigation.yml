@@ -19,9 +19,9 @@
   permalink: /vloca
   order: 4
 
-- title: Nieuws en opinies
-  permalink: /nieuws-en-opinies
-  order: 5
+#- title: Nieuws en opinies
+#  permalink: /nieuws-en-opinies
+#  order: 5
 
 - title: Open Data Beleid
   permalink: /open-data-beleid
